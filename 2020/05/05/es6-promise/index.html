@@ -1,0 +1,1532 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  
+  <title>ES6：Promise 对象 | awstudio&#39;s blog</title>
+  
+  
+
+  
+
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <!-- meta -->
+  
+
+  <!-- link -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css">
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.10.1/css/all.min.css">
+  
+
+  
+  <link rel="shortcut icon" type='image/x-icon' href="http://awstudio.cn/img/avatar.jpg">
+  
+
+  
+    
+<link rel="stylesheet" href="/style.css">
+
+  
+
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+
+  
+  
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  
+  
+  <div class="cover-wrapper">
+    <cover class='cover post half'>
+      
+        
+  <h1 class='title'>Arthur Wang</h1>
+
+
+  <div class="m_search">
+    <form name="searchform" class="form u-search-form">
+      <input type="text" class="input u-search-input" placeholder="" />
+      <i class="icon fas fa-search fa-fw"></i>
+    </form>
+  </div>
+
+<div class='menu navgation'>
+  <ul class='h-list'>
+    
+      
+        <li>
+          <a class="nav home" href="/"
+            
+            
+            id="home">
+            <i class='fas fa-blog fa-fw'></i>&nbsp;博文
+          </a>
+        </li>
+      
+        <li>
+          <a class="nav home" href="/categories/"
+            
+            
+            id="categories">
+            <i class='fas fa-code-branch fa-fw'></i>&nbsp;分类
+          </a>
+        </li>
+      
+        <li>
+          <a class="nav home" href="/tags/"
+            
+            
+            id="tags">
+            <i class='fas fa-tag fa-fw'></i>&nbsp;标签
+          </a>
+        </li>
+      
+        <li>
+          <a class="nav home" href="/friends/"
+            
+              rel="nofollow"
+            
+            
+            id="friends">
+            <i class='fas fa-link fa-fw'></i>&nbsp;友链
+          </a>
+        </li>
+      
+        <li>
+          <a class="nav home" href="/about/"
+            
+              rel="nofollow"
+            
+            
+            id="about">
+            <i class='fas fa-info-circle fa-fw'></i>&nbsp;关于
+          </a>
+        </li>
+      
+    
+  </ul>
+</div>
+
+      
+    </cover>
+    <header class="l_header material">
+  <div id="loading-bar-wrapper">
+    <div id="loading-bar" class="material"></div>
+  </div>
+
+	<div class='wrapper'>
+		<div class="nav-main container container--flex">
+      <a class="logo flat-box" href='/' >
+        
+          awstudio's blog
+        
+      </a>
+			<div class='menu navgation'>
+				<ul class='h-list'>
+          
+  					
+  						<li>
+								<a class="nav flat-box" href="/"
+                  
+                  
+                  id="home">
+									<i class='fas fa-blog fa-fw'></i>&nbsp;博文
+								</a>
+							</li>
+      			
+  						<li>
+								<a class="nav flat-box" href="/categories/"
+                  
+                    rel="nofollow"
+                  
+                  
+                  id="categories">
+									<i class='fas fa-folder-open fa-fw'></i>&nbsp;分类
+								</a>
+							</li>
+      			
+  						<li>
+								<a class="nav flat-box" href="/tags/"
+                  
+                    rel="nofollow"
+                  
+                  
+                  id="tags">
+									<i class='fas fa-hashtag fa-fw'></i>&nbsp;标签
+								</a>
+							</li>
+      			
+      		
+				</ul>
+			</div>
+
+			
+				<div class="m_search">
+					<form name="searchform" class="form u-search-form">
+						<input type="text" class="input u-search-input" placeholder="Search" />
+						<i class="icon fas fa-search fa-fw"></i>
+					</form>
+				</div>
+			
+			<ul class='switcher h-list'>
+				
+					<li class='s-search'><a class="fas fa-search fa-fw" href='javascript:void(0)'></a></li>
+				
+				<li class='s-menu'><a class="fas fa-bars fa-fw" href='javascript:void(0)'></a></li>
+			</ul>
+		</div>
+
+		<div class='nav-sub container container--flex'>
+			<a class="logo flat-box"></a>
+			<ul class='switcher h-list'>
+				<li class='s-comment'><a class="flat-btn fas fa-comments fa-fw" href='javascript:void(0)'></a></li>
+        
+          <li class='s-toc'><a class="flat-btn fas fa-list fa-fw" href='javascript:void(0)'></a></li>
+        
+			</ul>
+		</div>
+	</div>
+</header>
+	<aside class="menu-phone">
+    <header>
+		<nav class="menu navgation">
+      <ul>
+        
+          
+            <li>
+							<a class="nav flat-box" href="/"
+                
+                
+                id="home">
+								<i class='fas fa-clock fa-fw'></i>&nbsp;近期文章
+							</a>
+            </li>
+          
+            <li>
+							<a class="nav flat-box" href="/blog/archives/"
+                
+                  rel="nofollow"
+                
+                
+                id="blogarchives">
+								<i class='fas fa-archive fa-fw'></i>&nbsp;文章归档
+							</a>
+            </li>
+          
+            <li>
+							<a class="nav flat-box" href="/projects/"
+                
+                
+                id="projects">
+								<i class='fas fa-code-branch fa-fw'></i>&nbsp;开源项目
+							</a>
+            </li>
+          
+            <li>
+							<a class="nav flat-box" href="/friends/"
+                
+                  rel="nofollow"
+                
+                
+                id="friends">
+								<i class='fas fa-link fa-fw'></i>&nbsp;我的友链
+							</a>
+            </li>
+          
+            <li>
+							<a class="nav flat-box" href="https://xaoxuu.com/wiki/material-x/"
+                
+                  rel="nofollow"
+                
+                
+                id="https:xaoxuu.comwikimaterial-x">
+								<i class='fas fa-book fa-fw'></i>&nbsp;主题文档
+							</a>
+            </li>
+          
+            <li>
+							<a class="nav flat-box" href="/about/"
+                
+                  rel="nofollow"
+                
+                
+                id="about">
+								<i class='fas fa-info-circle fa-fw'></i>&nbsp;关于小站
+							</a>
+            </li>
+          
+       
+      </ul>
+		</nav>
+    </header>
+	</aside>
+<script>setLoadingBarProgress(40);</script>
+
+  </div>
+
+
+  <div class="l_body">
+    <div class='body-wrapper'>
+      <div class='l_main'>
+  
+
+  <article id="post" class="post white-box article-type-post" itemscope itemprop="blogPost">
+    
+
+
+  <section class='meta'>
+    
+    
+    <div class="meta" id="header-meta">
+      
+        
+  
+    <h1 class="title">
+      <a href="/2020/05/05/es6-promise/">
+        ES6：Promise 对象
+      </a>
+    </h1>
+  
+
+
+      
+      <div class='new-meta-box'>
+        
+          
+        
+          
+            
+  <div class='new-meta-item author'>
+    
+      <a href="http://awstudio.cn" rel="nofollow">
+        
+          <img src="http://awstudio.cn/img/avatar.jpg">
+        
+        <p>Arthur Wang</p>
+      </a>
+    
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+    <p>2020-05-05</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  
+  <div class='new-meta-item category'>
+    <a href='/categories/ES6/' rel="nofollow">
+      <i class="fas fa-folder-open" aria-hidden="true"></i>
+      <p>ES6</p>
+    </a>
+  </div>
+
+
+          
+        
+          
+            
+  
+    <div class="new-meta-item browse busuanzi">
+      <a class='notlink'>
+        <i class="fas fa-eye" aria-hidden="true"></i>
+        <p>
+          <span id="busuanzi_value_page_pv">
+            <i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i>
+          </span>
+        </p>
+      </a>
+    </div>
+  
+
+
+          
+        
+          
+            
+  
+    <div class="new-meta-item wordcount">
+      <a class='notlink'>
+        <i class="fas fa-keyboard" aria-hidden="true"></i>
+        <p>字数统计:</p>
+        <p>1.9k字</p>
+      </a>
+    </div>
+    <div class="new-meta-item readtime">
+      <a class='notlink'>
+        <i class="fas fa-hourglass-half" aria-hidden="true"></i>
+        <p>阅读时长≈</p>
+        <p>7分</p>
+      </a>
+    </div>
+  
+
+          
+        
+          
+            
+
+          
+        
+      </div>
+      
+        <hr>
+      
+    </div>
+  </section>
+
+
+    <section class="article typo">
+      <div class="article-entry" itemprop="articleBody">
+        <h2 id="Promise的含义"><a href="#Promise的含义" class="headerlink" title="Promise的含义"></a>Promise的含义</h2><blockquote>
+<p>Promise 是异步编程的一种解决方案 。 所谓 <code>Promise</code>，简单说就是一个容器，里面保存着某个未来才会结束的事件（通常是一个异步操作）的结果。  从语法上说，  Promise 是一个对象，从它可以获取异步操作的消息。 </p>
+</blockquote>
+<p><code>Promise</code>对象有以下两个特点：</p>
+<p>（1）对象的状态不受外界影响。<code>Promise</code>对象代表一个异步操作，有三种状态：<code>pending</code>（进行中）、<code>fulfilled</code>（已成功）和<code>rejected</code>（已失败）。只有异步操作的结果，可以决定当前是哪一种状态，任何其他操作都无法改变这个状态。</p>
+<p>（2）一旦状态改变，就不会再变，任何时候都可以得到这个结果。<code>Promise</code>对象的状态改变，只有两种可能：从<code>pending</code>变为<code>fulfilled</code>和从<code>pending</code>变为<code>rejected</code>。只要这两种情况发生，状态就凝固了，不会再变了，会一直保持这个结果，这时就称为 resolved（已定型）。如果改变已经发生了，你再对<code>Promise</code>对象添加回调函数，也会立即得到这个结果。</p>
+<p><code>Promise</code>也有一些缺点。首先，无法取消<code>Promise</code>，一旦新建它就会立即执行，无法中途取消。其次，如果不设置回调函数，<code>Promise</code>内部抛出的错误，不会反应到外部。第三，当处于<code>pending</code>状态时，无法得知目前进展到哪一个阶段（刚刚开始还是即将完成）。 </p>
+<h2 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h2><p> ES6 规定，<code>Promise</code>对象是一个构造函数，用来生成<code>Promise</code>实例。 </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> promise = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// some code ...</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="comment">/* 异步操作成功 */</span>) &#123;</span><br><span class="line">    	resolve(value)    </span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        reject(error)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>resolve</code> ：将<code>Promise</code>对象的状态从 pending 变为 resolved， 在异步操作成功时调用，并将异步操作的结果，作为参数传递出去； </li>
+<li><code>reject</code>：将<code>Promise</code>对象的状态从 pending 变为 rejected，在异步操作失败时调用，并将异步操作报出的错误，作为参数传递出去。 </li>
+</ul>
+<p> <code>Promise</code>实例生成以后，可以用<code>then</code>方法分别指定<code>resolved</code>状态和<code>rejected</code>状态的回调函数。 </p>
+<ul>
+<li>立即 resolved 的 Promise 是在本轮事件循环的末尾执行，总是晚于本轮循环的同步任务 ；</li>
+<li>p2的resolve方法将p1作为参数 ， 这时p1的状态就会传递给p2，即p1的状态决定了p2的状态；</li>
+<li>调用<code>resolve</code>或<code>reject</code>并不会终结 Promise 的参数函数的执行，所以最好在前面加return。 </li>
+</ul>
+<h2 id="Promise-prototype-then"><a href="#Promise-prototype-then" class="headerlink" title="Promise.prototype.then()"></a>Promise.prototype.then()</h2><blockquote>
+<p>Promise 实例具有<code>then</code>方法，也就是说，<code>then</code>方法是定义在原型对象<code>Promise.prototype</code>上的。它的作用是为 Promise 实例添加状态改变时的回调函数。 </p>
+</blockquote>
+<ul>
+<li><code>then</code>方法返回的是一个新的<code>Promise</code>实例（注意，不是原来那个<code>Promise</code>实例）；</li>
+<li>第一个参数是<code>resolved</code>状态的回调函数；</li>
+<li>第二个参数（可选）是<code>rejected</code>状态的回调函数 。</li>
+</ul>
+<h2 id="Promise-prototype-catch"><a href="#Promise-prototype-catch" class="headerlink" title="Promise.prototype.catch()"></a>Promise.prototype.catch()</h2><blockquote>
+<p><code>Promise.prototype.catch()</code>方法是<code>.then(null, rejection)</code>或<code>.then(undefined, rejection)</code>的别名，用于指定发生错误时的回调函数。 </p>
+</blockquote>
+<ul>
+<li><code>reject()</code>方法的作用，等同于抛出错误 ；</li>
+<li>如果 Promise 状态已经变成<code>resolved</code>，再抛出错误是无效的 ；</li>
+<li>Promise 对象的错误具有“冒泡”性质，会一直向后传递，直到被捕获为止。即错误总是会被下一个<code>catch</code>语句捕获 ；</li>
+<li>建议总是使用<code>catch()</code>方法，而不使用<code>then()</code>方法的第二个参数 ；</li>
+<li><code>catch()</code>方法返回的还是一个 Promise 对象 ；</li>
+<li>如果没有报错，则会跳过<code>catch()</code>方法；</li>
+<li>如果没有使用<code>catch()</code>方法指定错误处理的回调函数，Promise 对象抛出的错误不会传递到外层代码，即不会有任何反应；</li>
+<li>Node.js 有一个<code>unhandledRejection</code>事件，专门监听未捕获的<code>reject</code>错误 。</li>
+</ul>
+<h2 id="Promise-prototype-finally"><a href="#Promise-prototype-finally" class="headerlink" title="Promise.prototype.finally()"></a>Promise.prototype.finally()</h2><blockquote>
+<p><code>finally()</code>方法用于指定不管 Promise 对象最后状态如何，都会执行的操作。该方法是 ES2018 引入标准的。 </p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">promise</span><br><span class="line">.then(<span class="function"><span class="params">result</span> =&gt;</span> &#123; ... &#125;)</span><br><span class="line">.catch(<span class="function"><span class="params">err</span> =&gt;</span> &#123; ... &#125;)</span><br><span class="line">.finally(<span class="function"><span class="params">()</span> =&gt;</span> &#123; ... &#125;)</span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li>不管<code>promise</code>最后的状态，在执行完<code>then</code>或<code>catch</code>指定的回调函数以后，都会执行<code>finally</code>方法指定的回调函数；</li>
+<li><code>finally</code>方法无参数，所以里面的操作应该是与状态无关的，不依赖于 Promise 的执行结果；</li>
+<li><code>finally</code>本质上是<code>then</code>方法的特例；</li>
+<li><code>finally</code>方法总是会返回原来的值；</li>
+</ul>
+<h2 id="Promise-all"><a href="#Promise-all" class="headerlink" title="Promise.all()"></a>Promise.all()</h2><blockquote>
+<p><code>Promise.all()</code>方法用于将多个 Promise 实例，包装成一个新的 Promise 实例。 </p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> p = <span class="built_in">Promise</span>.all([p1, p2, p3])</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>接受一个数组作为参数，p1、p2、p3 都是 Promise 实例；</li>
+<li>如果不是，先调用 <code>Promise.resolve</code> 转为 Promise实例；</li>
+<li>p1、p2、p3 都变成 fulfilled，p的状态才为 fulfilled，返回值组成一个数组，传递给p的回调函数；</li>
+<li>p1、p2、p3 有一个被 rejected，p的状态就变成 rejected，第一个被rejected的实例的返回值，传给p的回调；</li>
+<li>如果作为参数的 Promise 实例，自己定义了<code>catch</code>方法，那么它一旦被<code>rejected</code>，并不会触发<code>Promise.all()</code>的<code>catch</code>方法。</li>
+</ul>
+<h2 id="Promise-race"><a href="#Promise-race" class="headerlink" title="Promise.race()"></a>Promise.race()</h2><blockquote>
+<p><code>Promise.race()</code>方法同样是将多个 Promise 实例，包装成一个新的 Promise 实例。 </p>
+</blockquote>
+<p>只要<code>p1</code>、<code>p2</code>、<code>p3</code>之中有一个实例率先改变状态，<code>p</code>的状态就跟着改变。那个率先改变的 Promise 实例的返回值，就传递给<code>p</code>的回调函数。 </p>
+<h2 id="Promise-allSettled"><a href="#Promise-allSettled" class="headerlink" title="Promise.allSettled()"></a>Promise.allSettled()</h2><blockquote>
+<p>Promise.allSettled() ：只有等到所有这些参数实例都返回结果，不管是<code>fulfilled</code>还是<code>rejected</code>，包装实例才会结束。该方法由 <a href="https://github.com/tc39/proposal-promise-allSettled" target="_blank" rel="noopener">ES2020</a> 引入 </p>
+</blockquote>
+<h2 id="Promise-any"><a href="#Promise-any" class="headerlink" title="Promise.any()"></a>Promise.any()</h2><blockquote>
+<p>Promise.any()： 只要参数实例有一个变成<code>fulfilled</code>状态，包装实例就会变成<code>fulfilled</code>状态；如果所有参数实例都变成<code>rejected</code>状态，包装实例就会变成<code>rejected</code>状态。 </p>
+</blockquote>
+<h2 id="Promise-resolve"><a href="#Promise-resolve" class="headerlink" title="Promise.resolve()"></a>Promise.resolve()</h2><blockquote>
+<p>将现有对象转为 Promise 对象 </p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Promise</span>.resolve(<span class="string">'foo'</span>);</span><br><span class="line"><span class="comment">// 等价于</span></span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="params">resolve</span> =&gt;</span> resolve(<span class="string">'foo'</span>))</span><br></pre></td></tr></table></figure>
+
+<p> <code>Promise.resolve</code>方法的参数分成四种情况：</p>
+<p><strong>（1）参数是一个 Promise 实例</strong></p>
+<p>如果参数是 Promise 实例，那么<code>Promise.resolve</code>将不做任何修改、原封不动地返回这个实例。</p>
+<p><strong>（2）参数是一个<code>thenable</code>对象</strong></p>
+<ul>
+<li><code>thenable</code>对象指的是具有<code>then</code>方法的对象</li>
+<li><code>Promise.resolve</code>方法会将这个对象转为 Promise 对象，然后就立即执行<code>thenable</code>对象的<code>then</code>方法 ；</li>
+<li><code>thenable</code>对象的<code>then</code>方法执行后，对象<code>p1</code>的状态就变为<code>resolved</code>，从而立即执行最后那个<code>then</code>方法指定的回调函数 。</li>
+</ul>
+<p><strong>（3）参数不是具有<code>then</code>方法的对象，或根本就不是对象</strong></p>
+<p>如果参数是一个原始值，或者是一个不具有<code>then</code>方法的对象，则<code>Promise.resolve</code>方法返回一个新的 Promise 对象，状态为<code>resolved</code>。</p>
+<p><strong>（4）不带有任何参数</strong></p>
+<p><code>Promise.resolve()</code>方法允许调用时不带参数，直接返回一个<code>resolved</code>状态的 Promise 对象。</p>
+<p>注意：立即<code>resolve()</code>的 Promise 对象，是在本轮“事件循环”（event loop）的结束时执行，而不是在下一轮“事件循环”的开始时 。</p>
+<h2 id="Promise-reject"><a href="#Promise-reject" class="headerlink" title="Promise.reject()"></a>Promise.reject()</h2><blockquote>
+<p><code>Promise.reject(reason)</code>方法也会返回一个新的 Promise 实例，该实例的状态为<code>rejected</code> </p>
+</blockquote>
+<p> 注意，<code>Promise.reject()</code>方法的参数，会原封不动地作为<code>reject</code>的理由，变成后续方法的参数。这一点与<code>Promise.resolve</code>方法不一致。 </p>
+<h2 id="Promise-try"><a href="#Promise-try" class="headerlink" title="Promise.try()"></a>Promise.try()</h2><blockquote>
+<p>让同步函数同步执行，异步函数异步执行 </p>
+</blockquote>
+<p> <strong>第一种</strong>写法是用<code>async</code>函数来写：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> f = <span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'now'</span>);</span><br><span class="line">(<span class="keyword">async</span> () =&gt; f())();</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'next'</span>);</span><br><span class="line"><span class="comment">// now</span></span><br><span class="line"><span class="comment">// next</span></span><br></pre></td></tr></table></figure>
+
+<p> <strong>第二种</strong>写法是使用<code>new Promise()</code> ：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> f = <span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'now'</span>);</span><br><span class="line">(</span><br><span class="line">  () =&gt; <span class="keyword">new</span> <span class="built_in">Promise</span>(</span><br><span class="line">    resolve =&gt; resolve(f())</span><br><span class="line">  )</span><br><span class="line">)();</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'next'</span>);</span><br><span class="line"><span class="comment">// now</span></span><br><span class="line"><span class="comment">// next</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>有一个提案：Promise.try</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> f = <span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'now'</span>);</span><br><span class="line"><span class="built_in">Promise</span>.try(f);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'next'</span>);</span><br><span class="line"><span class="comment">// now</span></span><br><span class="line"><span class="comment">// next</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<p>本文来自 <a href="https://es6.ruanyifeng.com/#docs/promise" target="_blank" rel="noopener">ECMAScript 6 入门 —— 阮一峰</a></p>
+
+      </div>
+      
+      
+        <br>
+        
+
+
+  <section class='meta' id="footer-meta">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-02-20T23:43:32+08:00">
+  <a class='notlink'>
+    <i class="fas fa-clock" aria-hidden="true"></i>
+    <p>updated at Feb 20, 2021</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/ES6/" rel="nofollow"><i class="fas fa-tag" aria-hidden="true"></i><p>ES6</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/promise/" rel="nofollow"><i class="fas fa-tag" aria-hidden="true"></i><p>promise</p></a></div>
+
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="QQ好友" rel="external nofollow noopener noreferrer"
+          
+          href="http://connect.qq.com/widget/shareqq/index.html?url=http://awstudio.cn/2020/05/05/es6-promise/&title=ES6：Promise 对象 | awstudio's blog&pics=http://awstudio.cn/img/avatar.jpg&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="QQ空间" rel="external nofollow noopener noreferrer"
+          
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://awstudio.cn/2020/05/05/es6-promise/&title=ES6：Promise 对象 | awstudio's blog&pics=http://awstudio.cn/img/avatar.jpg&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="微博" rel="external nofollow noopener noreferrer"
+          
+          href="http://service.weibo.com/share/share.php?url=http://awstudio.cn/2020/05/05/es6-promise/&title=ES6：Promise 对象 | awstudio's blog&pics=http://awstudio.cn/img/avatar.jpg&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/weibo.png">
+          
+        </a>
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </section>
+
+
+      
+      
+          <div class="prev-next">
+              
+                  <section class="prev">
+                      <span class="art-item-left">
+                          <h6><i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;Previous</h6>
+                          <h4>
+                              <a href="/2020/05/07/jirengu-fe/" rel="prev" title="一些B站上的东西总汇">
+                                
+                                    一些B站上的东西总汇
+                                
+                              </a>
+                          </h4>
+                          
+                              
+                              <h6 class="tags">
+                                  <a class="tag" href="/tags/%E5%89%8D%E7%AB%AF/"><i class="fas fa-tag fa-fw" aria-hidden="true"></i> 前端</a>
+                              </h6>
+                          
+                      </span>
+                  </section>
+              
+              
+                  <section class="next">
+                      <span class="art-item-right" aria-hidden="true">
+                          <h6>Next&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></h6>
+                          <h4>
+                              <a href="/2020/05/03/vue-base-11/" rel="prev" title="vue-base-11">
+                                  
+                                      vue-base-11
+                                  
+                              </a>
+                          </h4>
+                          
+                              
+                              <h6 class="tags">
+                                  <a class="tag" href="/tags/Vue/"><i class="fas fa-tag fa-fw" aria-hidden="true"></i> Vue</a>
+                              </h6>
+                          
+                      </span>
+                  </section>
+              
+          </div>
+      
+    </section>
+  </article>
+
+
+
+  <!-- 显示推荐文章和评论 -->
+
+
+
+  
+
+
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+
+  <script>
+    window.subData = {
+      title: 'ES6：Promise 对象',
+      tools: true
+    }
+  </script>
+
+
+</div>
+<aside class='l_side'>
+  
+    
+    
+      
+      
+        
+          
+          
+            
+              <section class='widget author'>
+  <div class='content material'>
+    
+      <div class='avatar'>
+        <img class='avatar' src='http://blogpic.at15cm.com/parrot.jpg'/>
+      </div>
+    
+    
+    
+      <div class="social-wrapper">
+        
+          
+            <a href="/atom.xml"
+              class="social fas fa-rss flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+          
+            <a href="mailto:me@xaoxuu.com"
+              class="social fas fa-envelope flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+          
+            <a href="https://github.com/KodeWithKarlie"
+              class="social fab fa-github flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+          
+            <a href="https://music.163.com/#/user/home?id=409650851"
+              class="social fas fa-headphones-alt flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+      </div>
+    
+  </div>
+</section>
+
+            
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+      
+        
+          
+          
+        
+          
+          
+            
+              <section class='widget plain'>
+  
+<header class='material'>
+  <div><i class="fas fa-file fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;家训</div>
+  
+</header>
+
+  <div class='content material'>
+    <p>一等人忠臣孝子，两件事读书耕田</p>
+
+  </div>
+</section>
+
+            
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+      
+        
+          
+          
+        
+          
+          
+        
+          
+          
+            
+              
+  <section class='widget toc-wrapper'>
+    
+<header class='material'>
+  <div><i class="fas fa-list fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;TOC</div>
+  
+    <!-- <div class='wrapper'><a class="s-toc rightBtn" rel="external nofollow noopener noreferrer" href="javascript:void(0)"><i class="fas fa-thumbtack fa-fw"></i></a></div> -->
+  
+</header>
+
+    <div class='content material'>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Promise的含义"><span class="toc-text">Promise的含义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基本用法"><span class="toc-text">基本用法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Promise-prototype-then"><span class="toc-text">Promise.prototype.then()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Promise-prototype-catch"><span class="toc-text">Promise.prototype.catch()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Promise-prototype-finally"><span class="toc-text">Promise.prototype.finally()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Promise-all"><span class="toc-text">Promise.all()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Promise-race"><span class="toc-text">Promise.race()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Promise-allSettled"><span class="toc-text">Promise.allSettled()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Promise-any"><span class="toc-text">Promise.any()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Promise-resolve"><span class="toc-text">Promise.resolve()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Promise-reject"><span class="toc-text">Promise.reject()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Promise-try"><span class="toc-text">Promise.try()</span></a></li></ol>
+    </div>
+  </section>
+
+
+            
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+      
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+            
+              <section class='widget grid'>
+  
+<header class='material'>
+  <div><i class="fas fa-map-signs fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;站内导航</div>
+  
+</header>
+
+  <div class='content material'>
+    <ul class="grid navgation">
+      
+        <li><a class="flat-box" title="/" href="/"
+          
+          
+          id="home">
+          
+            <i class="fas fa-clock fa-fw" aria-hidden="true"></i>
+          
+          近期文章
+        </a></li>
+      
+        <li><a class="flat-box" title="/blog/archives/" href="/blog/archives/"
+          
+            rel="nofollow"
+          
+          
+          id="blogarchives">
+          
+            <i class="fas fa-archive fa-fw" aria-hidden="true"></i>
+          
+          文章归档
+        </a></li>
+      
+        <li><a class="flat-box" title="/projects/" href="/projects/"
+          
+          
+          id="projects">
+          
+            <i class="fas fa-code-branch fa-fw" aria-hidden="true"></i>
+          
+          开源项目
+        </a></li>
+      
+        <li><a class="flat-box" title="/friends/" href="/friends/"
+          
+            rel="nofollow"
+          
+          
+          id="friends">
+          
+            <i class="fas fa-link fa-fw" aria-hidden="true"></i>
+          
+          我的友链
+        </a></li>
+      
+        <li><a class="flat-box" title="https://xaoxuu.com/wiki/material-x/" href="https://xaoxuu.com/wiki/material-x/"
+          
+            rel="nofollow"
+          
+          
+          id="https:xaoxuu.comwikimaterial-x">
+          
+            <i class="fas fa-book fa-fw" aria-hidden="true"></i>
+          
+          主题文档
+        </a></li>
+      
+        <li><a class="flat-box" title="/about/" href="/about/"
+          
+            rel="nofollow"
+          
+          
+          id="about">
+          
+            <i class="fas fa-info-circle fa-fw" aria-hidden="true"></i>
+          
+          关于小站
+        </a></li>
+      
+    </ul>
+  </div>
+</section>
+
+            
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+      
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+            
+              
+  <section class='widget category'>
+    
+<header class='material'>
+  <div><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;Categories</div>
+  
+    <a class="rightBtn"
+    
+      rel="nofollow"
+    
+    
+    href="/categories/"
+    title="categories/">
+    <i class="fas fa-expand-arrows-alt fa-fw"></i></a>
+  
+</header>
+
+    <div class='content material'>
+      <ul class="entry">
+        
+          <li><a class="flat-box" title="/categories/Android/" href="/categories/Android/"><div class='name'>Android</div><div class='badge'>(2)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/CSS/" href="/categories/CSS/"><div class='name'>CSS</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/ES6/" href="/categories/ES6/"><div class='name'>ES6</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/Node/" href="/categories/Node/"><div class='name'>Node</div><div class='badge'>(2)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/articles/" href="/categories/articles/"><div class='name'>articles</div><div class='badge'>(21)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/tools/" href="/categories/tools/"><div class='name'>tools</div><div class='badge'>(3)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/%E5%89%8D%E7%AB%AF/" href="/categories/%E5%89%8D%E7%AB%AF/"><div class='name'>前端</div><div class='badge'>(87)</div></a></li>
+        
+          <li><a class="flat-box child" title="/categories/%E5%89%8D%E7%AB%AF/CSS/" href="/categories/%E5%89%8D%E7%AB%AF/CSS/"><div class='name'>CSS</div><div class='badge'>(4)</div></a></li>
+        
+          <li><a class="flat-box child" title="/categories/%E5%89%8D%E7%AB%AF/HTML/" href="/categories/%E5%89%8D%E7%AB%AF/HTML/"><div class='name'>HTML</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box child" title="/categories/%E5%89%8D%E7%AB%AF/JavaScript/" href="/categories/%E5%89%8D%E7%AB%AF/JavaScript/"><div class='name'>JavaScript</div><div class='badge'>(6)</div></a></li>
+        
+          <li><a class="flat-box child" title="/categories/%E5%89%8D%E7%AB%AF/Vue/" href="/categories/%E5%89%8D%E7%AB%AF/Vue/"><div class='name'>Vue</div><div class='badge'>(21)</div></a></li>
+        
+          <li><a class="flat-box child" title="/categories/%E5%89%8D%E7%AB%AF/%E5%B0%8F%E7%A8%8B%E5%BA%8F/" href="/categories/%E5%89%8D%E7%AB%AF/%E5%B0%8F%E7%A8%8B%E5%BA%8F/"><div class='name'>小程序</div><div class='badge'>(3)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" href="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"><div class='name'>博客搭建</div><div class='badge'>(7)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/%E5%90%8E%E5%8F%B0/" href="/categories/%E5%90%8E%E5%8F%B0/"><div class='name'>后台</div><div class='badge'>(22)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/%E5%B0%8F%E7%A8%8B%E5%BA%8F/" href="/categories/%E5%B0%8F%E7%A8%8B%E5%BA%8F/"><div class='name'>小程序</div><div class='badge'>(5)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/%E5%B7%A5%E5%85%B7/" href="/categories/%E5%B7%A5%E5%85%B7/"><div class='name'>工具</div><div class='badge'>(21)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/%E5%B7%A5%E7%A8%8B%E5%8C%96/" href="/categories/%E5%B7%A5%E7%A8%8B%E5%8C%96/"><div class='name'>工程化</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box child" title="/categories/%E5%B7%A5%E7%A8%8B%E5%8C%96/webpack/" href="/categories/%E5%B7%A5%E7%A8%8B%E5%8C%96/webpack/"><div class='name'>webpack</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/%E6%91%84%E5%BD%B1/" href="/categories/%E6%91%84%E5%BD%B1/"><div class='name'>摄影</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF/" href="/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF/"><div class='name'>服务器端</div><div class='badge'>(4)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/%E6%9D%82%E8%B0%88/" href="/categories/%E6%9D%82%E8%B0%88/"><div class='name'>杂谈</div><div class='badge'>(7)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/" href="/categories/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/"><div class='name'>游戏开发</div><div class='badge'>(17)</div></a></li>
+        
+      </ul>
+    </div>
+  </section>
+
+
+            
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+      
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+            
+              
+  <section class='widget tagcloud'>
+    
+<header class='material'>
+  <div><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;Hot Tags</div>
+  
+    <a class="rightBtn"
+    
+      rel="nofollow"
+    
+    
+    href="/tags/"
+    title="tags/">
+    <i class="fas fa-expand-arrows-alt fa-fw"></i></a>
+  
+</header>
+
+    <div class='content material'>
+      <a href="/tags/AS3/" style="font-size: 18px; color: #7e7e7e">AS3</a> <a href="/tags/Android/" style="font-size: 14px; color: #999">Android</a> <a href="/tags/Apache/" style="font-size: 14px; color: #999">Apache</a> <a href="/tags/CSS/" style="font-size: 18.67px; color: #797979">CSS</a> <a href="/tags/EQ/" style="font-size: 22px; color: #636363">EQ</a> <a href="/tags/ES6/" style="font-size: 16px; color: #8b8b8b">ES6</a> <a href="/tags/Github/" style="font-size: 15.33px; color: #909090">Github</a> <a href="/tags/Gulp/" style="font-size: 14px; color: #999">Gulp</a> <a href="/tags/HTML/" style="font-size: 14px; color: #999">HTML</a> <a href="/tags/HTML5/" style="font-size: 14px; color: #999">HTML5</a> <a href="/tags/HTTP/" style="font-size: 14px; color: #999">HTTP</a> <a href="/tags/Hexo/" style="font-size: 14.67px; color: #949494">Hexo</a> <a href="/tags/JavaScript/" style="font-size: 20px; color: #707070">JavaScript</a> <a href="/tags/LayaAir/" style="font-size: 15.33px; color: #909090">LayaAir</a> <a href="/tags/Markdown/" style="font-size: 14px; color: #999">Markdown</a> <a href="/tags/MySQL/" style="font-size: 14px; color: #999">MySQL</a> <a href="/tags/Node/" style="font-size: 14.67px; color: #949494">Node</a> <a href="/tags/PHP/" style="font-size: 21.33px; color: #676767">PHP</a> <a href="/tags/SEO/" style="font-size: 14.67px; color: #949494">SEO</a> <a href="/tags/SVN/" style="font-size: 14.67px; color: #949494">SVN</a> <a href="/tags/Sass/" style="font-size: 14px; color: #999">Sass</a> <a href="/tags/Vue/" style="font-size: 24px; color: #555">Vue</a> <a href="/tags/WeTest/" style="font-size: 14.67px; color: #949494">WeTest</a> <a href="/tags/ajax/" style="font-size: 14px; color: #999">ajax</a> <a href="/tags/articles/" style="font-size: 22.67px; color: #5e5e5e">articles</a> <a href="/tags/axios/" style="font-size: 14.67px; color: #949494">axios</a> <a href="/tags/canvas/" style="font-size: 14px; color: #999">canvas</a> <a href="/tags/docker/" style="font-size: 16px; color: #8b8b8b">docker</a> <a href="/tags/flex/" style="font-size: 15.33px; color: #909090">flex</a> <a href="/tags/hexo/" style="font-size: 16.67px; color: #878787">hexo</a> <a href="/tags/node/" style="font-size: 14.67px; color: #949494">node</a> <a href="/tags/npm/" style="font-size: 14.67px; color: #949494">npm</a> <a href="/tags/promise/" style="font-size: 14px; color: #999">promise</a> <a href="/tags/tools/" style="font-size: 15.33px; color: #909090">tools</a> <a href="/tags/webpack/" style="font-size: 14.67px; color: #949494">webpack</a> <a href="/tags/%E5%88%86%E8%BE%A8%E7%8E%87/" style="font-size: 14px; color: #999">分辨率</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 23.33px; color: #5a5a5a">前端</a> <a href="/tags/%E5%8D%81%E4%B8%89%E5%8F%B7%E4%BB%93%E5%BA%93/" style="font-size: 14px; color: #999">十三号仓库</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" style="font-size: 17.33px; color: #828282">博客搭建</a> <a href="/tags/%E5%8E%86%E5%8F%B2/" style="font-size: 14px; color: #999">历史</a> <a href="/tags/%E5%B0%8F%E6%B8%B8%E6%88%8F/" style="font-size: 14px; color: #999">小游戏</a> <a href="/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/" style="font-size: 17.33px; color: #828282">小程序</a> <a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 19.33px; color: #757575">工具</a> <a href="/tags/%E5%BF%83%E5%AD%A6%EF%BC%8C-%E6%9D%82%E8%B0%88/" style="font-size: 14px; color: #999">心学， 杂谈</a> <a href="/tags/%E6%8F%92%E4%BB%B6/" style="font-size: 16.67px; color: #878787">插件</a> <a href="/tags/%E6%91%84%E5%BD%B1/" style="font-size: 14px; color: #999">摄影</a> <a href="/tags/%E6%9D%82%E8%B0%88/" style="font-size: 16.67px; color: #878787">杂谈</a> <a href="/tags/%E6%9D%8E%E7%82%8E%E6%81%A2/" style="font-size: 20px; color: #707070">李炎恢</a> <a href="/tags/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/" style="font-size: 20.67px; color: #6c6c6c">游戏开发</a> <a href="/tags/%E7%8E%8B%E9%98%B3%E6%98%8E/" style="font-size: 14px; color: #999">王阳明</a> <a href="/tags/%E7%A7%BB%E5%8A%A8%E7%AB%AF/" style="font-size: 14.67px; color: #949494">移动端</a> <a href="/tags/%E7%BE%8E%E5%89%A7/" style="font-size: 14px; color: #999">美剧</a> <a href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" style="font-size: 14px; color: #999">读书笔记</a> <a href="/tags/%E8%B0%B7%E6%AD%8C/" style="font-size: 14px; color: #999">谷歌</a> <a href="/tags/%E9%80%82%E9%85%8D/" style="font-size: 14px; color: #999">适配</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 15.33px; color: #909090">面试</a> <a href="/tags/%E9%A1%B9%E7%9B%AE/" style="font-size: 14.67px; color: #949494">项目</a>
+    </div>
+  </section>
+
+
+            
+          
+        
+          
+          
+        
+          
+          
+        
+      
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+            
+              <section class='widget list'>
+  
+<header class='material'>
+  <div><i class="fas fa-thumbs-up fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;强烈推荐</div>
+  
+</header>
+
+  <div class='content material'>
+    <ul class="entry">
+      
+        <li><a class="flat-box" title="http://zhongguose.com/" href="http://zhongguose.com/"
+          
+          
+          >
+          <div class='name'>
+            
+              <i class=" fa-fw" aria-hidden="true"></i>
+            
+            &nbsp;&nbsp;中国色 - 中国传统颜色
+          </div>
+          
+        </a></li>
+      
+        <li><a class="flat-box" title="https://xaoxuu.com/wiki/hexo.sh/" href="https://xaoxuu.com/wiki/hexo.sh/"
+          
+          
+          >
+          <div class='name'>
+            
+              <i class=" fa-fw" aria-hidden="true"></i>
+            
+            &nbsp;&nbsp;Hexo脚本（Mac）
+          </div>
+          
+        </a></li>
+      
+        <li><a class="flat-box" title="https://xaoxuu.com/wiki/vim-cn.sh/" href="https://xaoxuu.com/wiki/vim-cn.sh/"
+          
+          
+          >
+          <div class='name'>
+            
+              <i class=" fa-fw" aria-hidden="true"></i>
+            
+            &nbsp;&nbsp;图床脚本（Mac）
+          </div>
+          
+        </a></li>
+      
+        <li><a class="flat-box" title="https://yasuotu.com" href="https://yasuotu.com"
+          
+          
+          >
+          <div class='name'>
+            
+              <i class=" fa-fw" aria-hidden="true"></i>
+            
+            &nbsp;&nbsp;图片在线压缩
+          </div>
+          
+        </a></li>
+      
+        <li><a class="flat-box" title="https://realfavicongenerator.net" href="https://realfavicongenerator.net"
+          
+          
+          >
+          <div class='name'>
+            
+              <i class=" fa-fw" aria-hidden="true"></i>
+            
+            &nbsp;&nbsp;生成Favicon
+          </div>
+          
+        </a></li>
+      
+        <li><a class="flat-box" title="https://mxclub.github.io/resume/" href="https://mxclub.github.io/resume/"
+          
+          
+          >
+          <div class='name'>
+            
+              <i class=" fa-fw" aria-hidden="true"></i>
+            
+            &nbsp;&nbsp;简历主题
+          </div>
+          
+        </a></li>
+      
+    </ul>
+  </div>
+</section>
+
+            
+          
+        
+      
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+      
+    
+
+  
+</aside>
+
+<footer id="footer" class="clearfix">
+  
+    <div class="footer">
+      <center>❤ 食二三春沐秋凉，与一人携苦挽甜 ❤</center>
+    </div>
+    <br>
+  
+  
+    <div class="social-wrapper">
+      
+        
+          <a href="/atom.xml"
+            class="social fas fa-rss flat-btn"
+            target="_blank"
+            rel="external nofollow noopener noreferrer">
+          </a>
+        
+      
+        
+          <a href="mailto:me@xaoxuu.com"
+            class="social fas fa-envelope flat-btn"
+            target="_blank"
+            rel="external nofollow noopener noreferrer">
+          </a>
+        
+      
+        
+          <a href="https://github.com/KodeWithKarlie"
+            class="social fab fa-github flat-btn"
+            target="_blank"
+            rel="external nofollow noopener noreferrer">
+          </a>
+        
+      
+        
+          <a href="https://music.163.com/#/user/home?id=409650851"
+            class="social fas fa-headphones-alt flat-btn"
+            target="_blank"
+            rel="external nofollow noopener noreferrer">
+          </a>
+        
+      
+    </div>
+  
+  <br>
+  <div><p>Blog content follows the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener">Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License</a></p>
+</div>
+  <div>
+    Use
+    <a href="https://xaoxuu.com/wiki/material-x/" target="_blank" class="codename">Material X</a>
+    as theme
+    
+      , 
+      total visits
+      <span id="busuanzi_value_site_pv"><i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span>
+      times
+    
+    . 
+  </div>
+</footer>
+<script>setLoadingBarProgress(80);</script>
+
+
+      <script>setLoadingBarProgress(60);</script>
+    </div>
+    <a class="s-top fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+
+  <script>
+    var GOOGLE_CUSTOM_SEARCH_API_KEY = "";
+    var GOOGLE_CUSTOM_SEARCH_ENGINE_ID = "";
+    var ALGOLIA_API_KEY = "";
+    var ALGOLIA_APP_ID = "";
+    var ALGOLIA_INDEX_NAME = "";
+    var AZURE_SERVICE_NAME = "";
+    var AZURE_INDEX_NAME = "";
+    var AZURE_QUERY_KEY = "";
+    var BAIDU_API_ID = "";
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/"||"/";
+    if(!ROOT.endsWith('/'))ROOT += '/';
+  </script>
+
+<script src="//instant.page/1.2.2" type="module" integrity="sha384-2xV8M5griQmzyiY3CDqh1dn4z3llDVqZDqzjzcY+jCBCk/a5fXJmuZ/40JJAPeoU"></script>
+
+
+  <script async src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.5/dist/scrollreveal.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      const $reveal = $('.reveal');
+      if ($reveal.length === 0) return;
+      const sr = ScrollReveal({ distance: 0 });
+      sr.reveal('.reveal');
+    });
+  </script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      Waves.attach('.flat-btn', ['waves-button']);
+      Waves.attach('.float-btn', ['waves-button', 'waves-float']);
+      Waves.attach('.float-btn-light', ['waves-button', 'waves-float', 'waves-light']);
+      Waves.attach('.flat-box', ['waves-block']);
+      Waves.attach('.float-box', ['waves-block', 'waves-float']);
+      Waves.attach('.waves-image');
+      Waves.init();
+    });
+  </script>
+
+
+  <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+  
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.0.4/jquery.backstretch.min.js"></script>
+    <script type="text/javascript">
+      $(function(){
+        if ('.cover') {
+          $('.cover').backstretch(
+          ["https://img.vim-cn.com/29/91197b04c13f512f734a76d4ac422d89dbe229.jpg"],
+          {
+            duration: "6000",
+            fade: "2500"
+          });
+        } else {
+          $.backstretch(
+          ["https://img.vim-cn.com/29/91197b04c13f512f734a76d4ac422d89dbe229.jpg"],
+          {
+            duration: "6000",
+            fade: "2500"
+          });
+        }
+      });
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+<script src="/js/app.js"></script>
+
+
+
+  
+<script src="/js/search.js"></script>
+
+
+
+
+
+<!-- 复制 -->
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  let COPY_SUCCESS = "Copied";
+  let COPY_FAILURE = "Copy failed";
+  /*页面载入完成后，创建复制按钮*/
+  !function (e, t, a) {
+    /* code */
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '  <i class="fa fa-copy"></i><span>Copy</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+
+      clipboard.on('success', function(e) {
+        //您可以加入成功提示
+        console.info('Action:', e.action);
+        console.info('Text:', e.text);
+        console.info('Trigger:', e.trigger);
+        success_prompt(COPY_SUCCESS);
+        e.clearSelection();
+      });
+      clipboard.on('error', function(e) {
+        //您可以加入失败提示
+        console.error('Action:', e.action);
+        console.error('Trigger:', e.trigger);
+        fail_prompt(COPY_FAILURE);
+      });
+    }
+    initCopyCode();
+
+  }(window, document);
+
+  /**
+   * 弹出式提示框，默认1.5秒自动消失
+   * @param message 提示信息
+   * @param style 提示样式，有alert-success、alert-danger、alert-warning、alert-info
+   * @param time 消失时间
+   */
+  var prompt = function (message, style, time)
+  {
+      style = (style === undefined) ? 'alert-success' : style;
+      time = (time === undefined) ? 1500 : time*1000;
+      $('<div>')
+          .appendTo('body')
+          .addClass('alert ' + style)
+          .html(message)
+          .show()
+          .delay(time)
+          .fadeOut();
+  };
+
+  // 成功提示
+  var success_prompt = function(message, time)
+  {
+      prompt(message, 'alert-success', time);
+  };
+
+  // 失败提示
+  var fail_prompt = function(message, time)
+  {
+      prompt(message, 'alert-danger', time);
+  };
+
+  // 提醒
+  var warning_prompt = function(message, time)
+  {
+      prompt(message, 'alert-warning', time);
+  };
+
+  // 信息提示
+  var info_prompt = function(message, time)
+  {
+      prompt(message, 'alert-info', time);
+  };
+
+</script>
+
+
+<!-- fancybox -->
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script>
+  let LAZY_LOAD_IMAGE = "";
+  $(".article-entry").find("fancybox").find("img").each(function () {
+      var element = document.createElement("a");
+      $(element).attr("data-fancybox", "gallery");
+      $(element).attr("href", $(this).attr("src"));
+      /* 图片采用懒加载处理时,
+       * 一般图片标签内会有个属性名来存放图片的真实地址，比如 data-original,
+       * 那么此处将原本的属性名src替换为对应属性名data-original,
+       * 修改如下
+       */
+       if (LAZY_LOAD_IMAGE) {
+         $(element).attr("href", $(this).attr("data-original"));
+       }
+      $(this).wrap(element);
+  });
+</script>
+
+
+
+
+
+  <script>setLoadingBarProgress(100);</script>
+</body>
+</html>

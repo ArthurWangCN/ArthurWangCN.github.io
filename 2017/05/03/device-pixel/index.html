@@ -1,0 +1,1472 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  
+  <title>DPI DIP 分辨率 屏幕尺寸 px density 关系以及换算 | awstudio&#39;s blog</title>
+  
+  
+
+  
+
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <!-- meta -->
+  
+
+  <!-- link -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css">
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.10.1/css/all.min.css">
+  
+
+  
+  <link rel="shortcut icon" type='image/x-icon' href="http://awstudio.cn/img/avatar.jpg">
+  
+
+  
+    
+<link rel="stylesheet" href="/style.css">
+
+  
+
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+
+  
+  
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  
+  
+  <div class="cover-wrapper">
+    <cover class='cover post half'>
+      
+        
+  <h1 class='title'>Arthur Wang</h1>
+
+
+  <div class="m_search">
+    <form name="searchform" class="form u-search-form">
+      <input type="text" class="input u-search-input" placeholder="" />
+      <i class="icon fas fa-search fa-fw"></i>
+    </form>
+  </div>
+
+<div class='menu navgation'>
+  <ul class='h-list'>
+    
+      
+        <li>
+          <a class="nav home" href="/"
+            
+            
+            id="home">
+            <i class='fas fa-blog fa-fw'></i>&nbsp;博文
+          </a>
+        </li>
+      
+        <li>
+          <a class="nav home" href="/categories/"
+            
+            
+            id="categories">
+            <i class='fas fa-code-branch fa-fw'></i>&nbsp;分类
+          </a>
+        </li>
+      
+        <li>
+          <a class="nav home" href="/tags/"
+            
+            
+            id="tags">
+            <i class='fas fa-tag fa-fw'></i>&nbsp;标签
+          </a>
+        </li>
+      
+        <li>
+          <a class="nav home" href="/friends/"
+            
+              rel="nofollow"
+            
+            
+            id="friends">
+            <i class='fas fa-link fa-fw'></i>&nbsp;友链
+          </a>
+        </li>
+      
+        <li>
+          <a class="nav home" href="/about/"
+            
+              rel="nofollow"
+            
+            
+            id="about">
+            <i class='fas fa-info-circle fa-fw'></i>&nbsp;关于
+          </a>
+        </li>
+      
+    
+  </ul>
+</div>
+
+      
+    </cover>
+    <header class="l_header material">
+  <div id="loading-bar-wrapper">
+    <div id="loading-bar" class="material"></div>
+  </div>
+
+	<div class='wrapper'>
+		<div class="nav-main container container--flex">
+      <a class="logo flat-box" href='/' >
+        
+          awstudio's blog
+        
+      </a>
+			<div class='menu navgation'>
+				<ul class='h-list'>
+          
+  					
+  						<li>
+								<a class="nav flat-box" href="/"
+                  
+                  
+                  id="home">
+									<i class='fas fa-blog fa-fw'></i>&nbsp;博文
+								</a>
+							</li>
+      			
+  						<li>
+								<a class="nav flat-box" href="/categories/"
+                  
+                    rel="nofollow"
+                  
+                  
+                  id="categories">
+									<i class='fas fa-folder-open fa-fw'></i>&nbsp;分类
+								</a>
+							</li>
+      			
+  						<li>
+								<a class="nav flat-box" href="/tags/"
+                  
+                    rel="nofollow"
+                  
+                  
+                  id="tags">
+									<i class='fas fa-hashtag fa-fw'></i>&nbsp;标签
+								</a>
+							</li>
+      			
+      		
+				</ul>
+			</div>
+
+			
+				<div class="m_search">
+					<form name="searchform" class="form u-search-form">
+						<input type="text" class="input u-search-input" placeholder="Search" />
+						<i class="icon fas fa-search fa-fw"></i>
+					</form>
+				</div>
+			
+			<ul class='switcher h-list'>
+				
+					<li class='s-search'><a class="fas fa-search fa-fw" href='javascript:void(0)'></a></li>
+				
+				<li class='s-menu'><a class="fas fa-bars fa-fw" href='javascript:void(0)'></a></li>
+			</ul>
+		</div>
+
+		<div class='nav-sub container container--flex'>
+			<a class="logo flat-box"></a>
+			<ul class='switcher h-list'>
+				<li class='s-comment'><a class="flat-btn fas fa-comments fa-fw" href='javascript:void(0)'></a></li>
+        
+          <li class='s-toc'><a class="flat-btn fas fa-list fa-fw" href='javascript:void(0)'></a></li>
+        
+			</ul>
+		</div>
+	</div>
+</header>
+	<aside class="menu-phone">
+    <header>
+		<nav class="menu navgation">
+      <ul>
+        
+          
+            <li>
+							<a class="nav flat-box" href="/"
+                
+                
+                id="home">
+								<i class='fas fa-clock fa-fw'></i>&nbsp;近期文章
+							</a>
+            </li>
+          
+            <li>
+							<a class="nav flat-box" href="/blog/archives/"
+                
+                  rel="nofollow"
+                
+                
+                id="blogarchives">
+								<i class='fas fa-archive fa-fw'></i>&nbsp;文章归档
+							</a>
+            </li>
+          
+            <li>
+							<a class="nav flat-box" href="/projects/"
+                
+                
+                id="projects">
+								<i class='fas fa-code-branch fa-fw'></i>&nbsp;开源项目
+							</a>
+            </li>
+          
+            <li>
+							<a class="nav flat-box" href="/friends/"
+                
+                  rel="nofollow"
+                
+                
+                id="friends">
+								<i class='fas fa-link fa-fw'></i>&nbsp;我的友链
+							</a>
+            </li>
+          
+            <li>
+							<a class="nav flat-box" href="https://xaoxuu.com/wiki/material-x/"
+                
+                  rel="nofollow"
+                
+                
+                id="https:xaoxuu.comwikimaterial-x">
+								<i class='fas fa-book fa-fw'></i>&nbsp;主题文档
+							</a>
+            </li>
+          
+            <li>
+							<a class="nav flat-box" href="/about/"
+                
+                  rel="nofollow"
+                
+                
+                id="about">
+								<i class='fas fa-info-circle fa-fw'></i>&nbsp;关于小站
+							</a>
+            </li>
+          
+       
+      </ul>
+		</nav>
+    </header>
+	</aside>
+<script>setLoadingBarProgress(40);</script>
+
+  </div>
+
+
+  <div class="l_body">
+    <div class='body-wrapper'>
+      <div class='l_main'>
+  
+
+  <article id="post" class="post white-box article-type-post" itemscope itemprop="blogPost">
+    
+
+
+  <section class='meta'>
+    
+    
+    <div class="meta" id="header-meta">
+      
+        
+  
+    <h1 class="title">
+      <a href="/2017/05/03/device-pixel/">
+        DPI DIP 分辨率 屏幕尺寸 px density 关系以及换算
+      </a>
+    </h1>
+  
+
+
+      
+      <div class='new-meta-box'>
+        
+          
+        
+          
+            
+  <div class='new-meta-item author'>
+    
+      <a href="http://awstudio.cn" rel="nofollow">
+        
+          <img src="http://awstudio.cn/img/avatar.jpg">
+        
+        <p>Arthur Wang</p>
+      </a>
+    
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+    <p>2017-05-03</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  
+  <div class='new-meta-item category'>
+    <a href='/categories/%E5%89%8D%E7%AB%AF/' rel="nofollow">
+      <i class="fas fa-folder-open" aria-hidden="true"></i>
+      <p>前端</p>
+    </a>
+  </div>
+
+
+          
+        
+          
+            
+  
+    <div class="new-meta-item browse busuanzi">
+      <a class='notlink'>
+        <i class="fas fa-eye" aria-hidden="true"></i>
+        <p>
+          <span id="busuanzi_value_page_pv">
+            <i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i>
+          </span>
+        </p>
+      </a>
+    </div>
+  
+
+
+          
+        
+          
+            
+  
+    <div class="new-meta-item wordcount">
+      <a class='notlink'>
+        <i class="fas fa-keyboard" aria-hidden="true"></i>
+        <p>字数统计:</p>
+        <p>1.6k字</p>
+      </a>
+    </div>
+    <div class="new-meta-item readtime">
+      <a class='notlink'>
+        <i class="fas fa-hourglass-half" aria-hidden="true"></i>
+        <p>阅读时长≈</p>
+        <p>6分</p>
+      </a>
+    </div>
+  
+
+          
+        
+          
+            
+
+          
+        
+      </div>
+      
+        <hr>
+      
+    </div>
+  </section>
+
+
+    <section class="article typo">
+      <div class="article-entry" itemprop="articleBody">
+        <h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><ul>
+<li>dip : Device independent pixels（设备独立像素）；</li>
+<li>dp  : 即 <code>dip</code>；</li>
+<li>px : 像素；</li>
+<li>dpi : dots per inch，直接来说就是一英寸多少个像素点。常见取值 120，160，240。我一般称作像素密度，简称密度；</li>
+<li>density : 直接翻译的话貌似叫 <code>密度</code>。常见取值 <code>1.5</code>，<code>1.0</code>。和标准dpi的比例（160px/inc）</li>
+<li>分辨率 : 横纵2个方向的像素点的数量，常见取值 <code>480X800</code>，<code>320X480</code>；</li>
+<li>屏幕尺寸 : 屏幕对角线的长度。电脑电视同理；</li>
+<li>屏幕比例的问题 : 因为只确定了对角线长，两边长度还不一定。所以有了4：3、16：9这种，这样就可以算出屏幕边长了。</li>
+</ul>
+<h2 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h2><p>在 <code>android</code> 里面，获取一个窗口的 <code>metrics</code>，里面有这么几个值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">metrics.density; </span><br><span class="line">metrics.densityDpi;</span><br></pre></td></tr></table></figure>
+
+<p>densityDpi : 就是我们常说的 <code>dpi</code>。<br>density : 其实是 <code>DPI/(160像素/英寸)</code> 后得到的值。</p>
+<p>从上面就看得出了，DPI 本身的单位也是 <code>像素/英寸</code>，所以 density 其实是没单位的，他就是一个比例值。</p>
+<p>而 dpi 的单位是 <code>像素/英寸</code>，比较符合物理上面的密度定义，密度不都是单位度量的值么，所以我更喜欢把 dpi 叫像素密度，简称密度，density还是就叫density。</p>
+<h2 id="各单位间转换"><a href="#各单位间转换" class="headerlink" title="各单位间转换"></a>各单位间转换</h2><h3 id="计算dpi"><a href="#计算dpi" class="headerlink" title="计算dpi　"></a>计算dpi　</h3><p>比如一个机器，屏幕4寸，分辨率480X800，他的dpi能算么。</p>
+<p>因为不知道边长，肯定不能分开算，4是对角线长度，那直接用勾股定理算对角线像素，除以4，算出来大概是 dpi = 233 像素/英寸。</p>
+<p>那么density就是 （233 px/inch）/（160 px/inch）= 1.46 左右</p>
+<p>顺带说下，android 默认的只有 3 个dpi，low、medium和high，对应 120、160、240，如果没有特别设置，所有的dpi都会被算成这3个，具体可以参考 <a href="http://android.tgbus.com/Android/tutorial/201103/347176.shtml" target="_blank" rel="noopener">Android中density如何设置</a></p>
+<p>其中的default就是160。</p>
+<h3 id="计算-dp-与-px"><a href="#计算-dp-与-px" class="headerlink" title="计算 dp 与 px"></a>计算 dp 与 px</h3><p>我们写布局的时候，肯定还是要知道1个dp到底有多少px的。</p>
+<p>换算公式如下： <code>dp = （DPI/（160像素/英寸））px = density px</code></p>
+<p>注意，这里都是带单位的。px是单位，dp有单位，density没单位。</p>
+<p>为了方便，假设dpi是 240 像素/英寸 ， 那么density就是1.5<br>那么就是 dp=1.5px ，注意这是带了单位的，也就是 <code>设备独立像素 = density 像素</code></p>
+<p>那么转换为数值计算的话，应该是下面这个式子</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PX &#x3D; density * DP</span><br></pre></td></tr></table></figure>
+
+<p>也就是<br>像素值 = density * 设备独立像素值 ，请注意这里有个值字。</p>
+<h3 id="为什么标准dpi-160"><a href="#为什么标准dpi-160" class="headerlink" title="为什么标准dpi = 160"></a>为什么标准dpi = 160</h3><p>Android Design 里把主流设备的 dpi 归成了四个档次，120 dpi、160 dpi、240 dpi、320 dpi</p>
+<p>实际开发当中，我们经常需要对这几个尺寸进行相互转换（比如先在某个分辨率下完成设计，然后缩放到其他尺寸微调后输出），一般按照 dpi 之间的比例即 <code>2:1.5:1:0.75</code> 来给界面中的元素来进行尺寸定义。</p>
+<p>也就是说如果以 160 dpi 作为基准的话，只要尺寸的 DP 是 4 的公倍数，XHDPI 下乘以 2，HDPI 下乘以 1.5，LDPI 下乘以 0.75 即可满足所有尺寸下都是整数 pixel 。</p>
+<p>但假设以 240 dpi 作为标准，那需要 DP 是 3 的公倍数，XHDPI 下乘以 1.333，MDPI 下乘以 0.666 ，LDPI 下除以 2</p>
+<p>而以 LDPI 和 XHDPI 为基准就更复杂了，所以选择 160 dpi</p>
+<blockquote>
+<p>注：这个在Google的官方文档中有给出了解释，因为第一款Android设备（HTC的T-Mobile G1）是属于160dpi的。</p>
+</blockquote>
+<h2 id="示例分析"><a href="#示例分析" class="headerlink" title="示例分析"></a>示例分析</h2><h3 id="屏幕尺寸-screen-size"><a href="#屏幕尺寸-screen-size" class="headerlink" title="屏幕尺寸(screen size)"></a>屏幕尺寸(screen size)</h3><p>就是我们平常讲的手机屏幕大小，是屏幕的对角线长度，一般讲的大小单位都是英寸。</p>
+<p>比如 iPhone5S 的屏幕尺寸是4英寸。Samsung Note3 是5.7英寸。</p>
+<p><img src="http://blogpic.at15cm.com/MI5.png" alt="小米5"></p>
+<h3 id="像素-pixel"><a href="#像素-pixel" class="headerlink" title="像素(pixel)"></a>像素(pixel)</h3><p>想像把屏幕放大再放大，看到的那一个个小点或者小方块就是像素了。</p>
+<h3 id="分辨率-Resolution"><a href="#分辨率-Resolution" class="headerlink" title="分辨率(Resolution)"></a>分辨率(Resolution)</h3><p>是指屏幕上垂直方向和水平方向上的像素个数。</p>
+<p>比如 iPhone5S 的分辨率是 <code>1136*640</code>；Samsung Note3 的分辨率是<code>1920*1080</code>；</p>
+<h3 id="dpi"><a href="#dpi" class="headerlink" title="dpi"></a>dpi</h3><p>是dot per inch的缩写，就是每英寸的像素数，也叫做屏幕密度。这个值越大，屏幕就越清晰。</p>
+<p>iPhone5S的dpi是326； Samsung Note3 的dpi是386</p>
+<h3 id="dip"><a href="#dip" class="headerlink" title="dip"></a>dip</h3><p>是Device independent pixel的缩写，指的是抽象意义上的像素。跟设备的屏幕密度有关系。</p>
+<p>它是Android里的一个单位，dip和dp是一样的。</p>
+<p>Google的官方说明是这样的：</p>
+<p>Density-independent pixel (dp)<br>A virtual pixel unit that you should use when defining UI layout, to express layout dimensions or position in a density-independent way.<br>The density-independent pixel is equivalent to one physical pixel on a 160 dpi screen, which is the baseline density assumed by the system for a “medium” density screen. At runtime, the system transparently handles any scaling of the dp units, as necessary, based on the actual density of the screen in use. The conversion of dp units to screen pixels is simple: px = dp * (dpi / 160). For example, on a 240 dpi screen, 1 dp equals 1.5 physical pixels. You should always use dp units when defining your application’s UI, to ensure proper display of your UI on screens with different densities.</p>
+<p>就是说在160dpi的屏幕上，1dip=1px。跟屏幕密度有关，如果屏幕密度大，1dip代表的px就多，比如在320dpi的屏幕上，1dip=2px。</p>
+<p>为什么我们在布局的时候最好要用dip，不要用px？<br>是因为这个世界上存在着很多不同屏幕密度的手机，屏幕密度是什么？就是dpi，就是单位长度里的像素数量。</p>
+<p>想象一下，如果这些手机的尺寸一样，屏幕密度相差很大，那么是不是说一个手机水平方向上像素很少，另一个手机水平方向上像素很多？那我们画同样pix数量的时候，它显示的长度不就会不一样了？</p>
+<p>比如下面图中的两个手机，同时设置2px长度的Button，在屏幕密度较高的手机里就会显示的比较小。而同时设置的2dip长度的Button，在两个手机上显示的大小是一样的。</p>
+<p><img src="http://images.cnitblog.com/i/66979/201407/141715402871566.png" alt=""></p>
+<p>所以如果你在App布局中都用的px作为单位，那么你的App跑在各个设备上就会出现奇奇怪怪的现象了。</p>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ul>
+<li><a href="http://www.cnblogs.com/yaozhongxiao/archive/2014/07/14/3842908.html" target="_blank" rel="noopener">dpi 、 dip 、分辨率、屏幕尺寸、px、density 关系以及换算</a></li>
+</ul>
+
+      </div>
+      
+      
+        <br>
+        
+
+
+  <section class='meta' id="footer-meta">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-02-20T23:43:32+08:00">
+  <a class='notlink'>
+    <i class="fas fa-clock" aria-hidden="true"></i>
+    <p>updated at Feb 20, 2021</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E5%88%86%E8%BE%A8%E7%8E%87/" rel="nofollow"><i class="fas fa-tag" aria-hidden="true"></i><p>分辨率</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E7%A7%BB%E5%8A%A8%E7%AB%AF/" rel="nofollow"><i class="fas fa-tag" aria-hidden="true"></i><p>移动端</p></a></div>
+
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="QQ好友" rel="external nofollow noopener noreferrer"
+          
+          href="http://connect.qq.com/widget/shareqq/index.html?url=http://awstudio.cn/2017/05/03/device-pixel/&title=DPI DIP 分辨率 屏幕尺寸 px density 关系以及换算 | awstudio's blog&pics=http://awstudio.cn/img/avatar.jpg&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="QQ空间" rel="external nofollow noopener noreferrer"
+          
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://awstudio.cn/2017/05/03/device-pixel/&title=DPI DIP 分辨率 屏幕尺寸 px density 关系以及换算 | awstudio's blog&pics=http://awstudio.cn/img/avatar.jpg&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="微博" rel="external nofollow noopener noreferrer"
+          
+          href="http://service.weibo.com/share/share.php?url=http://awstudio.cn/2017/05/03/device-pixel/&title=DPI DIP 分辨率 屏幕尺寸 px density 关系以及换算 | awstudio's blog&pics=http://awstudio.cn/img/avatar.jpg&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/weibo.png">
+          
+        </a>
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </section>
+
+
+      
+      
+          <div class="prev-next">
+              
+                  <section class="prev">
+                      <span class="art-item-left">
+                          <h6><i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;Previous</h6>
+                          <h4>
+                              <a href="/2017/05/03/webpack-quickstart/" rel="prev" title="WebPack 快速上手">
+                                
+                                    WebPack 快速上手
+                                
+                              </a>
+                          </h4>
+                          
+                              
+                              <h6 class="tags">
+                                  <a class="tag" href="/tags/%E5%B7%A5%E5%85%B7/"><i class="fas fa-tag fa-fw" aria-hidden="true"></i> 工具</a> <a class="tag" href="/tags/webpack/"><i class="fas fa-tag fa-fw" aria-hidden="true"></i> webpack</a>
+                              </h6>
+                          
+                      </span>
+                  </section>
+              
+              
+                  <section class="next">
+                      <span class="art-item-right" aria-hidden="true">
+                          <h6>Next&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></h6>
+                          <h4>
+                              <a href="/2017/05/02/seo-2/" rel="prev" title="SEO学习笔记（二)    SEO核心思想及工作流程">
+                                  
+                                      SEO学习笔记（二)    SEO核心思想及工作流程
+                                  
+                              </a>
+                          </h4>
+                          
+                              
+                              <h6 class="tags">
+                                  <a class="tag" href="/tags/SEO/"><i class="fas fa-tag fa-fw" aria-hidden="true"></i> SEO</a>
+                              </h6>
+                          
+                      </span>
+                  </section>
+              
+          </div>
+      
+    </section>
+  </article>
+
+
+
+  <!-- 显示推荐文章和评论 -->
+
+
+
+  
+
+
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+
+  <script>
+    window.subData = {
+      title: 'DPI DIP 分辨率 屏幕尺寸 px density 关系以及换算',
+      tools: true
+    }
+  </script>
+
+
+</div>
+<aside class='l_side'>
+  
+    
+    
+      
+      
+        
+          
+          
+            
+              <section class='widget author'>
+  <div class='content material'>
+    
+      <div class='avatar'>
+        <img class='avatar' src='http://blogpic.at15cm.com/parrot.jpg'/>
+      </div>
+    
+    
+    
+      <div class="social-wrapper">
+        
+          
+            <a href="/atom.xml"
+              class="social fas fa-rss flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+          
+            <a href="mailto:me@xaoxuu.com"
+              class="social fas fa-envelope flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+          
+            <a href="https://github.com/KodeWithKarlie"
+              class="social fab fa-github flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+          
+            <a href="https://music.163.com/#/user/home?id=409650851"
+              class="social fas fa-headphones-alt flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+      </div>
+    
+  </div>
+</section>
+
+            
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+      
+        
+          
+          
+        
+          
+          
+            
+              <section class='widget plain'>
+  
+<header class='material'>
+  <div><i class="fas fa-file fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;家训</div>
+  
+</header>
+
+  <div class='content material'>
+    <p>一等人忠臣孝子，两件事读书耕田</p>
+
+  </div>
+</section>
+
+            
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+      
+        
+          
+          
+        
+          
+          
+        
+          
+          
+            
+              
+  <section class='widget toc-wrapper'>
+    
+<header class='material'>
+  <div><i class="fas fa-list fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;TOC</div>
+  
+    <!-- <div class='wrapper'><a class="s-toc rightBtn" rel="external nofollow noopener noreferrer" href="javascript:void(0)"><i class="fas fa-thumbtack fa-fw"></i></a></div> -->
+  
+</header>
+
+    <div class='content material'>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#基本概念"><span class="toc-text">基本概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#应用"><span class="toc-text">应用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#各单位间转换"><span class="toc-text">各单位间转换</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#计算dpi"><span class="toc-text">计算dpi　</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#计算-dp-与-px"><span class="toc-text">计算 dp 与 px</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#为什么标准dpi-160"><span class="toc-text">为什么标准dpi &#x3D; 160</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#示例分析"><span class="toc-text">示例分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#屏幕尺寸-screen-size"><span class="toc-text">屏幕尺寸(screen size)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#像素-pixel"><span class="toc-text">像素(pixel)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#分辨率-Resolution"><span class="toc-text">分辨率(Resolution)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#dpi"><span class="toc-text">dpi</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#dip"><span class="toc-text">dip</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考文献"><span class="toc-text">参考文献</span></a></li></ol>
+    </div>
+  </section>
+
+
+            
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+      
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+            
+              <section class='widget grid'>
+  
+<header class='material'>
+  <div><i class="fas fa-map-signs fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;站内导航</div>
+  
+</header>
+
+  <div class='content material'>
+    <ul class="grid navgation">
+      
+        <li><a class="flat-box" title="/" href="/"
+          
+          
+          id="home">
+          
+            <i class="fas fa-clock fa-fw" aria-hidden="true"></i>
+          
+          近期文章
+        </a></li>
+      
+        <li><a class="flat-box" title="/blog/archives/" href="/blog/archives/"
+          
+            rel="nofollow"
+          
+          
+          id="blogarchives">
+          
+            <i class="fas fa-archive fa-fw" aria-hidden="true"></i>
+          
+          文章归档
+        </a></li>
+      
+        <li><a class="flat-box" title="/projects/" href="/projects/"
+          
+          
+          id="projects">
+          
+            <i class="fas fa-code-branch fa-fw" aria-hidden="true"></i>
+          
+          开源项目
+        </a></li>
+      
+        <li><a class="flat-box" title="/friends/" href="/friends/"
+          
+            rel="nofollow"
+          
+          
+          id="friends">
+          
+            <i class="fas fa-link fa-fw" aria-hidden="true"></i>
+          
+          我的友链
+        </a></li>
+      
+        <li><a class="flat-box" title="https://xaoxuu.com/wiki/material-x/" href="https://xaoxuu.com/wiki/material-x/"
+          
+            rel="nofollow"
+          
+          
+          id="https:xaoxuu.comwikimaterial-x">
+          
+            <i class="fas fa-book fa-fw" aria-hidden="true"></i>
+          
+          主题文档
+        </a></li>
+      
+        <li><a class="flat-box" title="/about/" href="/about/"
+          
+            rel="nofollow"
+          
+          
+          id="about">
+          
+            <i class="fas fa-info-circle fa-fw" aria-hidden="true"></i>
+          
+          关于小站
+        </a></li>
+      
+    </ul>
+  </div>
+</section>
+
+            
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+      
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+            
+              
+  <section class='widget category'>
+    
+<header class='material'>
+  <div><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;Categories</div>
+  
+    <a class="rightBtn"
+    
+      rel="nofollow"
+    
+    
+    href="/categories/"
+    title="categories/">
+    <i class="fas fa-expand-arrows-alt fa-fw"></i></a>
+  
+</header>
+
+    <div class='content material'>
+      <ul class="entry">
+        
+          <li><a class="flat-box" title="/categories/Android/" href="/categories/Android/"><div class='name'>Android</div><div class='badge'>(2)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/CSS/" href="/categories/CSS/"><div class='name'>CSS</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/ES6/" href="/categories/ES6/"><div class='name'>ES6</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/Node/" href="/categories/Node/"><div class='name'>Node</div><div class='badge'>(2)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/articles/" href="/categories/articles/"><div class='name'>articles</div><div class='badge'>(21)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/tools/" href="/categories/tools/"><div class='name'>tools</div><div class='badge'>(3)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/%E5%89%8D%E7%AB%AF/" href="/categories/%E5%89%8D%E7%AB%AF/"><div class='name'>前端</div><div class='badge'>(87)</div></a></li>
+        
+          <li><a class="flat-box child" title="/categories/%E5%89%8D%E7%AB%AF/CSS/" href="/categories/%E5%89%8D%E7%AB%AF/CSS/"><div class='name'>CSS</div><div class='badge'>(4)</div></a></li>
+        
+          <li><a class="flat-box child" title="/categories/%E5%89%8D%E7%AB%AF/HTML/" href="/categories/%E5%89%8D%E7%AB%AF/HTML/"><div class='name'>HTML</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box child" title="/categories/%E5%89%8D%E7%AB%AF/JavaScript/" href="/categories/%E5%89%8D%E7%AB%AF/JavaScript/"><div class='name'>JavaScript</div><div class='badge'>(6)</div></a></li>
+        
+          <li><a class="flat-box child" title="/categories/%E5%89%8D%E7%AB%AF/Vue/" href="/categories/%E5%89%8D%E7%AB%AF/Vue/"><div class='name'>Vue</div><div class='badge'>(21)</div></a></li>
+        
+          <li><a class="flat-box child" title="/categories/%E5%89%8D%E7%AB%AF/%E5%B0%8F%E7%A8%8B%E5%BA%8F/" href="/categories/%E5%89%8D%E7%AB%AF/%E5%B0%8F%E7%A8%8B%E5%BA%8F/"><div class='name'>小程序</div><div class='badge'>(3)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" href="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"><div class='name'>博客搭建</div><div class='badge'>(7)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/%E5%90%8E%E5%8F%B0/" href="/categories/%E5%90%8E%E5%8F%B0/"><div class='name'>后台</div><div class='badge'>(22)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/%E5%B0%8F%E7%A8%8B%E5%BA%8F/" href="/categories/%E5%B0%8F%E7%A8%8B%E5%BA%8F/"><div class='name'>小程序</div><div class='badge'>(5)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/%E5%B7%A5%E5%85%B7/" href="/categories/%E5%B7%A5%E5%85%B7/"><div class='name'>工具</div><div class='badge'>(21)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/%E5%B7%A5%E7%A8%8B%E5%8C%96/" href="/categories/%E5%B7%A5%E7%A8%8B%E5%8C%96/"><div class='name'>工程化</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box child" title="/categories/%E5%B7%A5%E7%A8%8B%E5%8C%96/webpack/" href="/categories/%E5%B7%A5%E7%A8%8B%E5%8C%96/webpack/"><div class='name'>webpack</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/%E6%91%84%E5%BD%B1/" href="/categories/%E6%91%84%E5%BD%B1/"><div class='name'>摄影</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF/" href="/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF/"><div class='name'>服务器端</div><div class='badge'>(4)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/%E6%9D%82%E8%B0%88/" href="/categories/%E6%9D%82%E8%B0%88/"><div class='name'>杂谈</div><div class='badge'>(7)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/" href="/categories/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/"><div class='name'>游戏开发</div><div class='badge'>(17)</div></a></li>
+        
+      </ul>
+    </div>
+  </section>
+
+
+            
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+      
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+            
+              
+  <section class='widget tagcloud'>
+    
+<header class='material'>
+  <div><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;Hot Tags</div>
+  
+    <a class="rightBtn"
+    
+      rel="nofollow"
+    
+    
+    href="/tags/"
+    title="tags/">
+    <i class="fas fa-expand-arrows-alt fa-fw"></i></a>
+  
+</header>
+
+    <div class='content material'>
+      <a href="/tags/AS3/" style="font-size: 18px; color: #7e7e7e">AS3</a> <a href="/tags/Android/" style="font-size: 14px; color: #999">Android</a> <a href="/tags/Apache/" style="font-size: 14px; color: #999">Apache</a> <a href="/tags/CSS/" style="font-size: 18.67px; color: #797979">CSS</a> <a href="/tags/EQ/" style="font-size: 22px; color: #636363">EQ</a> <a href="/tags/ES6/" style="font-size: 16px; color: #8b8b8b">ES6</a> <a href="/tags/Github/" style="font-size: 15.33px; color: #909090">Github</a> <a href="/tags/Gulp/" style="font-size: 14px; color: #999">Gulp</a> <a href="/tags/HTML/" style="font-size: 14px; color: #999">HTML</a> <a href="/tags/HTML5/" style="font-size: 14px; color: #999">HTML5</a> <a href="/tags/HTTP/" style="font-size: 14px; color: #999">HTTP</a> <a href="/tags/Hexo/" style="font-size: 14.67px; color: #949494">Hexo</a> <a href="/tags/JavaScript/" style="font-size: 20px; color: #707070">JavaScript</a> <a href="/tags/LayaAir/" style="font-size: 15.33px; color: #909090">LayaAir</a> <a href="/tags/Markdown/" style="font-size: 14px; color: #999">Markdown</a> <a href="/tags/MySQL/" style="font-size: 14px; color: #999">MySQL</a> <a href="/tags/Node/" style="font-size: 14.67px; color: #949494">Node</a> <a href="/tags/PHP/" style="font-size: 21.33px; color: #676767">PHP</a> <a href="/tags/SEO/" style="font-size: 14.67px; color: #949494">SEO</a> <a href="/tags/SVN/" style="font-size: 14.67px; color: #949494">SVN</a> <a href="/tags/Sass/" style="font-size: 14px; color: #999">Sass</a> <a href="/tags/Vue/" style="font-size: 24px; color: #555">Vue</a> <a href="/tags/WeTest/" style="font-size: 14.67px; color: #949494">WeTest</a> <a href="/tags/ajax/" style="font-size: 14px; color: #999">ajax</a> <a href="/tags/articles/" style="font-size: 22.67px; color: #5e5e5e">articles</a> <a href="/tags/axios/" style="font-size: 14.67px; color: #949494">axios</a> <a href="/tags/canvas/" style="font-size: 14px; color: #999">canvas</a> <a href="/tags/docker/" style="font-size: 16px; color: #8b8b8b">docker</a> <a href="/tags/flex/" style="font-size: 15.33px; color: #909090">flex</a> <a href="/tags/hexo/" style="font-size: 16.67px; color: #878787">hexo</a> <a href="/tags/node/" style="font-size: 14.67px; color: #949494">node</a> <a href="/tags/npm/" style="font-size: 14.67px; color: #949494">npm</a> <a href="/tags/promise/" style="font-size: 14px; color: #999">promise</a> <a href="/tags/tools/" style="font-size: 15.33px; color: #909090">tools</a> <a href="/tags/webpack/" style="font-size: 14.67px; color: #949494">webpack</a> <a href="/tags/%E5%88%86%E8%BE%A8%E7%8E%87/" style="font-size: 14px; color: #999">分辨率</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 23.33px; color: #5a5a5a">前端</a> <a href="/tags/%E5%8D%81%E4%B8%89%E5%8F%B7%E4%BB%93%E5%BA%93/" style="font-size: 14px; color: #999">十三号仓库</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" style="font-size: 17.33px; color: #828282">博客搭建</a> <a href="/tags/%E5%8E%86%E5%8F%B2/" style="font-size: 14px; color: #999">历史</a> <a href="/tags/%E5%B0%8F%E6%B8%B8%E6%88%8F/" style="font-size: 14px; color: #999">小游戏</a> <a href="/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/" style="font-size: 17.33px; color: #828282">小程序</a> <a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 19.33px; color: #757575">工具</a> <a href="/tags/%E5%BF%83%E5%AD%A6%EF%BC%8C-%E6%9D%82%E8%B0%88/" style="font-size: 14px; color: #999">心学， 杂谈</a> <a href="/tags/%E6%8F%92%E4%BB%B6/" style="font-size: 16.67px; color: #878787">插件</a> <a href="/tags/%E6%91%84%E5%BD%B1/" style="font-size: 14px; color: #999">摄影</a> <a href="/tags/%E6%9D%82%E8%B0%88/" style="font-size: 16.67px; color: #878787">杂谈</a> <a href="/tags/%E6%9D%8E%E7%82%8E%E6%81%A2/" style="font-size: 20px; color: #707070">李炎恢</a> <a href="/tags/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/" style="font-size: 20.67px; color: #6c6c6c">游戏开发</a> <a href="/tags/%E7%8E%8B%E9%98%B3%E6%98%8E/" style="font-size: 14px; color: #999">王阳明</a> <a href="/tags/%E7%A7%BB%E5%8A%A8%E7%AB%AF/" style="font-size: 14.67px; color: #949494">移动端</a> <a href="/tags/%E7%BE%8E%E5%89%A7/" style="font-size: 14px; color: #999">美剧</a> <a href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" style="font-size: 14px; color: #999">读书笔记</a> <a href="/tags/%E8%B0%B7%E6%AD%8C/" style="font-size: 14px; color: #999">谷歌</a> <a href="/tags/%E9%80%82%E9%85%8D/" style="font-size: 14px; color: #999">适配</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 15.33px; color: #909090">面试</a> <a href="/tags/%E9%A1%B9%E7%9B%AE/" style="font-size: 14.67px; color: #949494">项目</a>
+    </div>
+  </section>
+
+
+            
+          
+        
+          
+          
+        
+          
+          
+        
+      
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+            
+              <section class='widget list'>
+  
+<header class='material'>
+  <div><i class="fas fa-thumbs-up fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;强烈推荐</div>
+  
+</header>
+
+  <div class='content material'>
+    <ul class="entry">
+      
+        <li><a class="flat-box" title="http://zhongguose.com/" href="http://zhongguose.com/"
+          
+          
+          >
+          <div class='name'>
+            
+              <i class=" fa-fw" aria-hidden="true"></i>
+            
+            &nbsp;&nbsp;中国色 - 中国传统颜色
+          </div>
+          
+        </a></li>
+      
+        <li><a class="flat-box" title="https://xaoxuu.com/wiki/hexo.sh/" href="https://xaoxuu.com/wiki/hexo.sh/"
+          
+          
+          >
+          <div class='name'>
+            
+              <i class=" fa-fw" aria-hidden="true"></i>
+            
+            &nbsp;&nbsp;Hexo脚本（Mac）
+          </div>
+          
+        </a></li>
+      
+        <li><a class="flat-box" title="https://xaoxuu.com/wiki/vim-cn.sh/" href="https://xaoxuu.com/wiki/vim-cn.sh/"
+          
+          
+          >
+          <div class='name'>
+            
+              <i class=" fa-fw" aria-hidden="true"></i>
+            
+            &nbsp;&nbsp;图床脚本（Mac）
+          </div>
+          
+        </a></li>
+      
+        <li><a class="flat-box" title="https://yasuotu.com" href="https://yasuotu.com"
+          
+          
+          >
+          <div class='name'>
+            
+              <i class=" fa-fw" aria-hidden="true"></i>
+            
+            &nbsp;&nbsp;图片在线压缩
+          </div>
+          
+        </a></li>
+      
+        <li><a class="flat-box" title="https://realfavicongenerator.net" href="https://realfavicongenerator.net"
+          
+          
+          >
+          <div class='name'>
+            
+              <i class=" fa-fw" aria-hidden="true"></i>
+            
+            &nbsp;&nbsp;生成Favicon
+          </div>
+          
+        </a></li>
+      
+        <li><a class="flat-box" title="https://mxclub.github.io/resume/" href="https://mxclub.github.io/resume/"
+          
+          
+          >
+          <div class='name'>
+            
+              <i class=" fa-fw" aria-hidden="true"></i>
+            
+            &nbsp;&nbsp;简历主题
+          </div>
+          
+        </a></li>
+      
+    </ul>
+  </div>
+</section>
+
+            
+          
+        
+      
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+      
+    
+
+  
+</aside>
+
+<footer id="footer" class="clearfix">
+  
+    <div class="footer">
+      <center>❤ 食二三春沐秋凉，与一人携苦挽甜 ❤</center>
+    </div>
+    <br>
+  
+  
+    <div class="social-wrapper">
+      
+        
+          <a href="/atom.xml"
+            class="social fas fa-rss flat-btn"
+            target="_blank"
+            rel="external nofollow noopener noreferrer">
+          </a>
+        
+      
+        
+          <a href="mailto:me@xaoxuu.com"
+            class="social fas fa-envelope flat-btn"
+            target="_blank"
+            rel="external nofollow noopener noreferrer">
+          </a>
+        
+      
+        
+          <a href="https://github.com/KodeWithKarlie"
+            class="social fab fa-github flat-btn"
+            target="_blank"
+            rel="external nofollow noopener noreferrer">
+          </a>
+        
+      
+        
+          <a href="https://music.163.com/#/user/home?id=409650851"
+            class="social fas fa-headphones-alt flat-btn"
+            target="_blank"
+            rel="external nofollow noopener noreferrer">
+          </a>
+        
+      
+    </div>
+  
+  <br>
+  <div><p>Blog content follows the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener">Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License</a></p>
+</div>
+  <div>
+    Use
+    <a href="https://xaoxuu.com/wiki/material-x/" target="_blank" class="codename">Material X</a>
+    as theme
+    
+      , 
+      total visits
+      <span id="busuanzi_value_site_pv"><i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span>
+      times
+    
+    . 
+  </div>
+</footer>
+<script>setLoadingBarProgress(80);</script>
+
+
+      <script>setLoadingBarProgress(60);</script>
+    </div>
+    <a class="s-top fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+
+  <script>
+    var GOOGLE_CUSTOM_SEARCH_API_KEY = "";
+    var GOOGLE_CUSTOM_SEARCH_ENGINE_ID = "";
+    var ALGOLIA_API_KEY = "";
+    var ALGOLIA_APP_ID = "";
+    var ALGOLIA_INDEX_NAME = "";
+    var AZURE_SERVICE_NAME = "";
+    var AZURE_INDEX_NAME = "";
+    var AZURE_QUERY_KEY = "";
+    var BAIDU_API_ID = "";
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/"||"/";
+    if(!ROOT.endsWith('/'))ROOT += '/';
+  </script>
+
+<script src="//instant.page/1.2.2" type="module" integrity="sha384-2xV8M5griQmzyiY3CDqh1dn4z3llDVqZDqzjzcY+jCBCk/a5fXJmuZ/40JJAPeoU"></script>
+
+
+  <script async src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.5/dist/scrollreveal.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      const $reveal = $('.reveal');
+      if ($reveal.length === 0) return;
+      const sr = ScrollReveal({ distance: 0 });
+      sr.reveal('.reveal');
+    });
+  </script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      Waves.attach('.flat-btn', ['waves-button']);
+      Waves.attach('.float-btn', ['waves-button', 'waves-float']);
+      Waves.attach('.float-btn-light', ['waves-button', 'waves-float', 'waves-light']);
+      Waves.attach('.flat-box', ['waves-block']);
+      Waves.attach('.float-box', ['waves-block', 'waves-float']);
+      Waves.attach('.waves-image');
+      Waves.init();
+    });
+  </script>
+
+
+  <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+  
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.0.4/jquery.backstretch.min.js"></script>
+    <script type="text/javascript">
+      $(function(){
+        if ('.cover') {
+          $('.cover').backstretch(
+          ["https://img.vim-cn.com/29/91197b04c13f512f734a76d4ac422d89dbe229.jpg"],
+          {
+            duration: "6000",
+            fade: "2500"
+          });
+        } else {
+          $.backstretch(
+          ["https://img.vim-cn.com/29/91197b04c13f512f734a76d4ac422d89dbe229.jpg"],
+          {
+            duration: "6000",
+            fade: "2500"
+          });
+        }
+      });
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+<script src="/js/app.js"></script>
+
+
+
+  
+<script src="/js/search.js"></script>
+
+
+
+
+
+<!-- 复制 -->
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  let COPY_SUCCESS = "Copied";
+  let COPY_FAILURE = "Copy failed";
+  /*页面载入完成后，创建复制按钮*/
+  !function (e, t, a) {
+    /* code */
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '  <i class="fa fa-copy"></i><span>Copy</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+
+      clipboard.on('success', function(e) {
+        //您可以加入成功提示
+        console.info('Action:', e.action);
+        console.info('Text:', e.text);
+        console.info('Trigger:', e.trigger);
+        success_prompt(COPY_SUCCESS);
+        e.clearSelection();
+      });
+      clipboard.on('error', function(e) {
+        //您可以加入失败提示
+        console.error('Action:', e.action);
+        console.error('Trigger:', e.trigger);
+        fail_prompt(COPY_FAILURE);
+      });
+    }
+    initCopyCode();
+
+  }(window, document);
+
+  /**
+   * 弹出式提示框，默认1.5秒自动消失
+   * @param message 提示信息
+   * @param style 提示样式，有alert-success、alert-danger、alert-warning、alert-info
+   * @param time 消失时间
+   */
+  var prompt = function (message, style, time)
+  {
+      style = (style === undefined) ? 'alert-success' : style;
+      time = (time === undefined) ? 1500 : time*1000;
+      $('<div>')
+          .appendTo('body')
+          .addClass('alert ' + style)
+          .html(message)
+          .show()
+          .delay(time)
+          .fadeOut();
+  };
+
+  // 成功提示
+  var success_prompt = function(message, time)
+  {
+      prompt(message, 'alert-success', time);
+  };
+
+  // 失败提示
+  var fail_prompt = function(message, time)
+  {
+      prompt(message, 'alert-danger', time);
+  };
+
+  // 提醒
+  var warning_prompt = function(message, time)
+  {
+      prompt(message, 'alert-warning', time);
+  };
+
+  // 信息提示
+  var info_prompt = function(message, time)
+  {
+      prompt(message, 'alert-info', time);
+  };
+
+</script>
+
+
+<!-- fancybox -->
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script>
+  let LAZY_LOAD_IMAGE = "";
+  $(".article-entry").find("fancybox").find("img").each(function () {
+      var element = document.createElement("a");
+      $(element).attr("data-fancybox", "gallery");
+      $(element).attr("href", $(this).attr("src"));
+      /* 图片采用懒加载处理时,
+       * 一般图片标签内会有个属性名来存放图片的真实地址，比如 data-original,
+       * 那么此处将原本的属性名src替换为对应属性名data-original,
+       * 修改如下
+       */
+       if (LAZY_LOAD_IMAGE) {
+         $(element).attr("href", $(this).attr("data-original"));
+       }
+      $(this).wrap(element);
+  });
+</script>
+
+
+
+
+
+  <script>setLoadingBarProgress(100);</script>
+</body>
+</html>

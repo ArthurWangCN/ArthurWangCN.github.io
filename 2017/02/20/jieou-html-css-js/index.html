@@ -1,0 +1,1467 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  
+  <title>解耦HTML、CSS和JavaScript | awstudio&#39;s blog</title>
+  
+  
+
+  
+
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <!-- meta -->
+  
+
+  <!-- link -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css">
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.10.1/css/all.min.css">
+  
+
+  
+  <link rel="shortcut icon" type='image/x-icon' href="http://awstudio.cn/img/avatar.jpg">
+  
+
+  
+    
+<link rel="stylesheet" href="/style.css">
+
+  
+
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+
+  
+  
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  
+  
+  <div class="cover-wrapper">
+    <cover class='cover post half'>
+      
+        
+  <h1 class='title'>Arthur Wang</h1>
+
+
+  <div class="m_search">
+    <form name="searchform" class="form u-search-form">
+      <input type="text" class="input u-search-input" placeholder="" />
+      <i class="icon fas fa-search fa-fw"></i>
+    </form>
+  </div>
+
+<div class='menu navgation'>
+  <ul class='h-list'>
+    
+      
+        <li>
+          <a class="nav home" href="/"
+            
+            
+            id="home">
+            <i class='fas fa-blog fa-fw'></i>&nbsp;博文
+          </a>
+        </li>
+      
+        <li>
+          <a class="nav home" href="/categories/"
+            
+            
+            id="categories">
+            <i class='fas fa-code-branch fa-fw'></i>&nbsp;分类
+          </a>
+        </li>
+      
+        <li>
+          <a class="nav home" href="/tags/"
+            
+            
+            id="tags">
+            <i class='fas fa-tag fa-fw'></i>&nbsp;标签
+          </a>
+        </li>
+      
+        <li>
+          <a class="nav home" href="/friends/"
+            
+              rel="nofollow"
+            
+            
+            id="friends">
+            <i class='fas fa-link fa-fw'></i>&nbsp;友链
+          </a>
+        </li>
+      
+        <li>
+          <a class="nav home" href="/about/"
+            
+              rel="nofollow"
+            
+            
+            id="about">
+            <i class='fas fa-info-circle fa-fw'></i>&nbsp;关于
+          </a>
+        </li>
+      
+    
+  </ul>
+</div>
+
+      
+    </cover>
+    <header class="l_header material">
+  <div id="loading-bar-wrapper">
+    <div id="loading-bar" class="material"></div>
+  </div>
+
+	<div class='wrapper'>
+		<div class="nav-main container container--flex">
+      <a class="logo flat-box" href='/' >
+        
+          awstudio's blog
+        
+      </a>
+			<div class='menu navgation'>
+				<ul class='h-list'>
+          
+  					
+  						<li>
+								<a class="nav flat-box" href="/"
+                  
+                  
+                  id="home">
+									<i class='fas fa-blog fa-fw'></i>&nbsp;博文
+								</a>
+							</li>
+      			
+  						<li>
+								<a class="nav flat-box" href="/categories/"
+                  
+                    rel="nofollow"
+                  
+                  
+                  id="categories">
+									<i class='fas fa-folder-open fa-fw'></i>&nbsp;分类
+								</a>
+							</li>
+      			
+  						<li>
+								<a class="nav flat-box" href="/tags/"
+                  
+                    rel="nofollow"
+                  
+                  
+                  id="tags">
+									<i class='fas fa-hashtag fa-fw'></i>&nbsp;标签
+								</a>
+							</li>
+      			
+      		
+				</ul>
+			</div>
+
+			
+				<div class="m_search">
+					<form name="searchform" class="form u-search-form">
+						<input type="text" class="input u-search-input" placeholder="Search" />
+						<i class="icon fas fa-search fa-fw"></i>
+					</form>
+				</div>
+			
+			<ul class='switcher h-list'>
+				
+					<li class='s-search'><a class="fas fa-search fa-fw" href='javascript:void(0)'></a></li>
+				
+				<li class='s-menu'><a class="fas fa-bars fa-fw" href='javascript:void(0)'></a></li>
+			</ul>
+		</div>
+
+		<div class='nav-sub container container--flex'>
+			<a class="logo flat-box"></a>
+			<ul class='switcher h-list'>
+				<li class='s-comment'><a class="flat-btn fas fa-comments fa-fw" href='javascript:void(0)'></a></li>
+        
+          <li class='s-toc'><a class="flat-btn fas fa-list fa-fw" href='javascript:void(0)'></a></li>
+        
+			</ul>
+		</div>
+	</div>
+</header>
+	<aside class="menu-phone">
+    <header>
+		<nav class="menu navgation">
+      <ul>
+        
+          
+            <li>
+							<a class="nav flat-box" href="/"
+                
+                
+                id="home">
+								<i class='fas fa-clock fa-fw'></i>&nbsp;近期文章
+							</a>
+            </li>
+          
+            <li>
+							<a class="nav flat-box" href="/blog/archives/"
+                
+                  rel="nofollow"
+                
+                
+                id="blogarchives">
+								<i class='fas fa-archive fa-fw'></i>&nbsp;文章归档
+							</a>
+            </li>
+          
+            <li>
+							<a class="nav flat-box" href="/projects/"
+                
+                
+                id="projects">
+								<i class='fas fa-code-branch fa-fw'></i>&nbsp;开源项目
+							</a>
+            </li>
+          
+            <li>
+							<a class="nav flat-box" href="/friends/"
+                
+                  rel="nofollow"
+                
+                
+                id="friends">
+								<i class='fas fa-link fa-fw'></i>&nbsp;我的友链
+							</a>
+            </li>
+          
+            <li>
+							<a class="nav flat-box" href="https://xaoxuu.com/wiki/material-x/"
+                
+                  rel="nofollow"
+                
+                
+                id="https:xaoxuu.comwikimaterial-x">
+								<i class='fas fa-book fa-fw'></i>&nbsp;主题文档
+							</a>
+            </li>
+          
+            <li>
+							<a class="nav flat-box" href="/about/"
+                
+                  rel="nofollow"
+                
+                
+                id="about">
+								<i class='fas fa-info-circle fa-fw'></i>&nbsp;关于小站
+							</a>
+            </li>
+          
+       
+      </ul>
+		</nav>
+    </header>
+	</aside>
+<script>setLoadingBarProgress(40);</script>
+
+  </div>
+
+
+  <div class="l_body">
+    <div class='body-wrapper'>
+      <div class='l_main'>
+  
+
+  <article id="post" class="post white-box article-type-post" itemscope itemprop="blogPost">
+    
+
+
+  <section class='meta'>
+    
+    
+    <div class="meta" id="header-meta">
+      
+        
+  
+    <h1 class="title">
+      <a href="/2017/02/20/jieou-html-css-js/">
+        解耦HTML、CSS和JavaScript
+      </a>
+    </h1>
+  
+
+
+      
+      <div class='new-meta-box'>
+        
+          
+        
+          
+            
+  <div class='new-meta-item author'>
+    
+      <a href="http://awstudio.cn" rel="nofollow">
+        
+          <img src="http://awstudio.cn/img/avatar.jpg">
+        
+        <p>Arthur Wang</p>
+      </a>
+    
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+    <p>2017-02-20</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  
+  <div class='new-meta-item category'>
+    <a href='/categories/%E5%89%8D%E7%AB%AF/' rel="nofollow">
+      <i class="fas fa-folder-open" aria-hidden="true"></i>
+      <p>前端</p>
+    </a>
+  </div>
+
+
+          
+        
+          
+            
+  
+    <div class="new-meta-item browse busuanzi">
+      <a class='notlink'>
+        <i class="fas fa-eye" aria-hidden="true"></i>
+        <p>
+          <span id="busuanzi_value_page_pv">
+            <i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i>
+          </span>
+        </p>
+      </a>
+    </div>
+  
+
+
+          
+        
+          
+            
+  
+    <div class="new-meta-item wordcount">
+      <a class='notlink'>
+        <i class="fas fa-keyboard" aria-hidden="true"></i>
+        <p>字数统计:</p>
+        <p>3.7k字</p>
+      </a>
+    </div>
+    <div class="new-meta-item readtime">
+      <a class='notlink'>
+        <i class="fas fa-hourglass-half" aria-hidden="true"></i>
+        <p>阅读时长≈</p>
+        <p>12分</p>
+      </a>
+    </div>
+  
+
+          
+        
+          
+            
+
+          
+        
+      </div>
+      
+        <hr>
+      
+    </div>
+  </section>
+
+
+    <section class="article typo">
+      <div class="article-entry" itemprop="articleBody">
+        <p>当前在互联网上，任何一个稍微复杂的网站或者应用程序都会包含许多 <code>HTML</code>、<code>CSS</code> 和 <code>JavaScript</code>。随着互联网运用的发展以及我们对它的依赖性日益增加，设定一个关于组织和维护你的前端代码的计划是绝对需要的。</p>
+<p>当今的一些大型互联网公司，由于越来越多的人会接触到日益增加的前端代码，它们会试图去坚持代码的模块化。这样更改程序的部分代码，并不会无意中过多地影响后续不相关部分的执行过程。</p>
+<p>防止意想不到的后果不是一个容易解决的问题，尤其是HTML，CSS和JavaScript本质上是 <code>相互依赖</code> 的。更糟糕的是，当涉及到前端代码时，一些传统计算机科学原则，比如关注分离，这一长期运用在服务端开发中，很少会讨论到。</p>
+<p>在本文中，我将会讲讲我所学到的如何去 <code>解耦</code> 我的HTML，CSS和JavaScript代码。从个人以及他人经验所得，这种的最好办法并不是那么显而易见，而通常是不直观的，而且有时还会与许多所谓的最佳实践相违背。</p>
+<h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><p>HTML，CSS和JavaScript之间总会存在耦合关联。不管怎样，这些技术与生俱来就是要和其它进行交互。举个例子，一种飞闪转换效果可能会在样式表中用带有类选择器定义，但它经常由HTML初始化，并通过用户交互，如编写JavaScript，来触发。由于前端代码的有些耦合是不可避免的，你的目标就不应该是简单地消除之间的耦合，而应该是减少代码间不必要的依赖耦合关系。一个后端开发者应该能够对HTML模板中的标记进行更改，而无需担心意外破坏CSS规则或者一些JavaScript功能。由于当今的web团队日渐增大且专业化，这个目标比以往更甚。</p>
+<h2 id="反模式"><a href="#反模式" class="headerlink" title="反模式"></a>反模式</h2><p>前端代码的紧耦合现象并不总是很明显。事实上复杂的是，一方面看起来似乎松耦合，但从另一方面则是紧耦合。以下是我曾经多次做过或者看过，以及吸取我的过错中，总结的所有的反模式。对每一个模式，我会尝试去解释为何耦合这么糟糕，并且指出如何去避免它。</p>
+<h3 id="过度复杂的选择器"><a href="#过度复杂的选择器" class="headerlink" title="过度复杂的选择器"></a>过度复杂的选择器</h3><p><code>CSS Zen Garden</code> 向世界展示了你可以完全改变整个网站的外观而无需更改任意一个的HTML标记。这是语义网运动的典型代表，主要原则之一就是去避免使用表象类。乍一看，CSS Zen Garden 可能看起来像是一个很好的解耦合例子，毕竟，把样式从标记语言中分离出来是它的重点所在。但是，若按照这样做，问题就来了，你会经常需要在你的样式表里有这样的选择器，如下：</p>
+<p><code>#sidebar section:first-child h3+p {}</code></p>
+<p>CSS Zen Garden 中，虽然HTML几乎与CSS完全分离，但CSS会强耦合到HTML中去，此时就需要你对标记语言的结构有深层次的理解。这可能看起来似乎并不是很糟糕，尤其是某人维护着CSS，同时需要维护HTML，但一旦你增加了许多人手进去，这种情况就变得无法控制了。如果某个开发者在某种情况下在第一个前增加了，上面的规则就无法生效，然而他也不清楚其中缘由。</p>
+<p>只要你网站的标记很少改动，CSS Zen Garden就是一个非常不错的主意。但是这和当今的Web应用不尽然都是这种情况。与冗长而又复杂的CSS选择器相比，最好的办法是在可视化组件本身的根元素增加一个或多个类选择器。比如，如果侧边栏有子菜单，只需要为每个子菜单元素增加submenu类选择器，而不要用这样的形式：</p>
+<p><code>ul.sidebar&gt;li&gt;ul {}</code></p>
+<p>这种方式的结果是在HTML中需要更多的类选择器，但从长远来看，这又降低了耦合度，以及让代码更可重用和可维护，并且还能让你的标记自文档化。如果HTML里没有类选择器，那些对CSS不熟悉的开发者就不清楚HTML的改动如何影响了其它代码。另一方面，在HTML中使用类选择器能很清晰地看到那些样式或者功能被使用到了。</p>
+<h2 id="多个类选择器的职责"><a href="#多个类选择器的职责" class="headerlink" title="多个类选择器的职责"></a>多个类选择器的职责</h2><p>一个类选择器往往是用来同时作为样式和，但事实上，这是把元素的表现和功能耦合起来了。</p>
+<p><code>&lt;button class=&quot;add-item&quot;&gt;&lt;/button&gt;</code></p>
+<p>以上例子描述了一个带有add-item类样式的”添加到购物车”按钮。</p>
+<p>如果开发者想为此元素添加一个单击事件监听器，用已经存在的类选择器作为钩子非常的容易。我的意思是，既然已经存在了一个，为何要添加另一个呢？但是想想看，有很多像这样的按钮，遍布了整个网站，都调用了相同的JavaScript功能。再想想看，如果市场团队想要其中一个和其它看起来完全不同但功能相同的按钮呢。也许这样就需要更多显著的色彩了。</p>
+<p>问题就来了，因为监听单击事件的。还有，如果你测试的代码同时也希望使用add-item类选择器，那么你不得不要去更新那么代码用到的地方。更糟糕的是，如果这个”添加到购物车”功能不仅仅是当前应用用到的话，也就是说，把这份代码抽象出来作为一个独立的模块，那么即使一个简单的样式修改，可能会在完全不同的应用中引发问题。</p>
+<p>使用做法是，如果你需要这么做，使用一种方式来避免样式和行为类选择器之间的耦合。</p>
+<p>我的个人建议是让JavaScript钩子使用前缀，比如：js-*。这样的话，当开发者在HTML源代码中看到这样的类选择器，他就完全明白个中原因了。所以，上述的”添加到购物车”的例子可以重写成这样：</p>
+<p><code>&lt;button  class=&quot;js-add-to-cart add-item&quot;&gt;&lt;/button&gt;</code></p>
+<p>现在，如果需要一个看起来不同的按钮，你可以很简单地修改下样式类选择器，而不管行为的类选择器：</p>
+<p><code>&lt;button class=&quot;js-add-to-cart add-item-special&quot;&gt;&lt;/button&gt;</code></p>
+<h2 id="JavaScript更多的样式操作"><a href="#JavaScript更多的样式操作" class="headerlink" title="JavaScript更多的样式操作"></a>JavaScript更多的样式操作</h2><p>JavaScript能用类选择器去DOM中查找元素，同样，它也能通过增加或移除类选择器来改变元素的样式。但如果这些类选择器和当初加载页面时不同的话也会有问题。当JavaScript代码使用太多的组成样式操作时，那些CSS开发者就会轻易去改变样式表，却不知道破坏了关键功能。也并不是说，JavaScript不应该在用户交互之后改变可视化组件的外观，而是如果这么做，就应该使用一种一致的接口，应该使用和默认样式不一致的类选择器。</p>
+<p>和 <code>js-*</code> 前缀的类选择器类似，我推荐使用 <code>is-*</code> 前缀的类选择器来定义那些要改变可视化组件的状态，这样的CSS规则可以像这样：</p>
+<p><code>.pop-up.is-visible {}</code></p>
+<p>注意到状态类选择器(is-visible)是连接在组件类选择器(pop-up)后，这很重要。因为状态规则是描述一个的状态，不应该单独列出。如此不同就可以用来区分更多和默认组件样式不同的状态样式。</p>
+<p>另外，可以让我们可以编写测试场景来保证像 <code>is-*</code> 这样的前缀约定是否遵从。一种测试这些规则的方式是使用 <code>CSSLint</code> 和 <code>HTML Inspector</code>。</p>
+<p>更多关于特定状态类选择可以查阅Jonathan Snnok编写的非常优秀的SMACSS书籍。</p>
+<p>##JavaScript 选择器<br>jQuery和新的API，像 <code>document.querySelectorAll</code>，让用户非常简单地通过一种他们已经非常熟悉的语言–CSS选择器来查找DOM中的元素。虽然如此强大，但同样有CSS选择器已经存在的相同的问题。JavaScript选择器不应过度依赖于DOM结构。这样的选择器非常慢，并且需要更深入认识HTML知识。</p>
+<p>就第一个例子来讲，负责HTML模板的开发者应该能在标记上做基本的改动，而不需担心破坏基本的功能。如果有个功能会被破坏，那么它就应该在标记上显而易见。</p>
+<p>我已经提及到应该用 <code>js-*</code> 前缀的类选择器来表示JavaScript钩子。另外针对消除样式和功能类选择器之间的二义性，需要在标记中表达出来。当某人编写HTML看到 <code>js-*</code> 前缀的类选择器时，他就会明白这是别有用途的。但如果JavaScript代码使用特定的标记结构查找元素时，正在触发的功能在标记上就不那么明显了。</p>
+<p>为了避免使用冗长而又复杂的选择器遍历DOM，坚持使用单一的类或者ID选择器。 考虑以下代码：</p>
+<p><code>var saveBtn = document.querySelector(&quot;#modal div:last-child&gt;button:last-child&quot;)</code></p>
+<p>这么长的选择器是可以节省你在HTML中添加一个类选择器，但同样让你的代码对于标记更改非常容易受到影响。如果设计者突然决定要把保持按钮放在左边，而让取消按钮放在右边，这样的选择器就不再匹配了。</p>
+<p>一个更好的方式(使用上述的前缀方法)是仅仅使用类选择器。</p>
+<p><code>var saveBtn = document.querySelector(&quot;.js-save-btn&quot;)</code></p>
+<p>现在标记可以更改它想改的，并且只要类选择还是在正确的元素上，一切都会很正常。</p>
+<h3 id="类选择器就是你的契约"><a href="#类选择器就是你的契约" class="headerlink" title="类选择器就是你的契约"></a>类选择器就是你的契约</h3><p>使用合适的类选择器以及可预测的类名约定可以减少几乎每一种HTML，CSS和JavaScript之间的耦合。起初由于为了展现HTML需要知道很多类选择器的名称，这种在标记中使用很多类选择器看起来像是强耦合的迹象。但是我发觉，使用类选择器和传统编程设计中的事件或者观察者模式非常相似。在事件驱动编程中，为了不直接在对象A上调用对象B，而是对象A简单地在提供的环境中发布一个特定的事件，然后对象B能够订阅那个事件。这样，对象B就不需要知道任何关于对象A的接口，而仅仅需要知道监听什么事件。按理说，事件系统需要某种形式上的耦合，因为对象B需要知道订阅的事件名称，但和对象A需要知道对象B的公共方法相比，这已经更松散的耦合了。</p>
+<p>HTML类选择器都非常相似。与CSS文件中定义复杂的选择器(就像HTML的内部接口一样)不同的是，它可以通过单一类选择器简单定义一个可视化组件的外观。CSS文件不需要关心HTML对类选择器的使用与否。同样，JavaScript不用那些需要更深入理解HTML结构的复杂DOM遍历功能，而是仅仅监听与类名一致的元素的用户交互。类选择器应该像是胶水一样，把HTML，CSS和JavaScript连接在一起。从个人经验得知，它们也是最容易以及最好的方式把三者技术连接起来，而不是混合过度。</p>
+<h2 id="未来"><a href="#未来" class="headerlink" title="未来"></a>未来</h2><p>网页超文本技术工作小组(WHATWG)正在致力于web组件的规范，能让开发者把HTML，CSS和；但是无论如何，理解这些更广泛的原则以及为何需要它们仍然很重要。即使这些实践在Web组件时代会变得不那么重要，但其中的理论仍然适用。在大型团队和大型应用中的实践仍然要适用于小模块的编写中，反之则不需要。</p>
+<h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p>可维护的HTML，CSS和JavaScript的标志是每个开发者可以容易并且很自信地编写代码库的每个部分，而不需担心这些修改会无意中影响到其它不相关部分。阻止这样意想不到的后果的最佳方式之一是，通过一组能够表达其义的，任何开发者碰到时能想出它的用途的，可预测的人性化的类选择器名，把这三者技术结合在一起。</p>
+<p>为避免上述的反模式，请把下述的原则谨记于心：</p>
+<ol>
+<li>在CSS和JavaScript里，优先考虑显式组件和行为类选择器，而不是复杂的CSS选择器。</li>
+<li>命名组件要基于 <code>它们是什么</code>，而不是它们在哪里</li>
+<li>不用为样式和行为使用相同的类选择器</li>
+<li>把状态样式和默认样式区分开来</li>
+</ol>
+<p>在HTML中这样运用类选择器经常会需要很多需要表现的类选择器，但获取的是可预见性和可维护性，这点值得肯定。毕竟，为HTML增加类选择器是相当容易的，不需要开发者有多少技能。</p>
+<p>摘自Nicolas Gallagher的原话：</p>
+<blockquote>
+<p>当你要寻找一种方式来减少花费在编写和修改CSS的时间上来制作HTML和CSS时，这就涉及到你必须接受如果你想更改样式，你是不想花费更多时间去更改HTML元素上的类选择器。这对前端和后端开发者都有一定的实用性，任何人都可以重新安排预构建的乐高积木。这样没有人会去展示CSS的魔力了。</p>
+</blockquote>
+
+      </div>
+      
+      
+        <br>
+        
+
+
+  <section class='meta' id="footer-meta">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-02-20T23:43:32+08:00">
+  <a class='notlink'>
+    <i class="fas fa-clock" aria-hidden="true"></i>
+    <p>updated at Feb 20, 2021</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E5%89%8D%E7%AB%AF/" rel="nofollow"><i class="fas fa-tag" aria-hidden="true"></i><p>前端</p></a></div>
+
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="QQ好友" rel="external nofollow noopener noreferrer"
+          
+          href="http://connect.qq.com/widget/shareqq/index.html?url=http://awstudio.cn/2017/02/20/jieou-html-css-js/&title=解耦HTML、CSS和JavaScript | awstudio's blog&pics=http://awstudio.cn/img/avatar.jpg&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="QQ空间" rel="external nofollow noopener noreferrer"
+          
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://awstudio.cn/2017/02/20/jieou-html-css-js/&title=解耦HTML、CSS和JavaScript | awstudio's blog&pics=http://awstudio.cn/img/avatar.jpg&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="微博" rel="external nofollow noopener noreferrer"
+          
+          href="http://service.weibo.com/share/share.php?url=http://awstudio.cn/2017/02/20/jieou-html-css-js/&title=解耦HTML、CSS和JavaScript | awstudio's blog&pics=http://awstudio.cn/img/avatar.jpg&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/weibo.png">
+          
+        </a>
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </section>
+
+
+      
+      
+          <div class="prev-next">
+              
+                  <section class="prev">
+                      <span class="art-item-left">
+                          <h6><i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;Previous</h6>
+                          <h4>
+                              <a href="/2017/02/20/sublime/" rel="prev" title="Almighty Sublime Text 3">
+                                
+                                    Almighty Sublime Text 3
+                                
+                              </a>
+                          </h4>
+                          
+                              
+                              <h6 class="tags">
+                                  <a class="tag" href="/tags/%E5%B7%A5%E5%85%B7/"><i class="fas fa-tag fa-fw" aria-hidden="true"></i> 工具</a>
+                              </h6>
+                          
+                      </span>
+                  </section>
+              
+              
+                  <section class="next">
+                      <span class="art-item-right" aria-hidden="true">
+                          <h6>Next&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></h6>
+                          <h4>
+                              <a href="/2017/02/18/hexo-theme/" rel="prev" title="怎么在Hexo博客安装theme">
+                                  
+                                      怎么在Hexo博客安装theme
+                                  
+                              </a>
+                          </h4>
+                          
+                              
+                              <h6 class="tags">
+                                  <a class="tag" href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"><i class="fas fa-tag fa-fw" aria-hidden="true"></i> 博客搭建</a> <a class="tag" href="/tags/hexo/"><i class="fas fa-tag fa-fw" aria-hidden="true"></i> hexo</a>
+                              </h6>
+                          
+                      </span>
+                  </section>
+              
+          </div>
+      
+    </section>
+  </article>
+
+
+
+  <!-- 显示推荐文章和评论 -->
+
+
+
+  
+
+
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+
+  <script>
+    window.subData = {
+      title: '解耦HTML、CSS和JavaScript',
+      tools: true
+    }
+  </script>
+
+
+</div>
+<aside class='l_side'>
+  
+    
+    
+      
+      
+        
+          
+          
+            
+              <section class='widget author'>
+  <div class='content material'>
+    
+      <div class='avatar'>
+        <img class='avatar' src='http://blogpic.at15cm.com/parrot.jpg'/>
+      </div>
+    
+    
+    
+      <div class="social-wrapper">
+        
+          
+            <a href="/atom.xml"
+              class="social fas fa-rss flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+          
+            <a href="mailto:me@xaoxuu.com"
+              class="social fas fa-envelope flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+          
+            <a href="https://github.com/KodeWithKarlie"
+              class="social fab fa-github flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+          
+            <a href="https://music.163.com/#/user/home?id=409650851"
+              class="social fas fa-headphones-alt flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+      </div>
+    
+  </div>
+</section>
+
+            
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+      
+        
+          
+          
+        
+          
+          
+            
+              <section class='widget plain'>
+  
+<header class='material'>
+  <div><i class="fas fa-file fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;家训</div>
+  
+</header>
+
+  <div class='content material'>
+    <p>一等人忠臣孝子，两件事读书耕田</p>
+
+  </div>
+</section>
+
+            
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+      
+        
+          
+          
+        
+          
+          
+        
+          
+          
+            
+              
+  <section class='widget toc-wrapper'>
+    
+<header class='material'>
+  <div><i class="fas fa-list fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;TOC</div>
+  
+    <!-- <div class='wrapper'><a class="s-toc rightBtn" rel="external nofollow noopener noreferrer" href="javascript:void(0)"><i class="fas fa-thumbtack fa-fw"></i></a></div> -->
+  
+</header>
+
+    <div class='content material'>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#目标"><span class="toc-text">目标</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#反模式"><span class="toc-text">反模式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#过度复杂的选择器"><span class="toc-text">过度复杂的选择器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#多个类选择器的职责"><span class="toc-text">多个类选择器的职责</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JavaScript更多的样式操作"><span class="toc-text">JavaScript更多的样式操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#类选择器就是你的契约"><span class="toc-text">类选择器就是你的契约</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#未来"><span class="toc-text">未来</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#结论"><span class="toc-text">结论</span></a></li></ol>
+    </div>
+  </section>
+
+
+            
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+      
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+            
+              <section class='widget grid'>
+  
+<header class='material'>
+  <div><i class="fas fa-map-signs fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;站内导航</div>
+  
+</header>
+
+  <div class='content material'>
+    <ul class="grid navgation">
+      
+        <li><a class="flat-box" title="/" href="/"
+          
+          
+          id="home">
+          
+            <i class="fas fa-clock fa-fw" aria-hidden="true"></i>
+          
+          近期文章
+        </a></li>
+      
+        <li><a class="flat-box" title="/blog/archives/" href="/blog/archives/"
+          
+            rel="nofollow"
+          
+          
+          id="blogarchives">
+          
+            <i class="fas fa-archive fa-fw" aria-hidden="true"></i>
+          
+          文章归档
+        </a></li>
+      
+        <li><a class="flat-box" title="/projects/" href="/projects/"
+          
+          
+          id="projects">
+          
+            <i class="fas fa-code-branch fa-fw" aria-hidden="true"></i>
+          
+          开源项目
+        </a></li>
+      
+        <li><a class="flat-box" title="/friends/" href="/friends/"
+          
+            rel="nofollow"
+          
+          
+          id="friends">
+          
+            <i class="fas fa-link fa-fw" aria-hidden="true"></i>
+          
+          我的友链
+        </a></li>
+      
+        <li><a class="flat-box" title="https://xaoxuu.com/wiki/material-x/" href="https://xaoxuu.com/wiki/material-x/"
+          
+            rel="nofollow"
+          
+          
+          id="https:xaoxuu.comwikimaterial-x">
+          
+            <i class="fas fa-book fa-fw" aria-hidden="true"></i>
+          
+          主题文档
+        </a></li>
+      
+        <li><a class="flat-box" title="/about/" href="/about/"
+          
+            rel="nofollow"
+          
+          
+          id="about">
+          
+            <i class="fas fa-info-circle fa-fw" aria-hidden="true"></i>
+          
+          关于小站
+        </a></li>
+      
+    </ul>
+  </div>
+</section>
+
+            
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+      
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+            
+              
+  <section class='widget category'>
+    
+<header class='material'>
+  <div><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;Categories</div>
+  
+    <a class="rightBtn"
+    
+      rel="nofollow"
+    
+    
+    href="/categories/"
+    title="categories/">
+    <i class="fas fa-expand-arrows-alt fa-fw"></i></a>
+  
+</header>
+
+    <div class='content material'>
+      <ul class="entry">
+        
+          <li><a class="flat-box" title="/categories/Android/" href="/categories/Android/"><div class='name'>Android</div><div class='badge'>(2)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/CSS/" href="/categories/CSS/"><div class='name'>CSS</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/ES6/" href="/categories/ES6/"><div class='name'>ES6</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/Node/" href="/categories/Node/"><div class='name'>Node</div><div class='badge'>(2)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/articles/" href="/categories/articles/"><div class='name'>articles</div><div class='badge'>(21)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/tools/" href="/categories/tools/"><div class='name'>tools</div><div class='badge'>(3)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/%E5%89%8D%E7%AB%AF/" href="/categories/%E5%89%8D%E7%AB%AF/"><div class='name'>前端</div><div class='badge'>(87)</div></a></li>
+        
+          <li><a class="flat-box child" title="/categories/%E5%89%8D%E7%AB%AF/CSS/" href="/categories/%E5%89%8D%E7%AB%AF/CSS/"><div class='name'>CSS</div><div class='badge'>(4)</div></a></li>
+        
+          <li><a class="flat-box child" title="/categories/%E5%89%8D%E7%AB%AF/HTML/" href="/categories/%E5%89%8D%E7%AB%AF/HTML/"><div class='name'>HTML</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box child" title="/categories/%E5%89%8D%E7%AB%AF/JavaScript/" href="/categories/%E5%89%8D%E7%AB%AF/JavaScript/"><div class='name'>JavaScript</div><div class='badge'>(6)</div></a></li>
+        
+          <li><a class="flat-box child" title="/categories/%E5%89%8D%E7%AB%AF/Vue/" href="/categories/%E5%89%8D%E7%AB%AF/Vue/"><div class='name'>Vue</div><div class='badge'>(21)</div></a></li>
+        
+          <li><a class="flat-box child" title="/categories/%E5%89%8D%E7%AB%AF/%E5%B0%8F%E7%A8%8B%E5%BA%8F/" href="/categories/%E5%89%8D%E7%AB%AF/%E5%B0%8F%E7%A8%8B%E5%BA%8F/"><div class='name'>小程序</div><div class='badge'>(3)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" href="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"><div class='name'>博客搭建</div><div class='badge'>(7)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/%E5%90%8E%E5%8F%B0/" href="/categories/%E5%90%8E%E5%8F%B0/"><div class='name'>后台</div><div class='badge'>(22)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/%E5%B0%8F%E7%A8%8B%E5%BA%8F/" href="/categories/%E5%B0%8F%E7%A8%8B%E5%BA%8F/"><div class='name'>小程序</div><div class='badge'>(5)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/%E5%B7%A5%E5%85%B7/" href="/categories/%E5%B7%A5%E5%85%B7/"><div class='name'>工具</div><div class='badge'>(21)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/%E5%B7%A5%E7%A8%8B%E5%8C%96/" href="/categories/%E5%B7%A5%E7%A8%8B%E5%8C%96/"><div class='name'>工程化</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box child" title="/categories/%E5%B7%A5%E7%A8%8B%E5%8C%96/webpack/" href="/categories/%E5%B7%A5%E7%A8%8B%E5%8C%96/webpack/"><div class='name'>webpack</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/%E6%91%84%E5%BD%B1/" href="/categories/%E6%91%84%E5%BD%B1/"><div class='name'>摄影</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF/" href="/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF/"><div class='name'>服务器端</div><div class='badge'>(4)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/%E6%9D%82%E8%B0%88/" href="/categories/%E6%9D%82%E8%B0%88/"><div class='name'>杂谈</div><div class='badge'>(7)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/" href="/categories/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/"><div class='name'>游戏开发</div><div class='badge'>(17)</div></a></li>
+        
+      </ul>
+    </div>
+  </section>
+
+
+            
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+      
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+            
+              
+  <section class='widget tagcloud'>
+    
+<header class='material'>
+  <div><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;Hot Tags</div>
+  
+    <a class="rightBtn"
+    
+      rel="nofollow"
+    
+    
+    href="/tags/"
+    title="tags/">
+    <i class="fas fa-expand-arrows-alt fa-fw"></i></a>
+  
+</header>
+
+    <div class='content material'>
+      <a href="/tags/AS3/" style="font-size: 18px; color: #7e7e7e">AS3</a> <a href="/tags/Android/" style="font-size: 14px; color: #999">Android</a> <a href="/tags/Apache/" style="font-size: 14px; color: #999">Apache</a> <a href="/tags/CSS/" style="font-size: 18.67px; color: #797979">CSS</a> <a href="/tags/EQ/" style="font-size: 22px; color: #636363">EQ</a> <a href="/tags/ES6/" style="font-size: 16px; color: #8b8b8b">ES6</a> <a href="/tags/Github/" style="font-size: 15.33px; color: #909090">Github</a> <a href="/tags/Gulp/" style="font-size: 14px; color: #999">Gulp</a> <a href="/tags/HTML/" style="font-size: 14px; color: #999">HTML</a> <a href="/tags/HTML5/" style="font-size: 14px; color: #999">HTML5</a> <a href="/tags/HTTP/" style="font-size: 14px; color: #999">HTTP</a> <a href="/tags/Hexo/" style="font-size: 14.67px; color: #949494">Hexo</a> <a href="/tags/JavaScript/" style="font-size: 20px; color: #707070">JavaScript</a> <a href="/tags/LayaAir/" style="font-size: 15.33px; color: #909090">LayaAir</a> <a href="/tags/Markdown/" style="font-size: 14px; color: #999">Markdown</a> <a href="/tags/MySQL/" style="font-size: 14px; color: #999">MySQL</a> <a href="/tags/Node/" style="font-size: 14.67px; color: #949494">Node</a> <a href="/tags/PHP/" style="font-size: 21.33px; color: #676767">PHP</a> <a href="/tags/SEO/" style="font-size: 14.67px; color: #949494">SEO</a> <a href="/tags/SVN/" style="font-size: 14.67px; color: #949494">SVN</a> <a href="/tags/Sass/" style="font-size: 14px; color: #999">Sass</a> <a href="/tags/Vue/" style="font-size: 24px; color: #555">Vue</a> <a href="/tags/WeTest/" style="font-size: 14.67px; color: #949494">WeTest</a> <a href="/tags/ajax/" style="font-size: 14px; color: #999">ajax</a> <a href="/tags/articles/" style="font-size: 22.67px; color: #5e5e5e">articles</a> <a href="/tags/axios/" style="font-size: 14.67px; color: #949494">axios</a> <a href="/tags/canvas/" style="font-size: 14px; color: #999">canvas</a> <a href="/tags/docker/" style="font-size: 16px; color: #8b8b8b">docker</a> <a href="/tags/flex/" style="font-size: 15.33px; color: #909090">flex</a> <a href="/tags/hexo/" style="font-size: 16.67px; color: #878787">hexo</a> <a href="/tags/node/" style="font-size: 14.67px; color: #949494">node</a> <a href="/tags/npm/" style="font-size: 14.67px; color: #949494">npm</a> <a href="/tags/promise/" style="font-size: 14px; color: #999">promise</a> <a href="/tags/tools/" style="font-size: 15.33px; color: #909090">tools</a> <a href="/tags/webpack/" style="font-size: 14.67px; color: #949494">webpack</a> <a href="/tags/%E5%88%86%E8%BE%A8%E7%8E%87/" style="font-size: 14px; color: #999">分辨率</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 23.33px; color: #5a5a5a">前端</a> <a href="/tags/%E5%8D%81%E4%B8%89%E5%8F%B7%E4%BB%93%E5%BA%93/" style="font-size: 14px; color: #999">十三号仓库</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" style="font-size: 17.33px; color: #828282">博客搭建</a> <a href="/tags/%E5%8E%86%E5%8F%B2/" style="font-size: 14px; color: #999">历史</a> <a href="/tags/%E5%B0%8F%E6%B8%B8%E6%88%8F/" style="font-size: 14px; color: #999">小游戏</a> <a href="/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/" style="font-size: 17.33px; color: #828282">小程序</a> <a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 19.33px; color: #757575">工具</a> <a href="/tags/%E5%BF%83%E5%AD%A6%EF%BC%8C-%E6%9D%82%E8%B0%88/" style="font-size: 14px; color: #999">心学， 杂谈</a> <a href="/tags/%E6%8F%92%E4%BB%B6/" style="font-size: 16.67px; color: #878787">插件</a> <a href="/tags/%E6%91%84%E5%BD%B1/" style="font-size: 14px; color: #999">摄影</a> <a href="/tags/%E6%9D%82%E8%B0%88/" style="font-size: 16.67px; color: #878787">杂谈</a> <a href="/tags/%E6%9D%8E%E7%82%8E%E6%81%A2/" style="font-size: 20px; color: #707070">李炎恢</a> <a href="/tags/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/" style="font-size: 20.67px; color: #6c6c6c">游戏开发</a> <a href="/tags/%E7%8E%8B%E9%98%B3%E6%98%8E/" style="font-size: 14px; color: #999">王阳明</a> <a href="/tags/%E7%A7%BB%E5%8A%A8%E7%AB%AF/" style="font-size: 14.67px; color: #949494">移动端</a> <a href="/tags/%E7%BE%8E%E5%89%A7/" style="font-size: 14px; color: #999">美剧</a> <a href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" style="font-size: 14px; color: #999">读书笔记</a> <a href="/tags/%E8%B0%B7%E6%AD%8C/" style="font-size: 14px; color: #999">谷歌</a> <a href="/tags/%E9%80%82%E9%85%8D/" style="font-size: 14px; color: #999">适配</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 15.33px; color: #909090">面试</a> <a href="/tags/%E9%A1%B9%E7%9B%AE/" style="font-size: 14.67px; color: #949494">项目</a>
+    </div>
+  </section>
+
+
+            
+          
+        
+          
+          
+        
+          
+          
+        
+      
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+            
+              <section class='widget list'>
+  
+<header class='material'>
+  <div><i class="fas fa-thumbs-up fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;强烈推荐</div>
+  
+</header>
+
+  <div class='content material'>
+    <ul class="entry">
+      
+        <li><a class="flat-box" title="http://zhongguose.com/" href="http://zhongguose.com/"
+          
+          
+          >
+          <div class='name'>
+            
+              <i class=" fa-fw" aria-hidden="true"></i>
+            
+            &nbsp;&nbsp;中国色 - 中国传统颜色
+          </div>
+          
+        </a></li>
+      
+        <li><a class="flat-box" title="https://xaoxuu.com/wiki/hexo.sh/" href="https://xaoxuu.com/wiki/hexo.sh/"
+          
+          
+          >
+          <div class='name'>
+            
+              <i class=" fa-fw" aria-hidden="true"></i>
+            
+            &nbsp;&nbsp;Hexo脚本（Mac）
+          </div>
+          
+        </a></li>
+      
+        <li><a class="flat-box" title="https://xaoxuu.com/wiki/vim-cn.sh/" href="https://xaoxuu.com/wiki/vim-cn.sh/"
+          
+          
+          >
+          <div class='name'>
+            
+              <i class=" fa-fw" aria-hidden="true"></i>
+            
+            &nbsp;&nbsp;图床脚本（Mac）
+          </div>
+          
+        </a></li>
+      
+        <li><a class="flat-box" title="https://yasuotu.com" href="https://yasuotu.com"
+          
+          
+          >
+          <div class='name'>
+            
+              <i class=" fa-fw" aria-hidden="true"></i>
+            
+            &nbsp;&nbsp;图片在线压缩
+          </div>
+          
+        </a></li>
+      
+        <li><a class="flat-box" title="https://realfavicongenerator.net" href="https://realfavicongenerator.net"
+          
+          
+          >
+          <div class='name'>
+            
+              <i class=" fa-fw" aria-hidden="true"></i>
+            
+            &nbsp;&nbsp;生成Favicon
+          </div>
+          
+        </a></li>
+      
+        <li><a class="flat-box" title="https://mxclub.github.io/resume/" href="https://mxclub.github.io/resume/"
+          
+          
+          >
+          <div class='name'>
+            
+              <i class=" fa-fw" aria-hidden="true"></i>
+            
+            &nbsp;&nbsp;简历主题
+          </div>
+          
+        </a></li>
+      
+    </ul>
+  </div>
+</section>
+
+            
+          
+        
+      
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+      
+    
+
+  
+</aside>
+
+<footer id="footer" class="clearfix">
+  
+    <div class="footer">
+      <center>❤ 食二三春沐秋凉，与一人携苦挽甜 ❤</center>
+    </div>
+    <br>
+  
+  
+    <div class="social-wrapper">
+      
+        
+          <a href="/atom.xml"
+            class="social fas fa-rss flat-btn"
+            target="_blank"
+            rel="external nofollow noopener noreferrer">
+          </a>
+        
+      
+        
+          <a href="mailto:me@xaoxuu.com"
+            class="social fas fa-envelope flat-btn"
+            target="_blank"
+            rel="external nofollow noopener noreferrer">
+          </a>
+        
+      
+        
+          <a href="https://github.com/KodeWithKarlie"
+            class="social fab fa-github flat-btn"
+            target="_blank"
+            rel="external nofollow noopener noreferrer">
+          </a>
+        
+      
+        
+          <a href="https://music.163.com/#/user/home?id=409650851"
+            class="social fas fa-headphones-alt flat-btn"
+            target="_blank"
+            rel="external nofollow noopener noreferrer">
+          </a>
+        
+      
+    </div>
+  
+  <br>
+  <div><p>Blog content follows the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener">Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License</a></p>
+</div>
+  <div>
+    Use
+    <a href="https://xaoxuu.com/wiki/material-x/" target="_blank" class="codename">Material X</a>
+    as theme
+    
+      , 
+      total visits
+      <span id="busuanzi_value_site_pv"><i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span>
+      times
+    
+    . 
+  </div>
+</footer>
+<script>setLoadingBarProgress(80);</script>
+
+
+      <script>setLoadingBarProgress(60);</script>
+    </div>
+    <a class="s-top fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+
+  <script>
+    var GOOGLE_CUSTOM_SEARCH_API_KEY = "";
+    var GOOGLE_CUSTOM_SEARCH_ENGINE_ID = "";
+    var ALGOLIA_API_KEY = "";
+    var ALGOLIA_APP_ID = "";
+    var ALGOLIA_INDEX_NAME = "";
+    var AZURE_SERVICE_NAME = "";
+    var AZURE_INDEX_NAME = "";
+    var AZURE_QUERY_KEY = "";
+    var BAIDU_API_ID = "";
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/"||"/";
+    if(!ROOT.endsWith('/'))ROOT += '/';
+  </script>
+
+<script src="//instant.page/1.2.2" type="module" integrity="sha384-2xV8M5griQmzyiY3CDqh1dn4z3llDVqZDqzjzcY+jCBCk/a5fXJmuZ/40JJAPeoU"></script>
+
+
+  <script async src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.5/dist/scrollreveal.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      const $reveal = $('.reveal');
+      if ($reveal.length === 0) return;
+      const sr = ScrollReveal({ distance: 0 });
+      sr.reveal('.reveal');
+    });
+  </script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      Waves.attach('.flat-btn', ['waves-button']);
+      Waves.attach('.float-btn', ['waves-button', 'waves-float']);
+      Waves.attach('.float-btn-light', ['waves-button', 'waves-float', 'waves-light']);
+      Waves.attach('.flat-box', ['waves-block']);
+      Waves.attach('.float-box', ['waves-block', 'waves-float']);
+      Waves.attach('.waves-image');
+      Waves.init();
+    });
+  </script>
+
+
+  <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+  
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.0.4/jquery.backstretch.min.js"></script>
+    <script type="text/javascript">
+      $(function(){
+        if ('.cover') {
+          $('.cover').backstretch(
+          ["https://img.vim-cn.com/29/91197b04c13f512f734a76d4ac422d89dbe229.jpg"],
+          {
+            duration: "6000",
+            fade: "2500"
+          });
+        } else {
+          $.backstretch(
+          ["https://img.vim-cn.com/29/91197b04c13f512f734a76d4ac422d89dbe229.jpg"],
+          {
+            duration: "6000",
+            fade: "2500"
+          });
+        }
+      });
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+<script src="/js/app.js"></script>
+
+
+
+  
+<script src="/js/search.js"></script>
+
+
+
+
+
+<!-- 复制 -->
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  let COPY_SUCCESS = "Copied";
+  let COPY_FAILURE = "Copy failed";
+  /*页面载入完成后，创建复制按钮*/
+  !function (e, t, a) {
+    /* code */
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '  <i class="fa fa-copy"></i><span>Copy</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+
+      clipboard.on('success', function(e) {
+        //您可以加入成功提示
+        console.info('Action:', e.action);
+        console.info('Text:', e.text);
+        console.info('Trigger:', e.trigger);
+        success_prompt(COPY_SUCCESS);
+        e.clearSelection();
+      });
+      clipboard.on('error', function(e) {
+        //您可以加入失败提示
+        console.error('Action:', e.action);
+        console.error('Trigger:', e.trigger);
+        fail_prompt(COPY_FAILURE);
+      });
+    }
+    initCopyCode();
+
+  }(window, document);
+
+  /**
+   * 弹出式提示框，默认1.5秒自动消失
+   * @param message 提示信息
+   * @param style 提示样式，有alert-success、alert-danger、alert-warning、alert-info
+   * @param time 消失时间
+   */
+  var prompt = function (message, style, time)
+  {
+      style = (style === undefined) ? 'alert-success' : style;
+      time = (time === undefined) ? 1500 : time*1000;
+      $('<div>')
+          .appendTo('body')
+          .addClass('alert ' + style)
+          .html(message)
+          .show()
+          .delay(time)
+          .fadeOut();
+  };
+
+  // 成功提示
+  var success_prompt = function(message, time)
+  {
+      prompt(message, 'alert-success', time);
+  };
+
+  // 失败提示
+  var fail_prompt = function(message, time)
+  {
+      prompt(message, 'alert-danger', time);
+  };
+
+  // 提醒
+  var warning_prompt = function(message, time)
+  {
+      prompt(message, 'alert-warning', time);
+  };
+
+  // 信息提示
+  var info_prompt = function(message, time)
+  {
+      prompt(message, 'alert-info', time);
+  };
+
+</script>
+
+
+<!-- fancybox -->
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script>
+  let LAZY_LOAD_IMAGE = "";
+  $(".article-entry").find("fancybox").find("img").each(function () {
+      var element = document.createElement("a");
+      $(element).attr("data-fancybox", "gallery");
+      $(element).attr("href", $(this).attr("src"));
+      /* 图片采用懒加载处理时,
+       * 一般图片标签内会有个属性名来存放图片的真实地址，比如 data-original,
+       * 那么此处将原本的属性名src替换为对应属性名data-original,
+       * 修改如下
+       */
+       if (LAZY_LOAD_IMAGE) {
+         $(element).attr("href", $(this).attr("data-original"));
+       }
+      $(this).wrap(element);
+  });
+</script>
+
+
+
+
+
+  <script>setLoadingBarProgress(100);</script>
+</body>
+</html>
