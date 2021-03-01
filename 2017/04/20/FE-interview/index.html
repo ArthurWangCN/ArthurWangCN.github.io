@@ -1086,97 +1086,7 @@
 <p>document.cookie = ‘user=’+ encodeURIComponent(‘name’)  + ‘;expires = ‘ + new Date(0)</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### &lt;strong&gt; ，&lt;em&gt; 和&lt;b&gt; ，&lt;i&gt; 标签</span><br><span class="line"></span><br><span class="line">&#96;&lt;strong&gt;&#96; 标签和 &#96;&lt;em&gt;&#96; 标签一样，用于强调文本，但它强调的程度更强一些。</span><br><span class="line"></span><br><span class="line">em 是 斜体强调标签，更强烈强调，表示内容的强调点。相当于html元素中的 &#96;&lt;i&gt;...&lt;&#x2F;i&gt;&#96;;</span><br><span class="line"></span><br><span class="line">&#96;&lt;b&gt;&#96; &#96;&lt;i&gt;&#96; 是视觉要素，分别表示无意义的加粗，无意义的斜体。</span><br><span class="line"></span><br><span class="line">em 和 strong 是表达要素(phrase elements)。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### 说说你对AMD和Commonjs的理解</span><br><span class="line">CommonJS是服务器端模块的规范，Node.js采用了这个规范。CommonJS规范加载模块是同步的，也就是说，只有加载完成，才能执行后面的操作。AMD规范则是非同步加载模块，允许指定回调函数。</span><br><span class="line"></span><br><span class="line">AMD推荐的风格通过返回一个对象做为模块对象，CommonJS的风格通过对module.exports或exports的属性赋值来达到暴露模块对象的目的。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### document.write()的用法</span><br><span class="line">document.write()方法可以用在两个方面：页面载入过程中用实时脚本创建页面内容，以及用延时脚本创建本窗口或新窗口的内容。</span><br><span class="line"></span><br><span class="line">document.write只能重绘整个页面。innerHTML可以重绘页面的一部分</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### 编写一个方法 求一个字符串的字节长度</span><br><span class="line">假设：一个英文字符占用一个字节，一个中文字符占用两个字节</span><br></pre></td></tr></table></figure>
 <p>function GetBytes(str){<br>    var len = str.length;<br>    var bytes = len;<br>    for(var i=0; i&lt;len; i++){<br>        if (str.charCodeAt(i) &gt; 255) bytes++;<br>    }<br>    return bytes;<br>}<br>alert(GetBytes(“你好,as”));</p>
-<pre><code>
-
-### git fetch和git pull的区别
-git pull：相当于是从远程获取最新版本并merge到本地
-
-git fetch：相当于是从远程获取最新版本到本地，不会自动merge
-
-
-说说你对MVC和MVVM的理解
-
-#### MVC
-View 传送指令到 Controller
-Controller 完成业务逻辑后，要求 Model 改变状态
-Model 将新的数据发送到 View，用户得到反馈
-所有通信都是单向的。
-
-Angular它采用双向绑定（data-binding）：View的变动，自动反映在 ViewModel，反之亦然。
-
-#### MVVVM
-组成部分Model、View、ViewModel
-
-View：UI界面
-ViewModel：它是View的抽象，负责View与Model之间信息转换，将View的Command传送到Model；
-Model：数据访问层
-
-
-### 请解释什么是事件代理
-事件代理（Event Delegation），又称之为事件委托。是 JavaScript 中常用绑定事件的常用技巧。顾名思义，“事件代理”即是把原本需要绑定的事件委托给父元素，让父元素担当事件监听的职务。事件代理的原理是DOM元素的事件冒泡。使用事件代理的好处是可以提高性能。
-
-
-### attribute和property的区别是什么？
-attribute是dom元素在文档中作为html标签拥有的属性；
-
-property就是dom元素在js中作为对象拥有的属性。
-
-所以：
-对于html的标准属性来说，attribute和property是同步的，是会自动更新的，但是对于自定义的属性来说，他们是不同步的.
-
-
-### 说说网络分层里七层模型是哪七层
-
-+ 应用层：应用层、表示层、会话层（从上往下）（HTTP、FTP、SMTP、DNS）
-
-+ 传输层（TCP和UDP）
-
-+ 网络层（IP）
-
-+ 物理和数据链路层（以太网）
-
-**每一层的作用如下：**
-
-物理层：通过媒介传输比特,确定机械及电气规范（比特Bit）
-数据链路层：将比特组装成帧和点到点的传递（帧Frame）
-网络层：负责数据包从源到宿的传递和网际互连（包PackeT）
-传输层：提供端到端的可靠报文传递和错误恢复（段Segment）
-会话层：建立、管理和终止会话（会话协议数据单元SPDU）
-表示层：对数据进行翻译、加密和压缩（表示协议数据单元PPDU）
-应用层：允许访问OSI环境的手段（应用协议数据单元APDU）
-
-**各种协议**
-
-ICMP协议： 因特网控制报文协议。它是TCP/IP协议族的一个子协议，用于在IP主机、路由器之间传递控制消息。 
-TFTP协议： 是TCP/IP协议族中的一个用来在客户机与服务器之间进行简单文件传输的协议，提供不复杂、开销不大的文件传输服务。 
-HTTP协议： 超文本传输协议，是一个属于应用层的面向对象的协议，由于其简捷、快速的方式，适用于分布式超媒体信息系统。 
-DHCP协议： 动态主机配置协议，是一种让系统得以连接到网络上，并获取所需要的配置参数手段。
-
-
-### 说说mongoDB和MySQL的区别
-MySQL是传统的关系型数据库，MongoDB则是非关系型数据库
-
-mongodb以BSON结构（二进制）进行存储，对海量数据存储有着很明显的优势。
-
-对比传统关系型数据库,NoSQL有着非常显著的性能和扩展性优势，与关系型数据库相比，MongoDB的优点有： ①弱一致性（最终一致），更能保证用户的访问速度： ②文档结构的存储方式，能够更便捷的获取数据。
-
-
-### 讲讲304缓存的原理
-服务器首先产生ETag，服务器可在稍后使用它来判断页面是否已经被修改。本质上，客户端通过将该记号传回服务器要求服务器验证其（客户端）缓存。
-
-304是HTTP状态码，服务器用来标识这个文件没修改，不返回内容，浏览器在接收到个状态码后，会使用浏览器已缓存的文件
-
-客户端请求一个页面（A）。 服务器返回页面A，并在给A加上一个ETag。 客户端展现该页面，并将页面连同ETag一起缓存。 客户再次请求页面A，并将上次请求时服务器返回的ETag一起传递给服务器。 服务器检查该ETag，并判断出该页面自上次客户端请求之后还未被修改，直接返回响应304（未修改——Not Modified）和一个空的响应体。
-
-### 什么样的前端代码是好的
-
-高复用低耦合，这样文件小，好维护，而且好扩展。
-
-
-### 代码题
-
-+ [css代码题](http://legendaryarthur.cn/2017/04/20/FE-interview-css/)
-+ [js代码题](http://legendaryarthur.cn/2017/04/20/FE-interview-js/)</code></pre>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">### git fetch和git pull的区别</span><br><span class="line">git pull：相当于是从远程获取最新版本并merge到本地</span><br><span class="line"></span><br><span class="line">git fetch：相当于是从远程获取最新版本到本地，不会自动merge</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">说说你对MVC和MVVM的理解</span><br><span class="line"></span><br><span class="line">#### MVC</span><br><span class="line">View 传送指令到 Controller</span><br><span class="line">Controller 完成业务逻辑后，要求 Model 改变状态</span><br><span class="line">Model 将新的数据发送到 View，用户得到反馈</span><br><span class="line">所有通信都是单向的。</span><br><span class="line"></span><br><span class="line">Angular它采用双向绑定（data-binding）：View的变动，自动反映在 ViewModel，反之亦然。</span><br><span class="line"></span><br><span class="line">#### MVVVM</span><br><span class="line">组成部分Model、View、ViewModel</span><br><span class="line"></span><br><span class="line">View：UI界面</span><br><span class="line">ViewModel：它是View的抽象，负责View与Model之间信息转换，将View的Command传送到Model；</span><br><span class="line">Model：数据访问层</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### 请解释什么是事件代理</span><br><span class="line">事件代理（Event Delegation），又称之为事件委托。是 JavaScript 中常用绑定事件的常用技巧。顾名思义，“事件代理”即是把原本需要绑定的事件委托给父元素，让父元素担当事件监听的职务。事件代理的原理是DOM元素的事件冒泡。使用事件代理的好处是可以提高性能。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### attribute和property的区别是什么？</span><br><span class="line">attribute是dom元素在文档中作为html标签拥有的属性；</span><br><span class="line"></span><br><span class="line">property就是dom元素在js中作为对象拥有的属性。</span><br><span class="line"></span><br><span class="line">所以：</span><br><span class="line">对于html的标准属性来说，attribute和property是同步的，是会自动更新的，但是对于自定义的属性来说，他们是不同步的.</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### 说说网络分层里七层模型是哪七层</span><br><span class="line"></span><br><span class="line">+ 应用层：应用层、表示层、会话层（从上往下）（HTTP、FTP、SMTP、DNS）</span><br><span class="line"></span><br><span class="line">+ 传输层（TCP和UDP）</span><br><span class="line"></span><br><span class="line">+ 网络层（IP）</span><br><span class="line"></span><br><span class="line">+ 物理和数据链路层（以太网）</span><br><span class="line"></span><br><span class="line">**每一层的作用如下：**</span><br><span class="line"></span><br><span class="line">物理层：通过媒介传输比特,确定机械及电气规范（比特Bit）</span><br><span class="line">数据链路层：将比特组装成帧和点到点的传递（帧Frame）</span><br><span class="line">网络层：负责数据包从源到宿的传递和网际互连（包PackeT）</span><br><span class="line">传输层：提供端到端的可靠报文传递和错误恢复（段Segment）</span><br><span class="line">会话层：建立、管理和终止会话（会话协议数据单元SPDU）</span><br><span class="line">表示层：对数据进行翻译、加密和压缩（表示协议数据单元PPDU）</span><br><span class="line">应用层：允许访问OSI环境的手段（应用协议数据单元APDU）</span><br><span class="line"></span><br><span class="line">**各种协议**</span><br><span class="line"></span><br><span class="line">ICMP协议： 因特网控制报文协议。它是TCP&#x2F;IP协议族的一个子协议，用于在IP主机、路由器之间传递控制消息。 </span><br><span class="line">TFTP协议： 是TCP&#x2F;IP协议族中的一个用来在客户机与服务器之间进行简单文件传输的协议，提供不复杂、开销不大的文件传输服务。 </span><br><span class="line">HTTP协议： 超文本传输协议，是一个属于应用层的面向对象的协议，由于其简捷、快速的方式，适用于分布式超媒体信息系统。 </span><br><span class="line">DHCP协议： 动态主机配置协议，是一种让系统得以连接到网络上，并获取所需要的配置参数手段。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### 说说mongoDB和MySQL的区别</span><br><span class="line">MySQL是传统的关系型数据库，MongoDB则是非关系型数据库</span><br><span class="line"></span><br><span class="line">mongodb以BSON结构（二进制）进行存储，对海量数据存储有着很明显的优势。</span><br><span class="line"></span><br><span class="line">对比传统关系型数据库,NoSQL有着非常显著的性能和扩展性优势，与关系型数据库相比，MongoDB的优点有： ①弱一致性（最终一致），更能保证用户的访问速度： ②文档结构的存储方式，能够更便捷的获取数据。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### 讲讲304缓存的原理</span><br><span class="line">服务器首先产生ETag，服务器可在稍后使用它来判断页面是否已经被修改。本质上，客户端通过将该记号传回服务器要求服务器验证其（客户端）缓存。</span><br><span class="line"></span><br><span class="line">304是HTTP状态码，服务器用来标识这个文件没修改，不返回内容，浏览器在接收到个状态码后，会使用浏览器已缓存的文件</span><br><span class="line"></span><br><span class="line">客户端请求一个页面（A）。 服务器返回页面A，并在给A加上一个ETag。 客户端展现该页面，并将页面连同ETag一起缓存。 客户再次请求页面A，并将上次请求时服务器返回的ETag一起传递给服务器。 服务器检查该ETag，并判断出该页面自上次客户端请求之后还未被修改，直接返回响应304（未修改——Not Modified）和一个空的响应体。</span><br><span class="line"></span><br><span class="line">### 什么样的前端代码是好的</span><br><span class="line"></span><br><span class="line">高复用低耦合，这样文件小，好维护，而且好扩展。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### 代码题</span><br><span class="line"></span><br><span class="line">+ [css代码题](http:&#x2F;&#x2F;legendaryarthur.cn&#x2F;2017&#x2F;04&#x2F;20&#x2F;FE-interview-css&#x2F;)</span><br><span class="line">+ [js代码题](http:&#x2F;&#x2F;legendaryarthur.cn&#x2F;2017&#x2F;04&#x2F;20&#x2F;FE-interview-js&#x2F;)</span><br></pre></td></tr></table></figure>
       </div>
       
       
@@ -1188,10 +1098,10 @@ mongodb以BSON结构（二进制）进行存储，对海量数据存储有着很
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-02-20T23:43:32+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-03-01T22:19:03+08:00">
   <a class='notlink'>
     <i class="fas fa-clock" aria-hidden="true"></i>
-    <p>updated at Feb 20, 2021</p>
+    <p>updated at Mar 1, 2021</p>
   </a>
 </div>
 
@@ -1200,7 +1110,7 @@ mongodb以BSON结构（二进制）进行存储，对海量数据存储有着很
         
           
   
-  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E5%89%8D%E7%AB%AF/" rel="nofollow"><i class="fas fa-tag" aria-hidden="true"></i><p>前端</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E9%9D%A2%E8%AF%95/" rel="nofollow"><i class="fas fa-tag" aria-hidden="true"></i><p>面试</p></a></div>
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E9%9D%A2%E8%AF%95/" rel="nofollow"><i class="fas fa-tag" aria-hidden="true"></i><p>面试</p></a></div>
 
 
         
@@ -1274,7 +1184,7 @@ mongodb以BSON结构（二进制）进行存储，对海量数据存储有着很
                           
                               
                               <h6 class="tags">
-                                  <a class="tag" href="/tags/%E5%89%8D%E7%AB%AF/"><i class="fas fa-tag fa-fw" aria-hidden="true"></i> 前端</a> <a class="tag" href="/tags/%E9%9D%A2%E8%AF%95/"><i class="fas fa-tag fa-fw" aria-hidden="true"></i> 面试</a>
+                                  <a class="tag" href="/tags/%E9%9D%A2%E8%AF%95/"><i class="fas fa-tag fa-fw" aria-hidden="true"></i> 面试</a>
                               </h6>
                           
                       </span>
@@ -1648,49 +1558,43 @@ mongodb以BSON结构（二进制）进行存储，对海量数据存储有着很
     <div class='content material'>
       <ul class="entry">
         
-          <li><a class="flat-box" title="/categories/Android/" href="/categories/Android/"><div class='name'>Android</div><div class='badge'>(2)</div></a></li>
+          <li><a class="flat-box" title="/categories/%E5%89%8D%E7%AB%AF/" href="/categories/%E5%89%8D%E7%AB%AF/"><div class='name'>前端</div><div class='badge'>(100)</div></a></li>
         
-          <li><a class="flat-box" title="/categories/CSS/" href="/categories/CSS/"><div class='name'>CSS</div><div class='badge'>(1)</div></a></li>
+          <li><a class="flat-box child" title="/categories/%E5%89%8D%E7%AB%AF/CSS/" href="/categories/%E5%89%8D%E7%AB%AF/CSS/"><div class='name'>CSS</div><div class='badge'>(13)</div></a></li>
         
-          <li><a class="flat-box" title="/categories/ES6/" href="/categories/ES6/"><div class='name'>ES6</div><div class='badge'>(1)</div></a></li>
+          <li><a class="flat-box child" title="/categories/%E5%89%8D%E7%AB%AF/ES6/" href="/categories/%E5%89%8D%E7%AB%AF/ES6/"><div class='name'>ES6</div><div class='badge'>(4)</div></a></li>
         
-          <li><a class="flat-box" title="/categories/Node/" href="/categories/Node/"><div class='name'>Node</div><div class='badge'>(2)</div></a></li>
+          <li><a class="flat-box child" title="/categories/%E5%89%8D%E7%AB%AF/HTML/" href="/categories/%E5%89%8D%E7%AB%AF/HTML/"><div class='name'>HTML</div><div class='badge'>(6)</div></a></li>
         
-          <li><a class="flat-box" title="/categories/articles/" href="/categories/articles/"><div class='name'>articles</div><div class='badge'>(21)</div></a></li>
+          <li><a class="flat-box child" title="/categories/%E5%89%8D%E7%AB%AF/JavaScript/" href="/categories/%E5%89%8D%E7%AB%AF/JavaScript/"><div class='name'>JavaScript</div><div class='badge'>(15)</div></a></li>
         
-          <li><a class="flat-box" title="/categories/tools/" href="/categories/tools/"><div class='name'>tools</div><div class='badge'>(3)</div></a></li>
+          <li><a class="flat-box child" title="/categories/%E5%89%8D%E7%AB%AF/Vue/" href="/categories/%E5%89%8D%E7%AB%AF/Vue/"><div class='name'>Vue</div><div class='badge'>(34)</div></a></li>
         
-          <li><a class="flat-box" title="/categories/%E5%89%8D%E7%AB%AF/" href="/categories/%E5%89%8D%E7%AB%AF/"><div class='name'>前端</div><div class='badge'>(87)</div></a></li>
+          <li><a class="flat-box child" title="/categories/%E5%89%8D%E7%AB%AF/node/" href="/categories/%E5%89%8D%E7%AB%AF/node/"><div class='name'>node</div><div class='badge'>(2)</div></a></li>
         
-          <li><a class="flat-box child" title="/categories/%E5%89%8D%E7%AB%AF/CSS/" href="/categories/%E5%89%8D%E7%AB%AF/CSS/"><div class='name'>CSS</div><div class='badge'>(4)</div></a></li>
+          <li><a class="flat-box child" title="/categories/%E5%89%8D%E7%AB%AF/webpack/" href="/categories/%E5%89%8D%E7%AB%AF/webpack/"><div class='name'>webpack</div><div class='badge'>(3)</div></a></li>
         
-          <li><a class="flat-box child" title="/categories/%E5%89%8D%E7%AB%AF/HTML/" href="/categories/%E5%89%8D%E7%AB%AF/HTML/"><div class='name'>HTML</div><div class='badge'>(1)</div></a></li>
+          <li><a class="flat-box child" title="/categories/%E5%89%8D%E7%AB%AF/%E5%B0%8F%E7%A8%8B%E5%BA%8F/" href="/categories/%E5%89%8D%E7%AB%AF/%E5%B0%8F%E7%A8%8B%E5%BA%8F/"><div class='name'>小程序</div><div class='badge'>(9)</div></a></li>
         
-          <li><a class="flat-box child" title="/categories/%E5%89%8D%E7%AB%AF/JavaScript/" href="/categories/%E5%89%8D%E7%AB%AF/JavaScript/"><div class='name'>JavaScript</div><div class='badge'>(6)</div></a></li>
+          <li><a class="flat-box child" title="/categories/%E5%89%8D%E7%AB%AF/%E6%8F%92%E4%BB%B6/" href="/categories/%E5%89%8D%E7%AB%AF/%E6%8F%92%E4%BB%B6/"><div class='name'>插件</div><div class='badge'>(4)</div></a></li>
         
-          <li><a class="flat-box child" title="/categories/%E5%89%8D%E7%AB%AF/Vue/" href="/categories/%E5%89%8D%E7%AB%AF/Vue/"><div class='name'>Vue</div><div class='badge'>(21)</div></a></li>
+          <li><a class="flat-box" title="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" href="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"><div class='name'>博客搭建</div><div class='badge'>(9)</div></a></li>
         
-          <li><a class="flat-box child" title="/categories/%E5%89%8D%E7%AB%AF/%E5%B0%8F%E7%A8%8B%E5%BA%8F/" href="/categories/%E5%89%8D%E7%AB%AF/%E5%B0%8F%E7%A8%8B%E5%BA%8F/"><div class='name'>小程序</div><div class='badge'>(3)</div></a></li>
-        
-          <li><a class="flat-box" title="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" href="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"><div class='name'>博客搭建</div><div class='badge'>(7)</div></a></li>
-        
-          <li><a class="flat-box" title="/categories/%E5%90%8E%E5%8F%B0/" href="/categories/%E5%90%8E%E5%8F%B0/"><div class='name'>后台</div><div class='badge'>(22)</div></a></li>
-        
-          <li><a class="flat-box" title="/categories/%E5%B0%8F%E7%A8%8B%E5%BA%8F/" href="/categories/%E5%B0%8F%E7%A8%8B%E5%BA%8F/"><div class='name'>小程序</div><div class='badge'>(5)</div></a></li>
-        
-          <li><a class="flat-box" title="/categories/%E5%B7%A5%E5%85%B7/" href="/categories/%E5%B7%A5%E5%85%B7/"><div class='name'>工具</div><div class='badge'>(21)</div></a></li>
-        
-          <li><a class="flat-box" title="/categories/%E5%B7%A5%E7%A8%8B%E5%8C%96/" href="/categories/%E5%B7%A5%E7%A8%8B%E5%8C%96/"><div class='name'>工程化</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child" title="/categories/%E5%B7%A5%E7%A8%8B%E5%8C%96/webpack/" href="/categories/%E5%B7%A5%E7%A8%8B%E5%8C%96/webpack/"><div class='name'>webpack</div><div class='badge'>(1)</div></a></li>
+          <li><a class="flat-box" title="/categories/%E5%B7%A5%E5%85%B7/" href="/categories/%E5%B7%A5%E5%85%B7/"><div class='name'>工具</div><div class='badge'>(14)</div></a></li>
         
           <li><a class="flat-box" title="/categories/%E6%91%84%E5%BD%B1/" href="/categories/%E6%91%84%E5%BD%B1/"><div class='name'>摄影</div><div class='badge'>(1)</div></a></li>
         
-          <li><a class="flat-box" title="/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF/" href="/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF/"><div class='name'>服务器端</div><div class='badge'>(4)</div></a></li>
+          <li><a class="flat-box" title="/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF/" href="/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF/"><div class='name'>服务器端</div><div class='badge'>(20)</div></a></li>
         
-          <li><a class="flat-box" title="/categories/%E6%9D%82%E8%B0%88/" href="/categories/%E6%9D%82%E8%B0%88/"><div class='name'>杂谈</div><div class='badge'>(7)</div></a></li>
+          <li><a class="flat-box child" title="/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF/%E6%95%B0%E6%8D%AE%E5%BA%93/" href="/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF/%E6%95%B0%E6%8D%AE%E5%BA%93/"><div class='name'>数据库</div><div class='badge'>(1)</div></a></li>
         
-          <li><a class="flat-box" title="/categories/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/" href="/categories/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/"><div class='name'>游戏开发</div><div class='badge'>(17)</div></a></li>
+          <li><a class="flat-box" title="/categories/%E6%9D%82%E8%B0%88/" href="/categories/%E6%9D%82%E8%B0%88/"><div class='name'>杂谈</div><div class='badge'>(28)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/" href="/categories/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/"><div class='name'>游戏开发</div><div class='badge'>(18)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/"><div class='name'>计算机</div><div class='badge'>(2)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/%E8%BF%90%E7%BB%B4/" href="/categories/%E8%BF%90%E7%BB%B4/"><div class='name'>运维</div><div class='badge'>(6)</div></a></li>
         
       </ul>
     </div>
@@ -1747,7 +1651,7 @@ mongodb以BSON结构（二进制）进行存储，对海量数据存储有着很
 </header>
 
     <div class='content material'>
-      <a href="/tags/AS3/" style="font-size: 18px; color: #7e7e7e">AS3</a> <a href="/tags/Android/" style="font-size: 14px; color: #999">Android</a> <a href="/tags/Apache/" style="font-size: 14px; color: #999">Apache</a> <a href="/tags/CSS/" style="font-size: 18.67px; color: #797979">CSS</a> <a href="/tags/EQ/" style="font-size: 22px; color: #636363">EQ</a> <a href="/tags/ES6/" style="font-size: 16px; color: #8b8b8b">ES6</a> <a href="/tags/Github/" style="font-size: 15.33px; color: #909090">Github</a> <a href="/tags/Gulp/" style="font-size: 14px; color: #999">Gulp</a> <a href="/tags/HTML/" style="font-size: 14px; color: #999">HTML</a> <a href="/tags/HTML5/" style="font-size: 14px; color: #999">HTML5</a> <a href="/tags/HTTP/" style="font-size: 14px; color: #999">HTTP</a> <a href="/tags/Hexo/" style="font-size: 14.67px; color: #949494">Hexo</a> <a href="/tags/JavaScript/" style="font-size: 20px; color: #707070">JavaScript</a> <a href="/tags/LayaAir/" style="font-size: 15.33px; color: #909090">LayaAir</a> <a href="/tags/Markdown/" style="font-size: 14px; color: #999">Markdown</a> <a href="/tags/MySQL/" style="font-size: 14px; color: #999">MySQL</a> <a href="/tags/Node/" style="font-size: 14.67px; color: #949494">Node</a> <a href="/tags/PHP/" style="font-size: 21.33px; color: #676767">PHP</a> <a href="/tags/SEO/" style="font-size: 14.67px; color: #949494">SEO</a> <a href="/tags/SVN/" style="font-size: 14.67px; color: #949494">SVN</a> <a href="/tags/Sass/" style="font-size: 14px; color: #999">Sass</a> <a href="/tags/Vue/" style="font-size: 24px; color: #555">Vue</a> <a href="/tags/WeTest/" style="font-size: 14.67px; color: #949494">WeTest</a> <a href="/tags/ajax/" style="font-size: 14px; color: #999">ajax</a> <a href="/tags/articles/" style="font-size: 22.67px; color: #5e5e5e">articles</a> <a href="/tags/axios/" style="font-size: 14.67px; color: #949494">axios</a> <a href="/tags/canvas/" style="font-size: 14px; color: #999">canvas</a> <a href="/tags/docker/" style="font-size: 16px; color: #8b8b8b">docker</a> <a href="/tags/flex/" style="font-size: 15.33px; color: #909090">flex</a> <a href="/tags/hexo/" style="font-size: 16.67px; color: #878787">hexo</a> <a href="/tags/node/" style="font-size: 14.67px; color: #949494">node</a> <a href="/tags/npm/" style="font-size: 14.67px; color: #949494">npm</a> <a href="/tags/promise/" style="font-size: 14px; color: #999">promise</a> <a href="/tags/tools/" style="font-size: 15.33px; color: #909090">tools</a> <a href="/tags/webpack/" style="font-size: 14.67px; color: #949494">webpack</a> <a href="/tags/%E5%88%86%E8%BE%A8%E7%8E%87/" style="font-size: 14px; color: #999">分辨率</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 23.33px; color: #5a5a5a">前端</a> <a href="/tags/%E5%8D%81%E4%B8%89%E5%8F%B7%E4%BB%93%E5%BA%93/" style="font-size: 14px; color: #999">十三号仓库</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" style="font-size: 17.33px; color: #828282">博客搭建</a> <a href="/tags/%E5%8E%86%E5%8F%B2/" style="font-size: 14px; color: #999">历史</a> <a href="/tags/%E5%B0%8F%E6%B8%B8%E6%88%8F/" style="font-size: 14px; color: #999">小游戏</a> <a href="/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/" style="font-size: 17.33px; color: #828282">小程序</a> <a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 19.33px; color: #757575">工具</a> <a href="/tags/%E5%BF%83%E5%AD%A6%EF%BC%8C-%E6%9D%82%E8%B0%88/" style="font-size: 14px; color: #999">心学， 杂谈</a> <a href="/tags/%E6%8F%92%E4%BB%B6/" style="font-size: 16.67px; color: #878787">插件</a> <a href="/tags/%E6%91%84%E5%BD%B1/" style="font-size: 14px; color: #999">摄影</a> <a href="/tags/%E6%9D%82%E8%B0%88/" style="font-size: 16.67px; color: #878787">杂谈</a> <a href="/tags/%E6%9D%8E%E7%82%8E%E6%81%A2/" style="font-size: 20px; color: #707070">李炎恢</a> <a href="/tags/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/" style="font-size: 20.67px; color: #6c6c6c">游戏开发</a> <a href="/tags/%E7%8E%8B%E9%98%B3%E6%98%8E/" style="font-size: 14px; color: #999">王阳明</a> <a href="/tags/%E7%A7%BB%E5%8A%A8%E7%AB%AF/" style="font-size: 14.67px; color: #949494">移动端</a> <a href="/tags/%E7%BE%8E%E5%89%A7/" style="font-size: 14px; color: #999">美剧</a> <a href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" style="font-size: 14px; color: #999">读书笔记</a> <a href="/tags/%E8%B0%B7%E6%AD%8C/" style="font-size: 14px; color: #999">谷歌</a> <a href="/tags/%E9%80%82%E9%85%8D/" style="font-size: 14px; color: #999">适配</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 15.33px; color: #909090">面试</a> <a href="/tags/%E9%A1%B9%E7%9B%AE/" style="font-size: 14.67px; color: #949494">项目</a>
+      <a href="/tags/Apache/" style="font-size: 14px; color: #999">Apache</a> <a href="/tags/CSS/" style="font-size: 19.38px; color: #747474">CSS</a> <a href="/tags/ES6/" style="font-size: 16.31px; color: #898989">ES6</a> <a href="/tags/HTML/" style="font-size: 14.77px; color: #949494">HTML</a> <a href="/tags/JavaScript/" style="font-size: 20.92px; color: #6a6a6a">JavaScript</a> <a href="/tags/MySQL/" style="font-size: 14px; color: #999">MySQL</a> <a href="/tags/PHP/" style="font-size: 21.69px; color: #656565">PHP</a> <a href="/tags/SEO/" style="font-size: 14.77px; color: #949494">SEO</a> <a href="/tags/SVN/" style="font-size: 14.77px; color: #949494">SVN</a> <a href="/tags/Sass/" style="font-size: 14px; color: #999">Sass</a> <a href="/tags/Vue/" style="font-size: 24px; color: #555">Vue</a> <a href="/tags/ajax/" style="font-size: 14px; color: #999">ajax</a> <a href="/tags/axios/" style="font-size: 14.77px; color: #949494">axios</a> <a href="/tags/linux/" style="font-size: 16.31px; color: #898989">linux</a> <a href="/tags/node/" style="font-size: 16.31px; color: #898989">node</a> <a href="/tags/webpack/" style="font-size: 14.77px; color: #949494">webpack</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 18.62px; color: #7a7a7a">前端</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" style="font-size: 17.85px; color: #7f7f7f">博客搭建</a> <a href="/tags/%E5%8E%86%E5%8F%B2/" style="font-size: 14px; color: #999">历史</a> <a href="/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/" style="font-size: 17.85px; color: #7f7f7f">小程序</a> <a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 20.15px; color: #6f6f6f">工具</a> <a href="/tags/%E6%8F%92%E4%BB%B6/" style="font-size: 17.08px; color: #848484">插件</a> <a href="/tags/%E6%91%84%E5%BD%B1/" style="font-size: 14px; color: #999">摄影</a> <a href="/tags/%E6%9D%82%E8%B0%88/" style="font-size: 23.23px; color: #5a5a5a">杂谈</a> <a href="/tags/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/" style="font-size: 22.46px; color: #5f5f5f">游戏开发</a> <a href="/tags/%E7%A7%BB%E5%8A%A8%E7%AB%AF/" style="font-size: 14.77px; color: #949494">移动端</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/" style="font-size: 14px; color: #999">计算机</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 15.54px; color: #8f8f8f">面试</a> <a href="/tags/%E9%A1%B9%E7%9B%AE/" style="font-size: 15.54px; color: #8f8f8f">项目</a>
     </div>
   </section>
 
