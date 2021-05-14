@@ -1,0 +1,1546 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  
+  <title>Markdown笔记 | awstudio&#39;s blog</title>
+  
+  
+
+  
+
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <!-- meta -->
+  
+
+  <!-- link -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css">
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.10.1/css/all.min.css">
+  
+
+  
+  <link rel="shortcut icon" type='image/x-icon' href="http://awstudio.cn/img/avatar.jpg">
+  
+
+  
+    
+<link rel="stylesheet" href="/style.css">
+
+  
+
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+
+  
+  
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  
+  
+  <div class="cover-wrapper">
+    <cover class='cover post half'>
+      
+        
+  <h1 class='title'>Arthur Wang</h1>
+
+
+  <div class="m_search">
+    <form name="searchform" class="form u-search-form">
+      <input type="text" class="input u-search-input" placeholder="" />
+      <i class="icon fas fa-search fa-fw"></i>
+    </form>
+  </div>
+
+<div class='menu navgation'>
+  <ul class='h-list'>
+    
+      
+        <li>
+          <a class="nav home" href="/"
+            
+            
+            id="home">
+            <i class='fas fa-blog fa-fw'></i>&nbsp;博文
+          </a>
+        </li>
+      
+        <li>
+          <a class="nav home" href="/categories/"
+            
+            
+            id="categories">
+            <i class='fas fa-code-branch fa-fw'></i>&nbsp;分类
+          </a>
+        </li>
+      
+        <li>
+          <a class="nav home" href="/tags/"
+            
+            
+            id="tags">
+            <i class='fas fa-tag fa-fw'></i>&nbsp;标签
+          </a>
+        </li>
+      
+        <li>
+          <a class="nav home" href="/friends/"
+            
+              rel="nofollow"
+            
+            
+            id="friends">
+            <i class='fas fa-link fa-fw'></i>&nbsp;友链
+          </a>
+        </li>
+      
+        <li>
+          <a class="nav home" href="/about/"
+            
+              rel="nofollow"
+            
+            
+            id="about">
+            <i class='fas fa-info-circle fa-fw'></i>&nbsp;关于
+          </a>
+        </li>
+      
+    
+  </ul>
+</div>
+
+      
+    </cover>
+    <header class="l_header material">
+  <div id="loading-bar-wrapper">
+    <div id="loading-bar" class="material"></div>
+  </div>
+
+	<div class='wrapper'>
+		<div class="nav-main container container--flex">
+      <a class="logo flat-box" href='/' >
+        
+          awstudio's blog
+        
+      </a>
+			<div class='menu navgation'>
+				<ul class='h-list'>
+          
+  					
+  						<li>
+								<a class="nav flat-box" href="/"
+                  
+                  
+                  id="home">
+									<i class='fas fa-blog fa-fw'></i>&nbsp;博文
+								</a>
+							</li>
+      			
+  						<li>
+								<a class="nav flat-box" href="/categories/"
+                  
+                    rel="nofollow"
+                  
+                  
+                  id="categories">
+									<i class='fas fa-folder-open fa-fw'></i>&nbsp;分类
+								</a>
+							</li>
+      			
+  						<li>
+								<a class="nav flat-box" href="/tags/"
+                  
+                    rel="nofollow"
+                  
+                  
+                  id="tags">
+									<i class='fas fa-hashtag fa-fw'></i>&nbsp;标签
+								</a>
+							</li>
+      			
+      		
+				</ul>
+			</div>
+
+			
+				<div class="m_search">
+					<form name="searchform" class="form u-search-form">
+						<input type="text" class="input u-search-input" placeholder="Search" />
+						<i class="icon fas fa-search fa-fw"></i>
+					</form>
+				</div>
+			
+			<ul class='switcher h-list'>
+				
+					<li class='s-search'><a class="fas fa-search fa-fw" href='javascript:void(0)'></a></li>
+				
+				<li class='s-menu'><a class="fas fa-bars fa-fw" href='javascript:void(0)'></a></li>
+			</ul>
+		</div>
+
+		<div class='nav-sub container container--flex'>
+			<a class="logo flat-box"></a>
+			<ul class='switcher h-list'>
+				<li class='s-comment'><a class="flat-btn fas fa-comments fa-fw" href='javascript:void(0)'></a></li>
+        
+          <li class='s-toc'><a class="flat-btn fas fa-list fa-fw" href='javascript:void(0)'></a></li>
+        
+			</ul>
+		</div>
+	</div>
+</header>
+	<aside class="menu-phone">
+    <header>
+		<nav class="menu navgation">
+      <ul>
+        
+          
+            <li>
+							<a class="nav flat-box" href="/"
+                
+                
+                id="home">
+								<i class='fas fa-clock fa-fw'></i>&nbsp;近期文章
+							</a>
+            </li>
+          
+            <li>
+							<a class="nav flat-box" href="/blog/archives/"
+                
+                  rel="nofollow"
+                
+                
+                id="blogarchives">
+								<i class='fas fa-archive fa-fw'></i>&nbsp;文章归档
+							</a>
+            </li>
+          
+            <li>
+							<a class="nav flat-box" href="/projects/"
+                
+                
+                id="projects">
+								<i class='fas fa-code-branch fa-fw'></i>&nbsp;开源项目
+							</a>
+            </li>
+          
+            <li>
+							<a class="nav flat-box" href="/friends/"
+                
+                  rel="nofollow"
+                
+                
+                id="friends">
+								<i class='fas fa-link fa-fw'></i>&nbsp;我的友链
+							</a>
+            </li>
+          
+            <li>
+							<a class="nav flat-box" href="https://xaoxuu.com/wiki/material-x/"
+                
+                  rel="nofollow"
+                
+                
+                id="https:xaoxuu.comwikimaterial-x">
+								<i class='fas fa-book fa-fw'></i>&nbsp;主题文档
+							</a>
+            </li>
+          
+            <li>
+							<a class="nav flat-box" href="/about/"
+                
+                  rel="nofollow"
+                
+                
+                id="about">
+								<i class='fas fa-info-circle fa-fw'></i>&nbsp;关于小站
+							</a>
+            </li>
+          
+       
+      </ul>
+		</nav>
+    </header>
+	</aside>
+<script>setLoadingBarProgress(40);</script>
+
+  </div>
+
+
+  <div class="l_body">
+    <div class='body-wrapper'>
+      <div class='l_main'>
+  
+
+  <article id="post" class="post white-box article-type-post" itemscope itemprop="blogPost">
+    
+
+
+  <section class='meta'>
+    
+    
+    <div class="meta" id="header-meta">
+      
+        
+  
+    <h1 class="title">
+      <a href="/2018/05/07/Markdown/">
+        Markdown笔记
+      </a>
+    </h1>
+  
+
+
+      
+      <div class='new-meta-box'>
+        
+          
+        
+          
+            
+  <div class='new-meta-item author'>
+    
+      <a href="http://awstudio.cn" rel="nofollow">
+        
+          <img src="http://awstudio.cn/img/avatar.jpg">
+        
+        <p>Arthur Wang</p>
+      </a>
+    
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+    <p>2018-05-07</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  
+  <div class='new-meta-item category'>
+    <a href='/categories/%E5%B7%A5%E5%85%B7/' rel="nofollow">
+      <i class="fas fa-folder-open" aria-hidden="true"></i>
+      <p>工具</p>
+    </a>
+  </div>
+
+
+          
+        
+          
+            
+  
+    <div class="new-meta-item browse busuanzi">
+      <a class='notlink'>
+        <i class="fas fa-eye" aria-hidden="true"></i>
+        <p>
+          <span id="busuanzi_value_page_pv">
+            <i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i>
+          </span>
+        </p>
+      </a>
+    </div>
+  
+
+
+          
+        
+          
+            
+  
+    <div class="new-meta-item wordcount">
+      <a class='notlink'>
+        <i class="fas fa-keyboard" aria-hidden="true"></i>
+        <p>字数统计:</p>
+        <p>1.4k字</p>
+      </a>
+    </div>
+    <div class="new-meta-item readtime">
+      <a class='notlink'>
+        <i class="fas fa-hourglass-half" aria-hidden="true"></i>
+        <p>阅读时长≈</p>
+        <p>5分</p>
+      </a>
+    </div>
+  
+
+          
+        
+          
+            
+
+          
+        
+      </div>
+      
+        <hr>
+      
+    </div>
+  </section>
+
+
+    <section class="article typo">
+      <div class="article-entry" itemprop="articleBody">
+        <blockquote>
+<p>Markdown 是一种轻量级的「标记语言」，它的优点很多，目前也被越来越多的写作爱好者，撰稿者广泛使用。看到这里请不要被「标记」、「语言」所迷惑，Markdown 的语法十分简单。常用的标记符号也不超过十个，这种相对于更为复杂的 HTML 标记语言来说，Markdown 可谓是十分轻量的，学习成本也不需要太多，且一旦熟悉这种语法规则，会有一劳永逸的效果。</p>
+</blockquote>
+<hr>
+<h2 id="一、工具"><a href="#一、工具" class="headerlink" title="一、工具"></a>一、工具</h2><ul>
+<li><p>在 Mac OS X 上，建议你用 <a href="http://25.io/mou/" target="_blank" rel="noopener" title="title">Mou</a> 这款免费且十分好用的 Markdown 编辑器，它支持实时预览，既左边是你编辑 Markdown 语言，右边会实时的生成预览效果。    </p>
+</li>
+<li><p>Windows 下的 Markdown 有两款还算不错，一款叫做 <a href="http://markdownpad.com/" target="_blank" rel="noopener" title="title">MarkdownPad</a> ，另一款叫做 MarkPad。</p>
+</li>
+</ul>
+<hr>
+<h2 id="二、语法"><a href="#二、语法" class="headerlink" title="二、语法"></a>二、语法</h2><h3 id="1-标题"><a href="#1-标题" class="headerlink" title="1.标题"></a>1.标题</h3><div style="color:#333;">Markdown支持两种标题的语法，Setext和atx形式。</div>
+
+<p>atx：由1<del>6个#（空格）和标题字组成，分别对应h1</del>h6</p>
+<div style="color:#fff;background-color:#000;border-radius:4px;padding:10px 20px;"><h1 style="color:#fff">一号标题(#)</h1><h2 style="color:#fff">二号标题(##)</h2><h3 style="color:#fff">三号标题(###)</h3><h4 style="color:#fff">四号标题(####)</h4><h5 style="color:#fff">五号标题(#####)</h5><h6 style="color:#fff">六号标题(######)</h6></div>
+
+<p>Setext：由标题字和下划线=或-组成，任何数量的=或-都可以，但为了避免出错，建议输入=或-的数量不少于3个</p>
+<h3 id="2-段落"><a href="#2-段落" class="headerlink" title="2.段落"></a>2.段落</h3><p>段落文本前要有一行或多行空白行  </p>
+<h3 id="3-粗体、斜体"><a href="#3-粗体、斜体" class="headerlink" title="3.粗体、斜体"></a>3.粗体、斜体</h3><p>由*或_和文本组成，文本可以跨行但不可空行，文字之间可以有空格，单是斜体，双是粗体  </p>
+<pre><code>*斜体*
+**粗体**</code></pre><p>  效果：<em>斜体</em> &nbsp;&nbsp;<strong>粗体</strong>  </p>
+<h3 id="4-分割线"><a href="#4-分割线" class="headerlink" title="4.分割线"></a>4.分割线</h3><p>由至少三个<code>*</code>或<code>_</code>或<code>-</code>之一组成，单独一行可以有空格  </p>
+<pre><code>***      </code></pre><p>效果：  </p>
+<hr>
+<h3 id="5-代码"><a href="#5-代码" class="headerlink" title="5.代码"></a>5.代码</h3><p>单行内的代码使用反引号( ` ` )将代码包裹   </p>
+<pre><code>这是`单行代码`</code></pre><p>效果：这是<code>单行代码</code>    </p>
+<p>大段的代码块要在每行前加4个<code>空格</code>或一个<code>tab</code>，而且有一些 HTML 区块元素――比如<code>\&lt;div&gt;</code>、<code>\&lt;table&gt;</code>、<code>\&lt;pre&gt;</code>、<code>\&lt;p&gt;</code> 等标签，必须在前后加上空行与其它内容区隔开，还要求它们的开始标签与结尾标签不能用制表符或空格来缩进  </p>
+<h3 id="6-使用HTML语言"><a href="#6-使用HTML语言" class="headerlink" title="6.使用HTML语言"></a>6.使用HTML语言</h3><p>可以直接使用HTML语言，但前后都要有空行  </p>
+<pre><code>&lt;div style=&quot;color:red&quot;&gt;可以直接使用HTML语言，但前后都要有空行&lt;/div&gt;  </code></pre><div style="color:red">可以直接使用HTML语言，但前后都要有空行</div>  
+
+<h3 id="7-注释"><a href="#7-注释" class="headerlink" title="7.注释"></a>7.注释</h3><p>Markdown中的注释与HTML的注释一样  </p>
+<pre><code>&lt;!-- Markdown中的注释与HTML的注释一样 --&gt;  </code></pre><h3 id="8-转译"><a href="#8-转译" class="headerlink" title="8.转译"></a>8.转译</h3><p>部分字符在Markdown中会自动转译，可以利用反斜杠来<code>\</code>插入一些在语法中有其它意义的符号，Markdown支持的转义字符列表：  </p>
+<div style="background-color:black;color:#fff;padding-left:20px;padding-top:10px;padding-bottom:10px;border-radius:6px;">\   反斜线<br/>
+    `   反引号<br/>
+*   星号<br/>
+_   底线<br/>
+{}  花括号<br/>
+[]  方括号<br/>
+()  括弧<br/>
+#   井字号<br/>
++   加号<br/>
+-   减号<br/>
+.   英文句点<br/>
+!   惊叹号</div>  
+
+<h2 id="三、引用"><a href="#三、引用" class="headerlink" title="三、引用"></a>三、引用</h2><p>文字引用在文本前加入<code>&gt;</code>大于号（空格）即可  </p>
+<div style="background-color:black;color:#fff;padding-left:20px;padding-top:10px;padding-bottom:10px;border-radius:6px;">> 引用</div>  
+
+<p>效果：  </p>
+<blockquote>
+<p>引用  </p>
+</blockquote>
+<p>多级引用嵌套需要需要这样写:  </p>
+<div style="background-color:black;color:#fff;padding-left:20px;padding-top:10px;padding-bottom:10px;border-radius:6px;">> 一级引用<br/>&nbsp;&nbsp;&nbsp;&nbsp;>>二级引用<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;>>>三级引用</div>  
+
+<p>效果：  </p>
+<blockquote>
+<p>一级引用  </p>
+<blockquote>
+<p>二级引用  </p>
+<blockquote>
+<p>三级引用    </p>
+</blockquote>
+</blockquote>
+</blockquote>
+<h2 id="四、列表"><a href="#四、列表" class="headerlink" title="四、列表"></a>四、列表</h2><p>1.无序列表，由<code>*</code>或<code>+</code>或<code>-</code>（空格）和文本组成，建议一个列表尽量使用其中一种符号。  </p>
+<div style="background-color:black;color:#fff;padding-left:20px;padding-top:10px;padding-bottom:10px;border-radius:6px;">+&nbsp;&nbsp;第一<br/>+&nbsp;&nbsp;第二<br/>+&nbsp;&nbsp;第三</div>  
+
+<ul>
+<li>第一</li>
+<li>第二  </li>
+<li>第三  </li>
+</ul>
+<p>2.有序列表，由数字和 . （空格）与文本组成，数字无需按大小排序，会自动编辑排序。  </p>
+<div style="background-color:black;color:#fff;padding-left:20px;padding-top:10px;padding-bottom:10px;border-radius:6px;">1.&nbsp;&nbsp;第一<br/>4.&nbsp;&nbsp;第二<br/>3.&nbsp;&nbsp;第三</div>    
+
+<ol>
+<li>第一  </li>
+<li>第二  </li>
+<li>第三  </li>
+</ol>
+<h2 id="五、链接"><a href="#五、链接" class="headerlink" title="五、链接"></a>五、链接</h2><p>1.Inline方式，文字链接,”title”可有可无  </p>
+<div style="background-color:black;color:#fff;padding-left:20px;padding-top:10px;padding-bottom:10px;border-radius:6px;">[legendaryarthur](https://legendaryarthur.github.io 'title')</div>  
+
+<p><a href="https://legendaryarthur.github.io" target="_blank" rel="noopener" title="title">legendaryarthur</a>  </p>
+<p>2.图片链接，大小只能借助HTML来设置,”title”可有可无  </p>
+<pre><code>![karlie](https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1487901610&amp;di=bf06f3e33d576dea2dcc7e28916f68b9&amp;imgtype=jpg&amp;er=1&amp;src=http%3A%2F%2Fcms-bucket.nosdn.127.net%2Fcatchpic%2F7%2F7b%2F7b28afe7586c5629dcfc8729769f8bb7.jpg%3FimageView%26amp%3Bthumbnail%3D550x0)   </code></pre><p><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1487901610&di=bf06f3e33d576dea2dcc7e28916f68b9&imgtype=jpg&er=1&src=http%3A%2F%2Fcms-bucket.nosdn.127.net%2Fcatchpic%2F7%2F7b%2F7b28afe7586c5629dcfc8729769f8bb7.jpg%3FimageView%26amp%3Bthumbnail%3D550x0" alt="karlie" title="Karlie Kloss">  </p>
+<p>3.自动链接,尖括号(大于号、小于号)包裹地址  </p>
+<div style="background-color:black;color:#fff;padding-left:20px;padding-top:10px;padding-bottom:10px;border-radius:6px;">< https://legendaryarthur.github.io ></div>  
+
+<p><a href="https://legendaryarthur.github.io" target="_blank" rel="noopener">https://legendaryarthur.github.io</a>  </p>
+<p>4.索引链接  </p>
+<div style="background-color:black;color:#fff;padding-left:20px;padding-top:10px;padding-bottom:10px;border-radius:6px;">[legendaryarthur][1]<br/><br/>注：文档任意位置(通常是尾部)<br/>[1]:https://legendaryarthur.github.io "title"</div>  
+
+<p><a href="https://legendaryarthur.github.io" target="_blank" rel="noopener" title="title">legendaryarthur</a>  </p>
+<!-- 文档任意位置(通常是尾部) -->  
+<h2 id="六、表格"><a href="#六、表格" class="headerlink" title="六、表格"></a>六、表格</h2><p>表格是我觉得 Markdown 比较累人的地方，例子如下：  </p>
+<div style="background-color:black;color:#fff;padding-left:20px;padding-top:10px;padding-bottom:10px;border-radius:6px;">| Tables&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Are&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Cool&nbsp;&nbsp;&nbsp;&nbsp;|<br/>
+| -------------&nbsp;&nbsp;&nbsp;&nbsp;|:-------------:&nbsp;&nbsp;| -----:&nbsp;&nbsp;&nbsp;&nbsp;|<br/>
+| col 3 is&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| right-aligned | $1600&nbsp;&nbsp;|<br/>
+| col 2 is&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| centered&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$12 |<br/>
+| zebra stripes&nbsp;&nbsp;| are neat&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$1 |</div>  
+
+<table>
+<thead>
+<tr>
+<th>Tables</th>
+<th align="center">Are</th>
+<th align="right">Cool</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>col 3 is</td>
+<td align="center">right-aligned</td>
+<td align="right">$1600</td>
+</tr>
+<tr>
+<td>col 2 is</td>
+<td align="center">centered</td>
+<td align="right">$12</td>
+</tr>
+<tr>
+<td>zebra stripes</td>
+<td align="center">are neat</td>
+<td align="right">$1</td>
+</tr>
+</tbody></table>
+<h2 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h2><ol>
+<li>在表格中插入 <code>|</code> 的时候会遇到问题，这里可以用 <code>&amp;#124;</code> 来解决；</li>
+<li>标题中如果有双引号之类的会出现错误，导致文件生成失败；</li>
+<li>实现首行缩进：<br>&#160;&#160;&#160;&#160;由于markdown语法主要考虑的是英文，所以对于中文的首行缩进并不太友好，两种方法都可以完美解决这个问题。</li>
+</ol>
+<ul>
+<li>把输入法由半角改为全角。 两次空格之后就能够有两个汉字的缩进。</li>
+<li>在开头的时候，先输入下面的代码，然后紧跟着输入文本即可。分号也不要掉。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">半方大的空白&amp;ensp;或&amp;#8194;</span><br><span class="line">全方大的空白&amp;emsp;或&amp;#8195;</span><br><span class="line">不断行的空白格&amp;nbsp;或&amp;#160;</span><br></pre></td></tr></table></figure>
+
+
+
+
+</li>
+</ul>
+<h2 id="参考连接"><a href="#参考连接" class="headerlink" title="参考连接"></a>参考连接</h2><ol>
+<li><a href="https://niuxiaokui.github.io/2016/09/23/%E5%AD%A6%E4%B9%A0markdown/" target="_blank" rel="noopener">学习Markdown</a>  </li>
+<li><a href="http://www.jianshu.com/p/1e402922ee32/" target="_blank" rel="noopener">Markdown——入门指南</a>  </li>
+<li><a href="http://wowubuntu.com/markdown/#list" target="_blank" rel="noopener">Markdown 语法说明 (简体中文版)</a></li>
+</ol>
+
+      </div>
+      
+      
+        <br>
+        
+
+
+  <section class='meta' id="footer-meta">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-05-15T01:03:58+08:00">
+  <a class='notlink'>
+    <i class="fas fa-clock" aria-hidden="true"></i>
+    <p>updated at May 15, 2021</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E5%B7%A5%E5%85%B7/" rel="nofollow"><i class="fas fa-tag" aria-hidden="true"></i><p>工具</p></a></div>
+
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="QQ好友" rel="external nofollow noopener noreferrer"
+          
+          href="http://connect.qq.com/widget/shareqq/index.html?url=http://awstudio.cn/2018/05/07/Markdown/&title=Markdown笔记 | awstudio's blog&pics=http://awstudio.cn/img/avatar.jpg&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="QQ空间" rel="external nofollow noopener noreferrer"
+          
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://awstudio.cn/2018/05/07/Markdown/&title=Markdown笔记 | awstudio's blog&pics=http://awstudio.cn/img/avatar.jpg&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="微博" rel="external nofollow noopener noreferrer"
+          
+          href="http://service.weibo.com/share/share.php?url=http://awstudio.cn/2018/05/07/Markdown/&title=Markdown笔记 | awstudio's blog&pics=http://awstudio.cn/img/avatar.jpg&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/weibo.png">
+          
+        </a>
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </section>
+
+
+      
+      
+          <div class="prev-next">
+              
+                  <section class="prev">
+                      <span class="art-item-left">
+                          <h6><i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;Previous</h6>
+                          <h4>
+                              <a href="/2018/05/31/multiple-device-blog-issues/" rel="prev" title="多设备下同步博客问题汇总">
+                                
+                                    多设备下同步博客问题汇总
+                                
+                              </a>
+                          </h4>
+                          
+                              
+                              <h6 class="tags">
+                                  <a class="tag" href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"><i class="fas fa-tag fa-fw" aria-hidden="true"></i> 博客搭建</a>
+                              </h6>
+                          
+                      </span>
+                  </section>
+              
+              
+                  <section class="next">
+                      <span class="art-item-right" aria-hidden="true">
+                          <h6>Next&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></h6>
+                          <h4>
+                              <a href="/2017/09/14/delete-domWhiteSpace/" rel="prev" title="JS DOM 中的空白节点的过滤">
+                                  
+                                      JS DOM 中的空白节点的过滤
+                                  
+                              </a>
+                          </h4>
+                          
+                              
+                              <h6 class="tags">
+                                  <a class="tag" href="/tags/%E5%89%8D%E7%AB%AF/"><i class="fas fa-tag fa-fw" aria-hidden="true"></i> 前端</a>
+                              </h6>
+                          
+                      </span>
+                  </section>
+              
+          </div>
+      
+    </section>
+  </article>
+
+
+
+  <!-- 显示推荐文章和评论 -->
+
+
+
+  
+
+
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+
+  <script>
+    window.subData = {
+      title: 'Markdown笔记',
+      tools: true
+    }
+  </script>
+
+
+</div>
+<aside class='l_side'>
+  
+    
+    
+      
+      
+        
+          
+          
+            
+              <section class='widget author'>
+  <div class='content material'>
+    
+      <div class='avatar'>
+        <img class='avatar' src='http://blogpic.at15cm.com/parrot.jpg'/>
+      </div>
+    
+    
+    
+      <div class="social-wrapper">
+        
+          
+            <a href="/atom.xml"
+              class="social fas fa-rss flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+          
+            <a href="mailto:me@xaoxuu.com"
+              class="social fas fa-envelope flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+          
+            <a href="https://github.com/KodeWithKarlie"
+              class="social fab fa-github flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+          
+            <a href="https://music.163.com/#/user/home?id=409650851"
+              class="social fas fa-headphones-alt flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+      </div>
+    
+  </div>
+</section>
+
+            
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+      
+        
+          
+          
+        
+          
+          
+            
+              <section class='widget plain'>
+  
+<header class='material'>
+  <div><i class="fas fa-file fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;知行合一</div>
+  
+</header>
+
+  <div class='content material'>
+    <p>此心光明，亦复何言</p>
+
+  </div>
+</section>
+
+            
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+      
+        
+          
+          
+        
+          
+          
+        
+          
+          
+            
+              
+  <section class='widget toc-wrapper'>
+    
+<header class='material'>
+  <div><i class="fas fa-list fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;TOC</div>
+  
+    <!-- <div class='wrapper'><a class="s-toc rightBtn" rel="external nofollow noopener noreferrer" href="javascript:void(0)"><i class="fas fa-thumbtack fa-fw"></i></a></div> -->
+  
+</header>
+
+    <div class='content material'>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、工具"><span class="toc-text">一、工具</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、语法"><span class="toc-text">二、语法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-标题"><span class="toc-text">1.标题</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-text">一号标题(#)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#null"><span class="toc-text">二号标题(##)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#null"><span class="toc-text">三号标题(###)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#null"><span class="toc-text">四号标题(####)</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#null"><span class="toc-text">五号标题(#####)</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#null"><span class="toc-text">六号标题(######)</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-段落"><span class="toc-text">2.段落</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-粗体、斜体"><span class="toc-text">3.粗体、斜体</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-分割线"><span class="toc-text">4.分割线</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-代码"><span class="toc-text">5.代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-使用HTML语言"><span class="toc-text">6.使用HTML语言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-注释"><span class="toc-text">7.注释</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-转译"><span class="toc-text">8.转译</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、引用"><span class="toc-text">三、引用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、列表"><span class="toc-text">四、列表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、链接"><span class="toc-text">五、链接</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#六、表格"><span class="toc-text">六、表格</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#更新"><span class="toc-text">更新</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考连接"><span class="toc-text">参考连接</span></a></li></ol>
+    </div>
+  </section>
+
+
+            
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+      
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+            
+              <section class='widget grid'>
+  
+<header class='material'>
+  <div><i class="fas fa-map-signs fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;站内导航</div>
+  
+</header>
+
+  <div class='content material'>
+    <ul class="grid navgation">
+      
+        <li><a class="flat-box" title="/" href="/"
+          
+          
+          id="home">
+          
+            <i class="fas fa-clock fa-fw" aria-hidden="true"></i>
+          
+          近期文章
+        </a></li>
+      
+        <li><a class="flat-box" title="/blog/archives/" href="/blog/archives/"
+          
+            rel="nofollow"
+          
+          
+          id="blogarchives">
+          
+            <i class="fas fa-archive fa-fw" aria-hidden="true"></i>
+          
+          文章归档
+        </a></li>
+      
+        <li><a class="flat-box" title="/projects/" href="/projects/"
+          
+          
+          id="projects">
+          
+            <i class="fas fa-code-branch fa-fw" aria-hidden="true"></i>
+          
+          开源项目
+        </a></li>
+      
+        <li><a class="flat-box" title="/friends/" href="/friends/"
+          
+            rel="nofollow"
+          
+          
+          id="friends">
+          
+            <i class="fas fa-link fa-fw" aria-hidden="true"></i>
+          
+          我的友链
+        </a></li>
+      
+        <li><a class="flat-box" title="https://xaoxuu.com/wiki/material-x/" href="https://xaoxuu.com/wiki/material-x/"
+          
+            rel="nofollow"
+          
+          
+          id="https:xaoxuu.comwikimaterial-x">
+          
+            <i class="fas fa-book fa-fw" aria-hidden="true"></i>
+          
+          主题文档
+        </a></li>
+      
+        <li><a class="flat-box" title="/about/" href="/about/"
+          
+            rel="nofollow"
+          
+          
+          id="about">
+          
+            <i class="fas fa-info-circle fa-fw" aria-hidden="true"></i>
+          
+          关于小站
+        </a></li>
+      
+    </ul>
+  </div>
+</section>
+
+            
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+      
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+            
+              
+  <section class='widget category'>
+    
+<header class='material'>
+  <div><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;Categories</div>
+  
+    <a class="rightBtn"
+    
+      rel="nofollow"
+    
+    
+    href="/categories/"
+    title="categories/">
+    <i class="fas fa-expand-arrows-alt fa-fw"></i></a>
+  
+</header>
+
+    <div class='content material'>
+      <ul class="entry">
+        
+          <li><a class="flat-box" title="/categories/%E5%89%8D%E7%AB%AF/" href="/categories/%E5%89%8D%E7%AB%AF/"><div class='name'>前端</div><div class='badge'>(95)</div></a></li>
+        
+          <li><a class="flat-box child" title="/categories/%E5%89%8D%E7%AB%AF/JavaScript/" href="/categories/%E5%89%8D%E7%AB%AF/JavaScript/"><div class='name'>JavaScript</div><div class='badge'>(15)</div></a></li>
+        
+          <li><a class="flat-box child" title="/categories/%E5%89%8D%E7%AB%AF/Vue/" href="/categories/%E5%89%8D%E7%AB%AF/Vue/"><div class='name'>Vue</div><div class='badge'>(32)</div></a></li>
+        
+          <li><a class="flat-box child" title="/categories/%E5%89%8D%E7%AB%AF/webpack/" href="/categories/%E5%89%8D%E7%AB%AF/webpack/"><div class='name'>webpack</div><div class='badge'>(3)</div></a></li>
+        
+          <li><a class="flat-box child" title="/categories/%E5%89%8D%E7%AB%AF/%E5%B0%8F%E7%A8%8B%E5%BA%8F/" href="/categories/%E5%89%8D%E7%AB%AF/%E5%B0%8F%E7%A8%8B%E5%BA%8F/"><div class='name'>小程序</div><div class='badge'>(9)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" href="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"><div class='name'>博客搭建</div><div class='badge'>(9)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/%E5%B7%A5%E5%85%B7/" href="/categories/%E5%B7%A5%E5%85%B7/"><div class='name'>工具</div><div class='badge'>(14)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/%E6%91%84%E5%BD%B1/" href="/categories/%E6%91%84%E5%BD%B1/"><div class='name'>摄影</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF/" href="/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF/"><div class='name'>服务器端</div><div class='badge'>(22)</div></a></li>
+        
+          <li><a class="flat-box child" title="/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF/Node-js/" href="/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF/Node-js/"><div class='name'>Node.js</div><div class='badge'>(2)</div></a></li>
+        
+          <li><a class="flat-box child" title="/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF/%E6%95%B0%E6%8D%AE%E5%BA%93/" href="/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF/%E6%95%B0%E6%8D%AE%E5%BA%93/"><div class='name'>数据库</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/%E6%9D%82%E8%B0%88/" href="/categories/%E6%9D%82%E8%B0%88/"><div class='name'>杂谈</div><div class='badge'>(6)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/" href="/categories/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/"><div class='name'>游戏开发</div><div class='badge'>(17)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/"><div class='name'>计算机</div><div class='badge'>(2)</div></a></li>
+        
+          <li><a class="flat-box" title="/categories/%E8%BF%90%E7%BB%B4/" href="/categories/%E8%BF%90%E7%BB%B4/"><div class='name'>运维</div><div class='badge'>(6)</div></a></li>
+        
+      </ul>
+    </div>
+  </section>
+
+
+            
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+      
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+            
+              
+  <section class='widget tagcloud'>
+    
+<header class='material'>
+  <div><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;Hot Tags</div>
+  
+    <a class="rightBtn"
+    
+      rel="nofollow"
+    
+    
+    href="/tags/"
+    title="tags/">
+    <i class="fas fa-expand-arrows-alt fa-fw"></i></a>
+  
+</header>
+
+    <div class='content material'>
+      <a href="/tags/Apache/" style="font-size: 14px; color: #999">Apache</a> <a href="/tags/CSS/" style="font-size: 20.36px; color: #6e6e6e">CSS</a> <a href="/tags/ES6/" style="font-size: 16.73px; color: #868686">ES6</a> <a href="/tags/HTML/" style="font-size: 15.82px; color: #8d8d8d">HTML</a> <a href="/tags/JavaScript/" style="font-size: 22.18px; color: #616161">JavaScript</a> <a href="/tags/MySQL/" style="font-size: 14px; color: #999">MySQL</a> <a href="/tags/PHP/" style="font-size: 23.09px; color: #5b5b5b">PHP</a> <a href="/tags/SEO/" style="font-size: 14.91px; color: #939393">SEO</a> <a href="/tags/SVN/" style="font-size: 14.91px; color: #939393">SVN</a> <a href="/tags/Vue/" style="font-size: 24px; color: #555">Vue</a> <a href="/tags/ajax/" style="font-size: 14px; color: #999">ajax</a> <a href="/tags/axios/" style="font-size: 14.91px; color: #939393">axios</a> <a href="/tags/chart-js/" style="font-size: 15.82px; color: #8d8d8d">chart.js</a> <a href="/tags/linux/" style="font-size: 16.73px; color: #868686">linux</a> <a href="/tags/node/" style="font-size: 16.73px; color: #868686">node</a> <a href="/tags/webpack/" style="font-size: 14.91px; color: #939393">webpack</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 18.55px; color: #7a7a7a">前端</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" style="font-size: 19.45px; color: #747474">博客搭建</a> <a href="/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/" style="font-size: 19.45px; color: #747474">小程序</a> <a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 21.27px; color: #686868">工具</a> <a href="/tags/%E6%8F%92%E4%BB%B6/" style="font-size: 14.91px; color: #939393">插件</a> <a href="/tags/%E6%91%84%E5%BD%B1/" style="font-size: 14px; color: #999">摄影</a> <a href="/tags/%E6%9D%82%E8%B0%88/" style="font-size: 17.64px; color: #808080">杂谈</a> <a href="/tags/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/" style="font-size: 23.09px; color: #5b5b5b">游戏开发</a> <a href="/tags/%E7%A7%BB%E5%8A%A8%E7%AB%AF/" style="font-size: 14.91px; color: #939393">移动端</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/" style="font-size: 14px; color: #999">计算机</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 15.82px; color: #8d8d8d">面试</a> <a href="/tags/%E9%A1%B9%E7%9B%AE/" style="font-size: 15.82px; color: #8d8d8d">项目</a>
+    </div>
+  </section>
+
+
+            
+          
+        
+          
+          
+        
+          
+          
+        
+      
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+            
+              <section class='widget list'>
+  
+<header class='material'>
+  <div><i class="fas fa-thumbs-up fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;强烈推荐</div>
+  
+</header>
+
+  <div class='content material'>
+    <ul class="entry">
+      
+        <li><a class="flat-box" title="http://zhongguose.com/" href="http://zhongguose.com/"
+          
+          
+          >
+          <div class='name'>
+            
+              <i class=" fa-fw" aria-hidden="true"></i>
+            
+            &nbsp;&nbsp;中国色 - 中国传统颜色
+          </div>
+          
+        </a></li>
+      
+        <li><a class="flat-box" title="https://xaoxuu.com/wiki/hexo.sh/" href="https://xaoxuu.com/wiki/hexo.sh/"
+          
+          
+          >
+          <div class='name'>
+            
+              <i class=" fa-fw" aria-hidden="true"></i>
+            
+            &nbsp;&nbsp;Hexo脚本（Mac）
+          </div>
+          
+        </a></li>
+      
+        <li><a class="flat-box" title="https://xaoxuu.com/wiki/vim-cn.sh/" href="https://xaoxuu.com/wiki/vim-cn.sh/"
+          
+          
+          >
+          <div class='name'>
+            
+              <i class=" fa-fw" aria-hidden="true"></i>
+            
+            &nbsp;&nbsp;图床脚本（Mac）
+          </div>
+          
+        </a></li>
+      
+        <li><a class="flat-box" title="https://yasuotu.com" href="https://yasuotu.com"
+          
+          
+          >
+          <div class='name'>
+            
+              <i class=" fa-fw" aria-hidden="true"></i>
+            
+            &nbsp;&nbsp;图片在线压缩
+          </div>
+          
+        </a></li>
+      
+        <li><a class="flat-box" title="https://realfavicongenerator.net" href="https://realfavicongenerator.net"
+          
+          
+          >
+          <div class='name'>
+            
+              <i class=" fa-fw" aria-hidden="true"></i>
+            
+            &nbsp;&nbsp;生成Favicon
+          </div>
+          
+        </a></li>
+      
+        <li><a class="flat-box" title="https://mxclub.github.io/resume/" href="https://mxclub.github.io/resume/"
+          
+          
+          >
+          <div class='name'>
+            
+              <i class=" fa-fw" aria-hidden="true"></i>
+            
+            &nbsp;&nbsp;简历主题
+          </div>
+          
+        </a></li>
+      
+    </ul>
+  </div>
+</section>
+
+            
+          
+        
+      
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+      
+    
+
+  
+</aside>
+
+<footer id="footer" class="clearfix">
+  
+    <div class="footer">
+      <center>❤ 食二三春沐秋凉，与一人携苦挽甜 ❤</center>
+    </div>
+    <br>
+  
+  
+    <div class="social-wrapper">
+      
+        
+          <a href="/atom.xml"
+            class="social fas fa-rss flat-btn"
+            target="_blank"
+            rel="external nofollow noopener noreferrer">
+          </a>
+        
+      
+        
+          <a href="mailto:me@xaoxuu.com"
+            class="social fas fa-envelope flat-btn"
+            target="_blank"
+            rel="external nofollow noopener noreferrer">
+          </a>
+        
+      
+        
+          <a href="https://github.com/KodeWithKarlie"
+            class="social fab fa-github flat-btn"
+            target="_blank"
+            rel="external nofollow noopener noreferrer">
+          </a>
+        
+      
+        
+          <a href="https://music.163.com/#/user/home?id=409650851"
+            class="social fas fa-headphones-alt flat-btn"
+            target="_blank"
+            rel="external nofollow noopener noreferrer">
+          </a>
+        
+      
+    </div>
+  
+  <br>
+  <div><p>Blog content follows the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener">Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License</a></p>
+</div>
+  <div>
+    Use
+    <a href="https://xaoxuu.com/wiki/material-x/" target="_blank" class="codename">Material X</a>
+    as theme
+    
+      , 
+      total visits
+      <span id="busuanzi_value_site_pv"><i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span>
+      times
+    
+    . 
+  </div>
+</footer>
+<script>setLoadingBarProgress(80);</script>
+
+
+      <script>setLoadingBarProgress(60);</script>
+    </div>
+    <a class="s-top fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+
+  <script>
+    var GOOGLE_CUSTOM_SEARCH_API_KEY = "";
+    var GOOGLE_CUSTOM_SEARCH_ENGINE_ID = "";
+    var ALGOLIA_API_KEY = "";
+    var ALGOLIA_APP_ID = "";
+    var ALGOLIA_INDEX_NAME = "";
+    var AZURE_SERVICE_NAME = "";
+    var AZURE_INDEX_NAME = "";
+    var AZURE_QUERY_KEY = "";
+    var BAIDU_API_ID = "";
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/"||"/";
+    if(!ROOT.endsWith('/'))ROOT += '/';
+  </script>
+
+<script src="//instant.page/1.2.2" type="module" integrity="sha384-2xV8M5griQmzyiY3CDqh1dn4z3llDVqZDqzjzcY+jCBCk/a5fXJmuZ/40JJAPeoU"></script>
+
+
+  <script async src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.5/dist/scrollreveal.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      const $reveal = $('.reveal');
+      if ($reveal.length === 0) return;
+      const sr = ScrollReveal({ distance: 0 });
+      sr.reveal('.reveal');
+    });
+  </script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      Waves.attach('.flat-btn', ['waves-button']);
+      Waves.attach('.float-btn', ['waves-button', 'waves-float']);
+      Waves.attach('.float-btn-light', ['waves-button', 'waves-float', 'waves-light']);
+      Waves.attach('.flat-box', ['waves-block']);
+      Waves.attach('.float-box', ['waves-block', 'waves-float']);
+      Waves.attach('.waves-image');
+      Waves.init();
+    });
+  </script>
+
+
+  <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+  
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.0.4/jquery.backstretch.min.js"></script>
+    <script type="text/javascript">
+      $(function(){
+        if ('.cover') {
+          $('.cover').backstretch(
+          ["https://img.vim-cn.com/29/91197b04c13f512f734a76d4ac422d89dbe229.jpg"],
+          {
+            duration: "6000",
+            fade: "2500"
+          });
+        } else {
+          $.backstretch(
+          ["https://img.vim-cn.com/29/91197b04c13f512f734a76d4ac422d89dbe229.jpg"],
+          {
+            duration: "6000",
+            fade: "2500"
+          });
+        }
+      });
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+<script src="/js/app.js"></script>
+
+
+
+  
+<script src="/js/search.js"></script>
+
+
+
+
+
+<!-- 复制 -->
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  let COPY_SUCCESS = "Copied";
+  let COPY_FAILURE = "Copy failed";
+  /*页面载入完成后，创建复制按钮*/
+  !function (e, t, a) {
+    /* code */
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '  <i class="fa fa-copy"></i><span>Copy</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+
+      clipboard.on('success', function(e) {
+        //您可以加入成功提示
+        console.info('Action:', e.action);
+        console.info('Text:', e.text);
+        console.info('Trigger:', e.trigger);
+        success_prompt(COPY_SUCCESS);
+        e.clearSelection();
+      });
+      clipboard.on('error', function(e) {
+        //您可以加入失败提示
+        console.error('Action:', e.action);
+        console.error('Trigger:', e.trigger);
+        fail_prompt(COPY_FAILURE);
+      });
+    }
+    initCopyCode();
+
+  }(window, document);
+
+  /**
+   * 弹出式提示框，默认1.5秒自动消失
+   * @param message 提示信息
+   * @param style 提示样式，有alert-success、alert-danger、alert-warning、alert-info
+   * @param time 消失时间
+   */
+  var prompt = function (message, style, time)
+  {
+      style = (style === undefined) ? 'alert-success' : style;
+      time = (time === undefined) ? 1500 : time*1000;
+      $('<div>')
+          .appendTo('body')
+          .addClass('alert ' + style)
+          .html(message)
+          .show()
+          .delay(time)
+          .fadeOut();
+  };
+
+  // 成功提示
+  var success_prompt = function(message, time)
+  {
+      prompt(message, 'alert-success', time);
+  };
+
+  // 失败提示
+  var fail_prompt = function(message, time)
+  {
+      prompt(message, 'alert-danger', time);
+  };
+
+  // 提醒
+  var warning_prompt = function(message, time)
+  {
+      prompt(message, 'alert-warning', time);
+  };
+
+  // 信息提示
+  var info_prompt = function(message, time)
+  {
+      prompt(message, 'alert-info', time);
+  };
+
+</script>
+
+
+<!-- fancybox -->
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script>
+  let LAZY_LOAD_IMAGE = "";
+  $(".article-entry").find("fancybox").find("img").each(function () {
+      var element = document.createElement("a");
+      $(element).attr("data-fancybox", "gallery");
+      $(element).attr("href", $(this).attr("src"));
+      /* 图片采用懒加载处理时,
+       * 一般图片标签内会有个属性名来存放图片的真实地址，比如 data-original,
+       * 那么此处将原本的属性名src替换为对应属性名data-original,
+       * 修改如下
+       */
+       if (LAZY_LOAD_IMAGE) {
+         $(element).attr("href", $(this).attr("data-original"));
+       }
+      $(this).wrap(element);
+  });
+</script>
+
+
+
+
+
+  <script>setLoadingBarProgress(100);</script>
+</body>
+</html>
