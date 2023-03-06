@@ -20,22 +20,15 @@
     var CONFIG = {"hostname":"awstudio.cn","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="Markdown 文档编写时可使用本地图片，但是无法在网络上使用。图床的作用可以理解为将文档中的图片放到网络上，直接引用网络地址，这样可以做到无论在那个平台都可以使用统一的图片地址。">
-<meta property="og:type" content="article">
-<meta property="og:title" content="PicGo + github 搭建图床">
-<meta property="og:url" content="https://awstudio.cn/2022/05/08/picgo/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="明心轩   x   blog">
+<meta property="og:url" content="https://awstudio.cn/archives/2023/03/index.html">
 <meta property="og:site_name" content="明心轩   x   blog">
-<meta property="og:description" content="Markdown 文档编写时可使用本地图片，但是无法在网络上使用。图床的作用可以理解为将文档中的图片放到网络上，直接引用网络地址，这样可以做到无论在那个平台都可以使用统一的图片地址。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/ArthurWangCN/PictureBed/%E4%BD%BF%E7%94%A8Github%E6%90%AD%E5%BB%BA%E5%9B%BE%E5%BA%8A_imgs_47.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/ArthurWangCN/PictureBed/picGo%E8%AE%BE%E7%BD%AE%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D.png">
-<meta property="article:published_time" content="2022-05-08T14:14:00.000Z">
-<meta property="article:modified_time" content="2022-05-10T13:35:38.750Z">
 <meta property="article:author" content="Arthur Wang">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/ArthurWangCN/PictureBed/%E4%BD%BF%E7%94%A8Github%E6%90%AD%E5%BB%BA%E5%9B%BE%E5%BA%8A_imgs_47.png">
 
-<link rel="canonical" href="https://awstudio.cn/2022/05/08/picgo/">
+<link rel="canonical" href="https://awstudio.cn/archives/2023/03/">
 
 
 <script id="page-configurations">
@@ -43,12 +36,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : true,
+    isPost : false,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>PicGo + github 搭建图床 | 明心轩   x   blog</title>
+  <title>归档 | 明心轩   x   blog</title>
   
 
 
@@ -172,109 +165,50 @@
         <div class="content-wrap">
           
 
-          <div class="content post posts-expand">
+          <div class="content archive">
             
 
-    
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://awstudio.cn/2022/05/08/picgo/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://cdn.jsdelivr.net/gh/ArthurWangCN/PictureBed/avatar.jpg">
-      <meta itemprop="name" content="Arthur Wang">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="明心轩   x   blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          PicGo + github 搭建图床
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-05-08 22:14:00" itemprop="dateCreated datePublished" datetime="2022-05-08T22:14:00+08:00">2022-05-08</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-05-10 21:35:38" itemprop="dateModified" datetime="2022-05-10T21:35:38+08:00">2022-05-10</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%8D%9A%E5%AE%A2/" itemprop="url" rel="index"><span itemprop="name">博客</span></a>
-                </span>
-            </span>
-
-          
-            <div class="post-description">Markdown 文档编写时可使用本地图片，但是无法在网络上使用。图床的作用可以理解为将文档中的图片放到网络上，直接引用网络地址，这样可以做到无论在那个平台都可以使用统一的图片地址。</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
+  
+  <div class="post-block">
+    <div class="posts-collapse">
+      <div class="collection-title">
+        <span class="collection-header">嗯..! 目前共计 24 篇日志。 继续努力。</span>
+      </div>
 
       
-        <p><strong>1. 在github上创建一个仓库。</strong></p>
-<p><strong>2. 下载并安装 PicGo：</strong></p>
-<p>官网：<a target="_blank" rel="noopener" href="https://molunerfinn.com/PicGo/">https://molunerfinn.com/PicGo/</a></p>
-<p>下载：<a target="_blank" rel="noopener" href="https://github.com/Molunerfinn/picgo/releases">https://github.com/Molunerfinn/picgo/releases</a></p>
-<p><strong>3. 配置PicGo：</strong></p>
-<ul>
-<li>GitHub中创建一个token：依次打开 <code>Settings -&gt; Developer settings -&gt; Personal access tokens</code>，最后点击 <code>generate new token</code>。勾选相关信息（expiration 改为 no expiration、select scope 勾选repo），然后点击生成token；</li>
-<li>打开 PicGo，<code>图床设置 -&gt; Github 图床</code></li>
-<li>填写相关设置：</li>
-</ul>
-<p><img src="https://cdn.jsdelivr.net/gh/ArthurWangCN/PictureBed/%E4%BD%BF%E7%94%A8Github%E6%90%AD%E5%BB%BA%E5%9B%BE%E5%BA%8A_imgs_47.png"></p>
-<p><strong>4. 设置完成，可以上传图片测试了。</strong></p>
-<p><strong>5. 设置cdn加速：</strong>设置自定义域名为 <code>https://cdn.jsdelivr.net/gh/用户名/图床仓库名</code>。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/ArthurWangCN/PictureBed/picGo%E8%AE%BE%E7%BD%AE%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D.png"></p>
-
+    <div class="collection-year">
+      <span class="collection-header">2023</span>
     </div>
 
-    
-    
-    
+  <article itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
 
-      <footer class="post-footer">
+      <div class="post-meta">
+        <time itemprop="dateCreated"
+              datetime="2023-03-06T22:34:53+08:00"
+              content="2023-03-06">
+          03-06
+        </time>
+      </div>
 
-        
+      <div class="post-title">
+          <a class="post-title-link" href="/2023/03/06/pinia101/" itemprop="url">
+            <span itemprop="name">Pinia 快速入门</span>
+          </a>
+      </div>
 
-
-        
-    <div class="post-nav">
-      <div class="post-nav-item">
-    <a href="/2022/05/06/handwrite-delegate/" rel="prev" title="事件委托">
-      <i class="fa fa-chevron-left"></i> 事件委托
-    </a></div>
-      <div class="post-nav-item">
-    <a href="/2022/05/10/handwrite-ajax/" rel="next" title="手写一个Ajax">
-      手写一个Ajax <i class="fa fa-chevron-right"></i>
-    </a></div>
-    </div>
-      </footer>
-    
+    </header>
   </article>
+
+
+    </div>
+  </div>
   
   
+  
+
   
 
 
