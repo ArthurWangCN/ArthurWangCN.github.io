@@ -22,13 +22,13 @@
 
   <meta name="description" content="Tailwind CSS 是一个利用公用程序类（Utilize Class）的 CSS 框架。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="tailwindcss101">
+<meta property="og:title" content="Tailwind CSS 快速入门">
 <meta property="og:url" content="https://awstudio.cn/2023/03/21/tailwindcss101/index.html">
 <meta property="og:site_name" content="明心轩   x   blog">
 <meta property="og:description" content="Tailwind CSS 是一个利用公用程序类（Utilize Class）的 CSS 框架。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-03-21T13:26:23.000Z">
-<meta property="article:modified_time" content="2023-03-21T13:27:19.883Z">
+<meta property="article:modified_time" content="2023-04-13T13:45:32.902Z">
 <meta property="article:author" content="Arthur Wang">
 <meta property="article:tag" content="CSS">
 <meta name="twitter:card" content="summary">
@@ -46,7 +46,7 @@
   };
 </script>
 
-  <title>tailwindcss101 | 明心轩   x   blog</title>
+  <title>Tailwind CSS 快速入门 | 明心轩   x   blog</title>
   
 
 
@@ -190,7 +190,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          tailwindcss101
+          Tailwind CSS 快速入门
         </h1>
 
         <div class="post-meta">
@@ -199,10 +199,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2023-03-21 21:26:23 / 修改时间：21:27:19" itemprop="dateCreated datePublished" datetime="2023-03-21T21:26:23+08:00">2023-03-21</time>
+              <time title="创建时间：2023-03-21 21:26:23" itemprop="dateCreated datePublished" datetime="2023-03-21T21:26:23+08:00">2023-03-21</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-04-13 21:45:32" itemprop="dateModified" datetime="2023-04-13T21:45:32+08:00">2023-04-13</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -225,8 +231,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="什么是tailwindcss"><a href="#什么是tailwindcss" class="headerlink" title="什么是tailwindcss"></a>什么是tailwindcss</h2><p>Tailwind CSS 是一个利用公用程序类（Utilize Class，下文皆称Utilize Class）的 CSS 框架。许多人会想到 CSS 框架，有很多，例如 Bootstrap、Bulma 和 Material UI。Bootstrap 和 Bulma 等框架利用预先准备好的组件（例如按钮、菜单和面包屑）进行设计。在 Tailwind CSS 中，没有准备任何组件，而是使用Utilize Class来创建和设计自己的组件。</p>
-<h2 id="为什么需要tailwindcss"><a href="#为什么需要tailwindcss" class="headerlink" title="为什么需要tailwindcss"></a>为什么需要tailwindcss</h2><p>传统情况下，当您需要在网页上设置样式时，都需要编写 CSS。使用传统方式时，定制的设计需要定制的 CSS：</p>
+        <h2 id="什么是-Tailwind-CSS"><a href="#什么是-Tailwind-CSS" class="headerlink" title="什么是 Tailwind CSS"></a>什么是 Tailwind CSS</h2><p>Tailwind CSS 是一个利用公用程序类（Utilize Class，下文皆称Utilize Class）的 CSS 框架。许多人会想到 CSS 框架，有很多，例如 Bootstrap、Bulma 和 Material UI。Bootstrap 和 Bulma 等框架利用预先准备好的组件（例如按钮、菜单和面包屑）进行设计。在 Tailwind CSS 中，没有准备任何组件，而是使用Utilize Class来创建和设计自己的组件。</p>
+<h2 id="为什么需要-Tailwind-CSS"><a href="#为什么需要-Tailwind-CSS" class="headerlink" title="为什么需要 Tailwind CSS"></a>为什么需要 Tailwind CSS</h2><p>传统情况下，当您需要在网页上设置样式时，都需要编写 CSS。使用传统方式时，定制的设计需要定制的 CSS：</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;chat-notification&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;chat-notification-logo-wrapper&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">class</span>=<span class="string">&quot;chat-notification-logo&quot;</span> <span class="attr">src</span>=<span class="string">&quot;/img/logo.svg&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;ChitChat Logo&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;chat-notification-content&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h4</span> <span class="attr">class</span>=<span class="string">&quot;chat-notification-title&quot;</span>&gt;</span>ChitChat<span class="tag">&lt;/<span class="name">h4</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">&quot;chat-notification-message&quot;</span>&gt;</span>You have a new message!<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">  <span class="selector-class">.chat-notification</span> &#123;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">display</span>: flex;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">max-width</span>: <span class="number">24rem</span>;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">margin</span>: <span class="number">0</span> auto;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">padding</span>: <span class="number">1.5rem</span>;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">border-radius</span>: <span class="number">0.5rem</span>;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">background-color</span>: <span class="number">#fff</span>;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">box-shadow</span>: <span class="number">0</span> <span class="number">20px</span> <span class="number">25px</span> -<span class="number">5px</span> <span class="built_in">rgba</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>.), <span class="number">0</span> <span class="number">10px</span> <span class="number">10px</span> -<span class="number">5px</span> <span class="built_in">rgba</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0.04</span>);</span></span><br><span class="line"><span class="language-css">  &#125;</span></span><br><span class="line"><span class="language-css">  <span class="selector-class">.chat-notification-logo-wrapper</span> &#123;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">flex-shrink</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="language-css">  &#125;</span></span><br><span class="line"><span class="language-css">  <span class="selector-class">.chat-notification-logo</span> &#123;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">height</span>: <span class="number">3rem</span>;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">width</span>: <span class="number">3rem</span>;</span></span><br><span class="line"><span class="language-css">  &#125;</span></span><br><span class="line"><span class="language-css">  <span class="selector-class">.chat-notification-content</span> &#123;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">margin-left</span>: <span class="number">1.5rem</span>;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">padding-top</span>: <span class="number">0.25rem</span>;</span></span><br><span class="line"><span class="language-css">  &#125;</span></span><br><span class="line"><span class="language-css">  <span class="selector-class">.chat-notification-title</span> &#123;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">color</span>: <span class="number">#1a202c</span>;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">font-size</span>: <span class="number">1.25rem</span>;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">line-height</span>: <span class="number">1.25</span>;</span></span><br><span class="line"><span class="language-css">  &#125;</span></span><br><span class="line"><span class="language-css">  <span class="selector-class">.chat-notification-message</span> &#123;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">color</span>: <span class="number">#718096</span>;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">font-size</span>: <span class="number">1rem</span>;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">line-height</span>: <span class="number">1.5</span>;</span></span><br><span class="line"><span class="language-css">  &#125;</span></span><br><span class="line"><span class="language-css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p>使用 Tailwind，可以通过直接在 HTML 中应用预先存在的类来设置元素的样式。使用功能类构建自定义设计而无需编写 CSS：</p>
@@ -305,7 +311,10 @@
     <a href="/2023/03/21/vue3-scoped/" rel="prev" title="vue3 scoped 和 样式穿透">
       <i class="fa fa-chevron-left"></i> vue3 scoped 和 样式穿透
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2023/04/13/office-add-in-debug/" rel="next" title="在 Mac 上调试 Office 加载项">
+      在 Mac 上调试 Office 加载项 <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -364,7 +373,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFtailwindcss"><span class="nav-number">1.</span> <span class="nav-text">什么是tailwindcss</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81tailwindcss"><span class="nav-number">2.</span> <span class="nav-text">为什么需要tailwindcss</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B"><span class="nav-number">3.</span> <span class="nav-text">快速开始</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B7%E4%BD%93%E4%BD%BF%E7%94%A8%E5%8F%8AAPI"><span class="nav-number">4.</span> <span class="nav-text">具体使用及API</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%80%E5%90%8E"><span class="nav-number">5.</span> <span class="nav-text">最后</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF-Tailwind-CSS"><span class="nav-number">1.</span> <span class="nav-text">什么是 Tailwind CSS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81-Tailwind-CSS"><span class="nav-number">2.</span> <span class="nav-text">为什么需要 Tailwind CSS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B"><span class="nav-number">3.</span> <span class="nav-text">快速开始</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B7%E4%BD%93%E4%BD%BF%E7%94%A8%E5%8F%8AAPI"><span class="nav-number">4.</span> <span class="nav-text">具体使用及API</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%80%E5%90%8E"><span class="nav-number">5.</span> <span class="nav-text">最后</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -380,7 +389,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">37</span>
+          <span class="site-state-item-count">38</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -393,7 +402,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-count">19</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

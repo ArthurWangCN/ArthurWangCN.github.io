@@ -20,15 +20,20 @@
     var CONFIG = {"hostname":"awstudio.cn","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="明心轩   x   blog">
-<meta property="og:url" content="https://awstudio.cn/tags/npm/index.html">
+  <meta name="description" content="由于加载项是使用 HTML 和 JavaScript 开发的，因此它们设计为跨平台工作，但不同浏览器呈现 HTML 的方式可能存在细微差异。 本文介绍如何调试在 Mac 上运行的加载项。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="在 Mac 上调试 Office 加载项">
+<meta property="og:url" content="https://awstudio.cn/2023/04/13/office-add-in-debug/index.html">
 <meta property="og:site_name" content="明心轩   x   blog">
+<meta property="og:description" content="由于加载项是使用 HTML 和 JavaScript 开发的，因此它们设计为跨平台工作，但不同浏览器呈现 HTML 的方式可能存在细微差异。 本文介绍如何调试在 Mac 上运行的加载项。">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-04-13T13:46:24.000Z">
+<meta property="article:modified_time" content="2023-04-13T13:48:24.304Z">
 <meta property="article:author" content="Arthur Wang">
+<meta property="article:tag" content="office加载项">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://awstudio.cn/tags/npm/">
+<link rel="canonical" href="https://awstudio.cn/2023/04/13/office-add-in-debug/">
 
 
 <script id="page-configurations">
@@ -36,12 +41,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>标签: npm | 明心轩   x   blog</title>
+  <title>在 Mac 上调试 Office 加载项 | 明心轩   x   blog</title>
   
 
 
@@ -165,51 +170,104 @@
         <div class="content-wrap">
           
 
-          <div class="content tag">
+          <div class="content post posts-expand">
             
 
+    
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <h2 class="collection-header">npm
-          <small>标签</small>
-        </h2>
-      </div>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://awstudio.cn/2023/04/13/office-add-in-debug/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://cdn.jsdelivr.net/gh/ArthurWangCN/PictureBed/avatar.jpg">
+      <meta itemprop="name" content="Arthur Wang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="明心轩   x   blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          在 Mac 上调试 Office 加载项
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2023-04-13 21:46:24 / 修改时间：21:48:24" itemprop="dateCreated datePublished" datetime="2023-04-13T21:46:24+08:00">2023-04-13</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+                </span>
+            </span>
+
+          
+            <div class="post-description">由于加载项是使用 HTML 和 JavaScript 开发的，因此它们设计为跨平台工作，但不同浏览器呈现 HTML 的方式可能存在细微差异。 本文介绍如何调试在 Mac 上运行的加载项。</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2022</span>
+        <p>由于加载项是使用 HTML 和 JavaScript 开发的，因此它们设计为跨平台工作，但不同浏览器呈现 HTML 的方式可能存在细微差异。 本文介绍如何调试在 Mac 上运行的加载项。</p>
+<h2 id="在-Mac-上使用-Safari-Web-检查器进行调试"><a href="#在-Mac-上使用-Safari-Web-检查器进行调试" class="headerlink" title="在 Mac 上使用 Safari Web 检查器进行调试"></a>在 Mac 上使用 Safari Web 检查器进行调试</h2><p>如果有在任务窗格或内容加载项中显示 UI 的加载项，可以使用 Safari Web 检查器调试 Office 加载项。</p>
+<p>为了能够在 Mac 上调试 Office 加载项，必须具有 Mac OS High Sierra AND Mac Office 版本 16.9.1 (内部版本18012504) 或更高版本。 如果没有 Office on Mac 版本，可以通过加入 Microsoft 365 开发人员计划来获取一个。</p>
+<p>首先，打开终端，设置相关 Office 应用程序的 OfficeWebAddinDeveloperExtras 属性，如下所示：</p>
+<ul>
+<li><code>defaults write com.microsoft.Word OfficeWebAddinDeveloperExtras -bool true</code></li>
+<li><code>defaults write com.microsoft.Excel OfficeWebAddinDeveloperExtras -bool true</code></li>
+<li><code>defaults write com.microsoft.Powerpoint OfficeWebAddinDeveloperExtras -bool true</code></li>
+<li><code>defaults write com.microsoft.Outlook OfficeWebAddinDeveloperExtras -bool true</code></li>
+</ul>
+<blockquote>
+<p>注意：Mac App Store Office 版本不支持 标志OfficeWebAddinDeveloperExtras。</p>
+</blockquote>
+<p>然后，打开 Office 应用程序并旁加载你的加载项。 右键单击加载项，应在上下文菜单中看到一个“检查元素”选项。 选择该选项，它将弹出检查器，可以在其中设置断点并调试加载项。</p>
+<p>参考：<a href="https://gitee.com/link?target=https://learn.microsoft.com/zh-cn/office/dev/add-ins/testing/debug-office-add-ins-on-ipad-and-mac">https://learn.microsoft.com/zh-cn/office/dev/add-ins/testing/debug-office-add-ins-on-ipad-and-mac</a></p>
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+    
+    
+    
 
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2022-05-14T14:17:58+08:00"
-              content="2022-05-14">
-          05-14
-        </time>
-      </div>
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/office%E5%8A%A0%E8%BD%BD%E9%A1%B9/" rel="tag"># office加载项</a>
+          </div>
 
-      <div class="post-title">
-          <a class="post-title-link" href="/2022/05/14/npm-taobao/" itemprop="url">
-            <span itemprop="name">npm 使用淘宝镜像</span>
-          </a>
-      </div>
+        
 
-    </header>
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2023/03/21/tailwindcss101/" rel="prev" title="Tailwind CSS 快速入门">
+      <i class="fa fa-chevron-left"></i> Tailwind CSS 快速入门
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
   </article>
-
-    </div>
-  </div>
   
   
-  
-
   
 
 
@@ -262,6 +320,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9C%A8-Mac-%E4%B8%8A%E4%BD%BF%E7%94%A8-Safari-Web-%E6%A3%80%E6%9F%A5%E5%99%A8%E8%BF%9B%E8%A1%8C%E8%B0%83%E8%AF%95"><span class="nav-number">1.</span> <span class="nav-text">在 Mac 上使用 Safari Web 检查器进行调试</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
